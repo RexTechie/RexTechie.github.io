@@ -3,26 +3,46 @@ name: Deploy Hugo site to GitHub Pages
 on:
   push:
     branches:
-      - main  # 当推送到 main 分支时触发部署
+      - main
+  workflow_dispatch:    # 允许手动触发部署
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.ref }}   # 避免并发部署冲突
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+      - name: Checkout repository
+        uses: actions/checkout@v3    # 使用最新的 v3 版本
+        with:
+          submodules: true          # 检出子模块
+          fetch-depth: 0            # 获取完整的 git 历史
 
-      - name: Set up Hugo
+      - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
         with:
-          hugo-version: '0.140.0'  # 可根据需要更改 Hugo 版本
+          hugo-version: 'latest'     # 使用最新的 Hugo 版本
+          extended: true             # 启用 extended 功能
+
+      - name: Clean public directory
+        run: rm -rf public           # 清理构建目录
 
       - name: Build Hugo site
-        run: hugo build --noHTTPCache --cleanDestinationDir
+        run: hugo --minify          # 构建并最小化输出
+        env:
+          HUGO_ENV: production
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./public  # Hugo 生成的静态文件目录
+          publish_dir: ./public
+          commit_message: ${{ github.event.head_commit.message }}
+          # cname: your-domain.com     # 如果有自定义域名，取消注释并修改
+
+      - name: Deployment status
+        if: success()
+        run: |
+          echo "🚀 部署成功!"
+          echo "访问地址: https://rextechie.github.io/"
