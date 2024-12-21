@@ -19,7 +19,7 @@ jobs:
           hugo-version: '0.140.0'  # 可根据需要更改 Hugo 版本
 
       - name: Build Hugo site
-        run: hugo --noHTTPCache --cleanDestinationDir
+        run: hugo build --noHTTPCache --cleanDestinationDir
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
