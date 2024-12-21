@@ -1,5 +1,5 @@
 baseURL: "http://rextechie.github.io/"
-title: ExampleSite
+title: RexBlog
 pagination:
   pagerSize: 5
 theme: PaperMod
@@ -18,9 +18,8 @@ params:
   title: ExampleSite
   description: "ExampleSite description"
   keywords: [Blog, Portfolio, PaperMod]
-  author: Me
-  # author: ["Me", "You"] # multiple authors
-  images: ["<link or path of image for opengraph, twitter-cards>"]
+  author: Rex
+  images: ["./images/profile.png"]
   DateFormat: "January 2, 2006"
   defaultTheme: light # dark, light
   disableThemeToggle: false
