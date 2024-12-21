@@ -19,7 +19,7 @@ params:
   description: "ExampleSite description"
   keywords: [Blog, Portfolio, PaperMod]
   author: Rex
-  images: ["./images/profile.png"]
+  images: ["https://raw.githubusercontent.com/RexTechie/RexTechie.github.io/refs/heads/gh-pages/images/profile.png"]
   DateFormat: "January 2, 2006"
   defaultTheme: light # dark, light
   disableThemeToggle: false
