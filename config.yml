@@ -59,7 +59,7 @@ params:
     enabled: true # needs to be explicitly set
     title: RexBlog
     subtitle: "This is subtitle"
-    imageUrl: "./images/profile.png"
+    imageUrl: "https://github.com/RexTechie/RexTechie.github.io/blob/gh-pages/images/profile.png"
     imageWidth: 120
     imageHeight: 120
     imageTitle: my profile
