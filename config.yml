@@ -1,6 +1,7 @@
 baseURL: "https://examplesite.com/"
 title: ExampleSite
-paginate: 5
+pagination:
+  pagerSize: 5
 theme: PaperMod
 
 enableRobotsTXT: true
@@ -125,6 +126,10 @@ menu:
       name: example.org
       url: https://example.org
       weight: 30
+    - identifier: "about"
+      name: "About"
+      url: "/about/"
+      weight: 10
 # Read: https://github.com/adityatelange/hugo-PaperMod/wiki/FAQs#using-hugos-syntax-highlighter-chroma
 pygmentsUseClasses: true
 markup:
