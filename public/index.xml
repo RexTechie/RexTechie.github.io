@@ -6,8 +6,8 @@
     <description>Recent content on RexBlog</description>
     <image>
       <title>RexBlog</title>
-      <url>http://localhost:1313/images/profile.png</url>
-      <link>http://localhost:1313/images/profile.png</link>
+      <url>https://raw.githubusercontent.com/RexTechie/RexTechie.github.io/refs/heads/gh-pages/images/profile.png</url>
+      <link>https://raw.githubusercontent.com/RexTechie/RexTechie.github.io/refs/heads/gh-pages/images/profile.png</link>
     </image>
     <generator>Hugo -- 0.140.0</generator>
     <language>en</language>

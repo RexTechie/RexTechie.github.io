@@ -114,15 +114,15 @@ params:
 menu:
   main:
     - identifier: categories
-      name: categories
+      name: Categories
       url: /categories/
       weight: 10
     - identifier: tags
-      name: tags
+      name: Tags
       url: /tags/
       weight: 20
     - identifier: about
-      name: about
+      name: About
       url: /about/
       weight: 30
     
