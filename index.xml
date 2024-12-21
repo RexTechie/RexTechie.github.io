@@ -6,6 +6,14 @@
     <description>Recent content on ExampleSite</description>
     <generator>Hugo</generator>
     <language>en</language>
+    <lastBuildDate>Sat, 21 Dec 2024 10:00:00 +0800</lastBuildDate>
     <atom:link href="https://examplesite.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>About</title>
+      <link>https://examplesite.com/about/</link>
+      <pubDate>Sat, 21 Dec 2024 10:00:00 +0800</pubDate>
+      <guid>https://examplesite.com/about/</guid>
+      <description>&lt;h1 id=&#34;about-me&#34;&gt;About Me&lt;/h1&gt;&#xA;&lt;p&gt;This is the about page of my Hugo website.&lt;/p&gt;</description>
+    </item>
   </channel>
 </rss>
