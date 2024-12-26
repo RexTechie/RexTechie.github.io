@@ -15,11 +15,11 @@ minify:
 
 params:
   env: production # to enable google analytics, opengraph, twitter-cards and schema.
-  title: ExampleSite
-  description: "ExampleSite description"
-  keywords: [Blog, Portfolio, PaperMod]
+  title: RexBlog
+  description: "探索技术与科研的交融之地 | 分享前沿技术动态、深入解读学术论文 | 用技术视角解读世界的个人笔记"
+  keywords: [Blog]
   author: Rex
-  images: ["https://raw.githubusercontent.com/RexTechie/RexTechie.github.io/refs/heads/gh-pages/images/profile.png"]
+  images: ["./images/profile.png"]
   DateFormat: "January 2, 2006"
   defaultTheme: light # dark, light
   disableThemeToggle: false
@@ -28,26 +28,26 @@ params:
   ShowShareButtons: true
   ShowPostNavLinks: true
   ShowBreadCrumbs: true
-  ShowCodeCopyButtons: false
+  ShowCodeCopyButtons: true
   ShowWordCount: true
   ShowRssButtonInSectionTermList: true
   UseHugoToc: true
   disableSpecial1stPost: false
   disableScrollToTop: false
-  comments: false
+  comments: true
   hidemeta: false
   hideSummary: false
-  showtoc: false
-  tocopen: false
+  showtoc: true
+  tocopen: true
 
   assets:
     # disableHLJS: true # to disable highlight.js
     # disableFingerprinting: true
-    favicon: "<link / abs url>"
+    favicon: "./favicon/favicon_32x32.png"
     favicon16x16: "<link / abs url>"
-    favicon32x32: "<link / abs url>"
-    apple_touch_icon: "<link / abs url>"
-    safari_pinned_tab: "<link / abs url>"
+    favicon32x32: "./favicon/favicon_32x32.png"
+    apple_touch_icon: "./favicon/favicon_32x32.png"
+    safari_pinned_tab: "./favicon/favicon_32x32.png"
 
   label:
     text: "Home"
@@ -58,8 +58,17 @@ params:
   profileMode:
     enabled: true # needs to be explicitly set
     title: RexBlog
-    subtitle: "This is subtitle"
-    imageUrl: "https://raw.githubusercontent.com/RexTechie/RexTechie.github.io/refs/heads/gh-pages/images/profile.png"
+    subtitle: >
+      技术探索者，热衷于分享软件开发经验和前沿研究见解。
+      
+      - 💻 深度技术文章与实践心得
+
+      - 📚 计算机科学论文解读与思考
+
+      - 🔍 研究成果与技术创新分享
+      
+      - 🌟 持续学习，不断成长
+    imageUrl: "./images/profile.png"
     imageWidth: 120
     imageHeight: 120
     imageTitle: my profile
@@ -68,11 +77,6 @@ params:
         url: posts
       - name: Tags
         url: tags
-
-  # home-info mode
-  homeInfoParams:
-    Title: "Hi there \U0001F44B"
-    Content: Welcome to my blog
 
   socialIcons:
     - name: x
