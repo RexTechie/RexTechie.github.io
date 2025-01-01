@@ -4,7 +4,8 @@ date: 2025-01-01T14:47:39+08:00
 draft: true
 draft: false
 description: "一种评估大模型生成代码能力的方法"
-tags: ["论文笔记"]
+categories: ["论文笔记"]
+tags: ["代码生成",]
 ---
 
 ## 文献信息
