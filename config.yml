@@ -97,8 +97,8 @@ params:
     hiddenInSingle: true # hide on single page
 
   editPost:
-    URL: "https://github.com/RexTechie/RexTechie.github.io/tree/gh-pages"
-    Text: "Suggest Changes" # edit text
+    URL: "https://github.com/RexTechie/RexTechie.github.io/tree/main"
+    Text: "修改" # edit text
     appendFilePath: true # to append file path to Edit link
 
   # 用于搜索
