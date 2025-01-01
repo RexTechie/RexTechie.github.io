@@ -69,7 +69,7 @@ params:
   # 头像模式
   profileMode:
     enabled: true # needs to be explicitly set
-    title: RexBlog
+    title: Rex Blog
     subtitle: ""
     imageUrl: "./images/profile.jpg"
     imageWidth: 120
