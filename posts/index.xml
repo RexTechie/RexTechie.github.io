@@ -20,19 +20,5 @@
       <guid>http://rextechie.github.io/posts/paper_note/human_eval/</guid>
       <description>一种评估大模型生成代码能力的方法</description>
     </item>
-    <item>
-      <title>文献阅读笔记模板</title>
-      <link>http://rextechie.github.io/posts/paper_note/paper_note_template/</link>
-      <pubDate>Wed, 01 Jan 2025 14:40:37 +0800</pubDate>
-      <guid>http://rextechie.github.io/posts/paper_note/paper_note_template/</guid>
-      <description>论文笔记模板</description>
-    </item>
-    <item>
-      <title>Test</title>
-      <link>http://rextechie.github.io/posts/test/</link>
-      <pubDate>Sat, 21 Dec 2024 10:00:00 +0800</pubDate>
-      <guid>http://rextechie.github.io/posts/test/</guid>
-      <description>&lt;p&gt;Test&lt;/p&gt;</description>
-    </item>
   </channel>
 </rss>
