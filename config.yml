@@ -56,14 +56,14 @@ params:
     # disableHLJS: true # to disable highlight.js
     # disableFingerprinting: true
     favicon: "./favicon/favicon_32x32.png"
-    favicon16x16: "<link / abs url>"
+    favicon16x16: "./favicon/favicon_16x16.png"
     favicon32x32: "./favicon/favicon_32x32.png"
     apple_touch_icon: "./favicon/favicon_32x32.png"
     safari_pinned_tab: "./favicon/favicon_32x32.png"
 
   label:
     text: "Home"
-    icon: /apple-touch-icon.png
+    icon: ./favicon/favicon_32x32.png
     iconHeight: 35
 
   # 头像模式
@@ -145,6 +145,22 @@ menu:
 # Read: https://github.com/adityatelange/hugo-PaperMod/wiki/FAQs#using-hugos-syntax-highlighter-chroma
 pygmentsUseClasses: true
 markup:
+  # 配置latex数学公式
+  goldmark:
+    extensions:
+      passthrough:
+        delimiters:
+          block:
+          - - \[
+            - \]
+          - - $$
+            - $$
+          inline:
+          - - \(
+            - \)
+          - - $
+            - $
+        enable: true
   highlight:
     noClasses: false
     # anchorLineNos: true
