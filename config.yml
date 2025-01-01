@@ -71,7 +71,7 @@ params:
     enabled: true # needs to be explicitly set
     title: RexBlog
     subtitle: ""
-    imageUrl: "./images/profile.png"
+    imageUrl: "./images/profile.jpg"
     imageWidth: 120
     imageHeight: 120
     imageTitle: 头像不见啦～
