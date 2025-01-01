@@ -97,7 +97,7 @@ params:
     hiddenInSingle: true # hide on single page
 
   editPost:
-    URL: "https://github.com/RexTechie/RexTechie.github.io/tree/main"
+    URL: "https://github.com/RexTechie/RexTechie.github.io/blob/main/content"
     Text: "修改" # edit text
     appendFilePath: true # to append file path to Edit link
 
