@@ -1,0 +1,77 @@
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE and Editor files
+.idea/
+.vscode/
+*.swp
+*.swo
+*.swn
+*.bak
+
+# Dependencies
+node_modules/
+vendor/
+bower_components/
+
+# Build output
+dist/
+build/
+out/
+target/
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment files
+.env
+.env.local
+.env.*.local
+.env.development
+.env.test
+.env.production
+
+# Cache directories
+.cache/
+.temp/
+.tmp/
+
+# Compiled files
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+
+# Package files
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# Database
+*.sqlite
+*.db
+
+# Coverage directory
+coverage/
+.nyc_output
+
+# misc
+*.pid
+*.seed
+*.pid.lock

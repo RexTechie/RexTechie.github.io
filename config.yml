@@ -18,28 +18,40 @@ params:
   title: RexBlog
   description: "探索技术与科研的交融之地 | 分享前沿技术动态、深入解读学术论文 | 用技术视角解读世界的个人笔记"
   keywords: [Blog]
+  # 作者信息
   author: Rex
+  # 头像
   images: ["./images/profile.png"]
   DateFormat: "January 2, 2006"
   defaultTheme: light # dark, light
   disableThemeToggle: false
-
+  # 显示阅读时间
   ShowReadingTime: true
+  # 显示分享按钮
   ShowShareButtons: true
+  # 显示文章导航
   ShowPostNavLinks: true
+  # 显示面包屑导航
   ShowBreadCrumbs: true
+  # 显示代码复制按钮
   ShowCodeCopyButtons: true
+  # 显示文章字数统计
   ShowWordCount: true
+  # 显示RSS按钮
   ShowRssButtonInSectionTermList: true
+  # 使用Hugo的TOC  
   UseHugoToc: true
   disableSpecial1stPost: false
   disableScrollToTop: false
+  # 允许评论
   comments: true
   hidemeta: false
   hideSummary: false
+  # 显示目录
   showtoc: true
   tocopen: true
 
+  # 资源配置
   assets:
     # disableHLJS: true # to disable highlight.js
     # disableFingerprinting: true
@@ -54,58 +66,42 @@ params:
     icon: /apple-touch-icon.png
     iconHeight: 35
 
-  # profile-mode
+  # 头像模式
   profileMode:
     enabled: true # needs to be explicitly set
     title: RexBlog
-    subtitle: >
-      技术探索者，热衷于分享软件开发经验和前沿研究见解。
-      
-      - 💻 深度技术文章与实践心得
-
-      - 📚 计算机科学论文解读与思考
-
-      - 🔍 研究成果与技术创新分享
-      
-      - 🌟 持续学习，不断成长
+    subtitle: ""
     imageUrl: "./images/profile.png"
     imageWidth: 120
     imageHeight: 120
-    imageTitle: my profile
+    imageTitle: 头像不见啦～
     buttons:
       - name: Posts
         url: posts
       - name: Tags
         url: tags
 
+  # 社交媒体配置
   socialIcons:
-    - name: x
-      url: "https://x.com/"
-    - name: stackoverflow
-      url: "https://stackoverflow.com"
+    - name: csdn
+      url: "https://blog.csdn.net/GiantApe"
     - name: github
-      url: "https://github.com/"
+    - name: email
+      url: "mailto:rexhub@163.com"
 
-  analytics:
-    google:
-      SiteVerificationTag: "XYZabc"
-    bing:
-      SiteVerificationTag: "XYZabc"
-    yandex:
-      SiteVerificationTag: "XYZabc"
 
+  # 封面配置
   cover:
     hidden: true # hide everywhere but not in structured data
     hiddenInList: true # hide on list pages and home
     hiddenInSingle: true # hide on single page
 
   editPost:
-    URL: "https://github.com/<path_to_repo>/content"
+    URL: "https://github.com/RexTechie/RexTechie.github.io/tree/gh-pages"
     Text: "Suggest Changes" # edit text
     appendFilePath: true # to append file path to Edit link
 
-  # for search
-  # https://fusejs.io/api/options.html
+  # 用于搜索
   fuseOpts:
     isCaseSensitive: false
     shouldSort: true
@@ -117,18 +113,34 @@ params:
     keys: ["title", "permalink", "summary", "content"]
 menu:
   main:
+    - identifier: home
+      name: Home
+      url: /
+      weight: 10
+    - identifier: posts
+      name: Posts
+      url: /posts/
+      weight: 20
+    - identifier: archives
+      name: Archives
+      url: /archives/
+      weight: 30
+    - identifier: search
+      name: Search
+      url: /search/
+      weight: 40
     - identifier: categories
       name: Categories
       url: /categories/
-      weight: 10
+      weight: 50
     - identifier: tags
       name: Tags
       url: /tags/
-      weight: 20
+      weight: 60
     - identifier: about
       name: About
       url: /about/
-      weight: 30
+      weight: 70
     
 # Read: https://github.com/adityatelange/hugo-PaperMod/wiki/FAQs#using-hugos-syntax-highlighter-chroma
 pygmentsUseClasses: true
@@ -140,3 +152,9 @@ markup:
     # guessSyntax: true
     # lineNos: true
     # style: monokai
+
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON # necessary for search

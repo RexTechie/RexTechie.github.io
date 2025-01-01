@@ -11,8 +11,22 @@
     </image>
     <generator>Hugo -- 0.140.0</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 21 Dec 2024 10:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 01 Jan 2025 14:47:39 +0800</lastBuildDate>
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Evaluating Large Language Models Trained on Code</title>
+      <link>http://localhost:1313/posts/paper_note/human_eval/</link>
+      <pubDate>Wed, 01 Jan 2025 14:47:39 +0800</pubDate>
+      <guid>http://localhost:1313/posts/paper_note/human_eval/</guid>
+      <description>一种评估大模型生成代码能力的方法</description>
+    </item>
+    <item>
+      <title>文献阅读笔记模板</title>
+      <link>http://localhost:1313/posts/paper_note/paper_note_template/</link>
+      <pubDate>Wed, 01 Jan 2025 14:40:37 +0800</pubDate>
+      <guid>http://localhost:1313/posts/paper_note/paper_note_template/</guid>
+      <description>论文笔记模板</description>
+    </item>
     <item>
       <title>About</title>
       <link>http://localhost:1313/about/</link>
