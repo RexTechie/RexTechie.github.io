@@ -41,7 +41,7 @@ OpenAI在GPT3发布的时候，就已经可以通过文档(docstrings)生成pyth
 
 评估生成质量可以通过匹配的方式：精确匹配或模糊匹配（如BLEU得分）。然而有研究揭示了基于匹配的代码评估指标的不足。如Ren等人（CodeBLEU: a Method for Automatic Evaluation of Code Synthesis）发现BLEU在捕捉代码特有的语义特征方面存在问题，并建议对分数进行几个语义的修改。更加根本的问题是，基于匹配的方式无法评估庞大的并且复杂的代码。近期无监督的代码翻译或伪代码到代码的翻译相关问题也转向了功能性准确性的评估，如果样本通过了测试用例，那么就认为生成的代码是正确的。作者认为这种方式应用到代码生成的评估中是合理的。**评估功能正确性最有说服力的理由是程序员常使用这种方式进行评估（单元测试）。**
 
-Kual等人在2019(SPoC: Search-based Pseudocode to Code)就使用了pass@k指标评估功能正确性。pass@k：对于每个问题生成k个代码样本，如果其中有一个样本通过了单元测试就认为问题已得到了解决，并报告解决问题的总比例。然而以这种方式计算pass@k会有很高的方差（Why?）。相反，为了评估pass@k，**我们给每个任务生成n个样本（n > k, 论文中使用n = 200, k = 100）, 统计通过单元测试的正确样本数c（c <= n），并计算无偏估计量**。其中 $\text{pass@}k := \mathbb{E}_{\text{Problems}} \left[ 1 - \frac{\binom{n-c}{k}}{\binom{n}{k}} \right] $
+Kual等人在2019(SPoC: Search-based Pseudocode to Code)就使用了pass@k指标评估功能正确性。pass@k：对于每个问题生成k个代码样本，如果其中有一个样本通过了单元测试就认为问题已得到了解决，并报告解决问题的总比例。然而以这种方式计算pass@k会有很高的方差（Why?：也许是因为一个问题准确率非0即1，所以方差太大，如pass@5，有五个都通过则是1，有4个通过则是0，因此用这种方式不合适）。相反，为了评估pass@k，**我们给每个任务生成n个样本（n > k, 论文中使用n = 200, k = 100）, 统计通过单元测试的正确样本数c（c <= n），并计算无偏估计量**。其中 $\text{pass@}k := \mathbb{E}_{\text{Problems}} \left[ 1 - \frac{\binom{n-c}{k}}{\binom{n}{k}} \right] $
 
 直接计算这个估计量会导致得到非常大的数字并且数值不稳定。在下**图3**中包含了数值稳定性的numpy实现，它简化了表达式并逐项评估乘积项。有人也许会尝试用1-(1-p_hat)^k来估pass@k, 其中p_hat是pass@1的经验估计，但是作者已经证明了这个方式是有偏的（附录A）。
 ![Figure 3](/images/20250101201329.png)
@@ -62,8 +62,8 @@ Kual等人在2019(SPoC: Search-based Pseudocode to Code)就使用了pass@k指标
 | 10  | 10 | 1 | 2 | 0.2 |
 | 11 | 10 | 0 | 2 | 0 |
 
-手写计算过程如下所示
-![](/images/20250101213539.png)
+手写部分计算过程如下所示
+![calc_pass@k_by_hand](/images/20250101213539.png)
 
 ### HumanEval数据集(HumanEval: Hand-Wirtten Evaluation Set)
 
