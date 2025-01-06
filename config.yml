@@ -62,7 +62,7 @@ params:
     safari_pinned_tab: "./favicon/favicon_32x32.png"
 
   label:
-    text: "Home"
+    text: "🏘️Home"
     icon: ./favicon/favicon_32x32.png
     iconHeight: 35
 
@@ -114,19 +114,19 @@ params:
 menu:
   main:
     - identifier: home
-      name: Home
+      name: 🏘️Home
       url: /
       weight: 10
     - identifier: posts
-      name: Posts
+      name: 📚Posts 
       url: /posts/
       weight: 20
     - identifier: archives
-      name: Archives
+      name: 📅Archives
       url: /archives/
       weight: 30
     - identifier: search
-      name: Search
+      name: 🔍Search
       url: /search/
       weight: 40
     - identifier: categories
@@ -138,7 +138,7 @@ menu:
       url: /tags/
       weight: 60
     - identifier: about
-      name: About
+      name: 📝About
       url: /about/
       weight: 70
     
