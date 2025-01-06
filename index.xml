@@ -25,8 +25,47 @@
       <link>http://rextechie.github.io/about/</link>
       <pubDate>Sat, 21 Dec 2024 10:00:00 +0800</pubDate>
       <guid>http://rextechie.github.io/about/</guid>
-      <description>&lt;h1 id=&#34;about-me&#34;&gt;About Me&lt;/h1&gt;
-&lt;p&gt;This is the about page of my Hugo website.&lt;/p&gt;</description>
+      <description>&lt;h2 id=&#34;关于我-&#34;&gt;关于我 🎓&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;🎯 软件工程研究生在读&lt;/li&gt;
+&lt;li&gt;🔬 研究方向：基于大语言模型的代码生成&lt;/li&gt;
+&lt;li&gt;💻 后端开发工程师&lt;/li&gt;
+&lt;li&gt;🌱 持续学习，保持热情&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;研究领域-&#34;&gt;研究领域 🚀&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;大语言模型在软件工程中的应用&lt;/li&gt;
+&lt;li&gt;智能代码生成与程序合成&lt;/li&gt;
+&lt;li&gt;代码理解与转换&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;技术栈-&#34;&gt;技术栈 💪&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;语言：Java, Python, JavaScript&amp;hellip;&lt;/li&gt;
+&lt;li&gt;框架：Spring Boot, Spring Cloud, MyBatis&amp;hellip;&lt;/li&gt;
+&lt;li&gt;数据库：MySQL, Redis, MongoDB, Elasticsearch&amp;hellip;&lt;/li&gt;
+&lt;li&gt;AI/ML：Neural Network, Transformers&amp;hellip;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;项目经历-&#34;&gt;项目经历 📚&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;🤖 基于LLM的代码生成系统&lt;/li&gt;
+&lt;li&gt;🌟 分布式微服务架构设计与实现&lt;/li&gt;
+&lt;li&gt;📊 企业级数据分析平台&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;生活爱好-&#34;&gt;生活爱好 ⭐&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;🏸 羽毛球爱好者&lt;/li&gt;
+&lt;li&gt;🏃 跑步健身&lt;/li&gt;
+&lt;li&gt;📚 阅读：技术书籍&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;github-统计-&#34;&gt;GitHub 统计 📊&lt;/h2&gt;
+&lt;p&gt;&lt;img alt=&#34;GitHub统计&#34; loading=&#34;lazy&#34; src=&#34;https://github-readme-stats.vercel.app/api?username=rextechie&amp;show_icons=true&amp;theme=radical&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;联系我-&#34;&gt;联系我 📫&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Email: &lt;a href=&#34;mailto:rexhub@163.com&#34;&gt;rexhub@163.com&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Blog: &lt;a href=&#34;https://rextechie.github.io/&#34;&gt;个人博客&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;!-- raw HTML omitted --&gt;</description>
     </item>
   </channel>
 </rss>
