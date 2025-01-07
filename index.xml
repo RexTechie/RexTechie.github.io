@@ -14,17 +14,17 @@
     <lastBuildDate>Tue, 07 Jan 2025 21:19:06 +0800</lastBuildDate>
     <atom:link href="http://rextechie.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>抽象工厂模式</title>
-      <link>http://rextechie.github.io/posts/design_patterns/abstract_factory/</link>
-      <pubDate>Tue, 07 Jan 2025 21:19:06 +0800</pubDate>
-      <guid>http://rextechie.github.io/posts/design_patterns/abstract_factory/</guid>
-      <description>记录《大话设计模式》学习笔记，深入浅出23种设计模式，从实际应用出发理解设计模式的精髓</description>
-    </item>
-    <item>
       <title>设计模式</title>
       <link>http://rextechie.github.io/posts/design_patterns/design_patterns/</link>
       <pubDate>Tue, 07 Jan 2025 20:59:11 +0800</pubDate>
       <guid>http://rextechie.github.io/posts/design_patterns/design_patterns/</guid>
+      <description>记录《大话设计模式》学习笔记，深入浅出23种设计模式，从实际应用出发理解设计模式的精髓</description>
+    </item>
+    <item>
+      <title>抽象工厂模式（Abstract Factory）</title>
+      <link>http://rextechie.github.io/posts/design_patterns/abstract_factory/</link>
+      <pubDate>Tue, 07 Jan 2025 21:19:06 +0800</pubDate>
+      <guid>http://rextechie.github.io/posts/design_patterns/abstract_factory/</guid>
       <description>记录《大话设计模式》学习笔记，深入浅出23种设计模式，从实际应用出发理解设计模式的精髓</description>
     </item>
     <item>
