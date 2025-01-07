@@ -1,22 +1,23 @@
 ---
-title: "文献阅读笔记模板"
-date: 2025-01-01T14:40:37+08:00
-draft: true
-description: "论文笔记模板"
-tags: ["论文笔记"]
+title: "MetaGPT: Meta Programming for A Multi-Agent Collaborative Framework"
+date: 2025-01-07T20:39:47+08:00
+draft: false
+description: "一种评估大模型生成代码能力的方法"
+categories: ["📒论文笔记"]
+tags: ["代码生成",]
 ---
+
 
 ## 基本信息
 
-- **标题**: [文献标题]
-- **作者**: [作者姓名]
-- **作者单位**: [作者单位]
-- **期刊/会议**: [期刊或会议名称]
-- **发表年份**: [年份]
-- **DOI**: [DOI链接或编号]
-- **开源地址**: [开源代码链接]
-- **关键词**: [关键词1, 关键词2, ...]
-
+- **标题**: MetaGPT: Meta Programming for A Multi-Agent Collaborative Framework
+- **作者**: Sirui Hong、Mingchen Zhuge、Chenglin Wu（通讯作者）等。
+- **作者单位**: DeepWisdom、阿卜杜拉国王科技大学、厦门大学、香港中文大学、南京大学、宾夕法尼亚大学、加州大学伯克利分校、瑞士人工智能实验室
+- **期刊/会议**: ArXiv
+- **发表年份**: 2023
+- **DOI**: [2308.00352](https://arxiv.org/abs/2308.00352)
+- **开源地址**: [Github](https://github.com/geekan/MetaGPT)
+- **关键词**: MetaGPT, Multi-Agent Collaboration, Standardized Operating Procedures (SOPs), Large Language Models (LLMs), Code Generation
 ---
 
 ## 研究背景 (Background)

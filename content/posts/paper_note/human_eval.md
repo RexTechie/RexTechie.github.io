@@ -1,7 +1,6 @@
 ---
 title: "Evaluating Large Language Models Trained on Code"
 date: 2025-01-01T14:47:39+08:00
-draft: true
 draft: false
 description: "一种评估大模型生成代码能力的方法"
 categories: ["📒论文笔记"]
