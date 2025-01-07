@@ -11,8 +11,15 @@
     </image>
     <generator>Hugo -- 0.140.2</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 01 Jan 2025 14:47:39 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 07 Jan 2025 20:39:47 +0800</lastBuildDate>
     <atom:link href="http://rextechie.github.io/categories/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>MetaGPT: Meta Programming for A Multi-Agent Collaborative Framework</title>
+      <link>http://rextechie.github.io/posts/paper_note/metagpt/</link>
+      <pubDate>Tue, 07 Jan 2025 20:39:47 +0800</pubDate>
+      <guid>http://rextechie.github.io/posts/paper_note/metagpt/</guid>
+      <description>一种评估大模型生成代码能力的方法</description>
+    </item>
     <item>
       <title>Evaluating Large Language Models Trained on Code</title>
       <link>http://rextechie.github.io/posts/paper_note/human_eval/</link>
