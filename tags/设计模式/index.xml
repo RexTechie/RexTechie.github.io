@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Posts on RexBlog</title>
-    <link>http://rextechie.github.io/posts/</link>
-    <description>Recent content in Posts on RexBlog</description>
+    <title>设计模式 on RexBlog</title>
+    <link>http://rextechie.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</link>
+    <description>Recent content in 设计模式 on RexBlog</description>
     <image>
       <title>RexBlog</title>
       <url>http://rextechie.github.io/images/profile.png</url>
@@ -12,7 +12,7 @@
     <generator>Hugo -- 0.140.2</generator>
     <language>en</language>
     <lastBuildDate>Tue, 07 Jan 2025 21:19:06 +0800</lastBuildDate>
-    <atom:link href="http://rextechie.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://rextechie.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>抽象工厂模式</title>
       <link>http://rextechie.github.io/posts/design_patterns/abstract_factory/</link>
@@ -26,20 +26,6 @@
       <pubDate>Tue, 07 Jan 2025 20:59:11 +0800</pubDate>
       <guid>http://rextechie.github.io/posts/design_patterns/design_patterns/</guid>
       <description>记录《大话设计模式》学习笔记，深入浅出23种设计模式，从实际应用出发理解设计模式的精髓</description>
-    </item>
-    <item>
-      <title>MetaGPT: Meta Programming for A Multi-Agent Collaborative Framework</title>
-      <link>http://rextechie.github.io/posts/paper_note/metagpt/</link>
-      <pubDate>Tue, 07 Jan 2025 20:39:47 +0800</pubDate>
-      <guid>http://rextechie.github.io/posts/paper_note/metagpt/</guid>
-      <description>一种评估大模型生成代码能力的方法</description>
-    </item>
-    <item>
-      <title>Evaluating Large Language Models Trained on Code</title>
-      <link>http://rextechie.github.io/posts/paper_note/human_eval/</link>
-      <pubDate>Wed, 01 Jan 2025 14:47:39 +0800</pubDate>
-      <guid>http://rextechie.github.io/posts/paper_note/human_eval/</guid>
-      <description>一种评估大模型生成代码能力的方法</description>
     </item>
   </channel>
 </rss>
