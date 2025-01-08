@@ -17,6 +17,7 @@ weight: 1
 ## 🔍索引
 
 ### 设计模式的七大原则
+
 - 单一职责原则(Single Responsibility Principle)
 - 开放-封闭原则(Open Closed Principle)
 - 里氏替换原则(Liskov Substitution Principle)
@@ -28,6 +29,7 @@ weight: 1
 ### 设计模式的三大类
 
 创建性(Creational Pattern)
+
 - [抽象工厂模式(Abstract Factory Pattern)](../abstract_factory/)
 - 建造者模式(Builder Pattern)
 - 工厂方法模式(Factory Method Pattern)
@@ -35,6 +37,7 @@ weight: 1
 - 单例模式(Singleton Pattern)
 
 结构性(Structural Pattern)
+
 - 适配器模式(Adapter Pattern)
 - 桥接模式(Bridge Pattern)
 - 组合模式(Composite Pattern)
@@ -44,6 +47,7 @@ weight: 1
 - 代理模式(Proxy Pattern)
 
 行为型(Behavioral Pattern)
+
 - 观察者模式(Observer Pattern)
 - 模板模式(Template Pattern)
 - 命令模式(Command Pattern)
