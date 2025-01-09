@@ -56,6 +56,6 @@ weight: 1
 - 解释器模式(Interpreter Pattern)
 - 中介者模式(Mediator Pattern)
 - 访问者模式(Visitor Pattern)
-- 策略模式(Strategy Pattern)
+- [策略模式(Strategy Pattern)](../strategy_pattern/)
 - 备忘录模式(Memento Pattern)
 - 迭代器模式(Iterator Pattern)

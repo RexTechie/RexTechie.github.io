@@ -47,12 +47,12 @@ classDiagram
     class ProductB1
     class ProductB2
     class Client
-    AbstractFactory <|-- ConcreteFactory1
-    AbstractFactory <|-- ConcreteFactory2
-    AbstractProductA <|-- ProductA1
-    AbstractProductA <|-- ProductA2
-    AbstractProductB <|-- ProductB1
-    AbstractProductB <|-- ProductB2
+    AbstractFactory <|.. ConcreteFactory1
+    AbstractFactory <|.. ConcreteFactory2
+    AbstractProductA <|.. ProductA1
+    AbstractProductA <|.. ProductA2
+    AbstractProductB <|.. ProductB1
+    AbstractProductB <|.. ProductB2
     Client --> AbstractFactory
     Client --> AbstractProductA
     Client --> AbstractProductB
@@ -188,10 +188,10 @@ classDiagram
         +insertUser(User user)
         +getUser(Integer id)
     }
-    DaoFactory <|-- SqlServerDaoFactory
-    DaoFactory <|-- AccessDaoFactory
-    UserDao <|-- SqlServerUserDao
-    UserDao <|-- AccessUserDao
+    DaoFactory <|.. SqlServerDaoFactory
+    DaoFactory <|.. AccessDaoFactory
+    UserDao <|.. SqlServerUserDao
+    UserDao <|.. AccessUserDao
 ```
 
 UserDao.java: UserDao接口
@@ -371,12 +371,12 @@ classDiagram
         +insertDepartment(Department department)
         +getDepartment(Integer id)
     }
-    DaoFactory <|-- SqlServerDaoFactory
-    DaoFactory <|-- AccessDaoFactory
-    UserDao <|-- SqlServerUserDao
-    UserDao <|-- AccessUserDao
-    DepartmentDao <|-- SqlServerDepartmentDao
-    DepartmentDao <|-- AccessDepartmentDao
+    DaoFactory <|.. SqlServerDaoFactory
+    DaoFactory <|.. AccessDaoFactory
+    UserDao <|.. SqlServerUserDao
+    UserDao <|.. AccessUserDao
+    DepartmentDao <|.. SqlServerDepartmentDao
+    DepartmentDao <|.. AccessDepartmentDao
 ```
 
 增加DepartmentDao.java，用于客户端访问，解除与具体数据库访问的耦合
@@ -549,10 +549,10 @@ classDiagram
       +createDepartment() DepartmentDao
     }
 
-    UserDao <|-- SqlServerUserDao
-    UserDao <|-- AccessUserDao
-    DepartmentDao <|-- SqlServerDepartmentDao
-    DepartmentDao <|-- AccessDepartmentDao
+    UserDao <|.. SqlServerUserDao
+    UserDao <|.. AccessUserDao
+    DepartmentDao <|.. SqlServerDepartmentDao
+    DepartmentDao <|.. AccessDepartmentDao
     DataAccess ..> UserDao
     DataAccess ..> DepartmentDao
 ```
