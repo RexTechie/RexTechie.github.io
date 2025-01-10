@@ -49,7 +49,7 @@ params:
   hideSummary: false
   # 显示目录
   showtoc: true
-  tocopen: true
+  tocopen: false
 
   # 资源配置
   assets:
@@ -98,7 +98,7 @@ params:
 
   editPost:
     URL: "https://github.com/RexTechie/RexTechie.github.io/blob/main/content"
-    Text: "修改" # edit text
+    Text: "修改" # 编辑按钮
     appendFilePath: true # to append file path to Edit link
 
   # 用于搜索
@@ -113,34 +113,30 @@ params:
     keys: ["title", "permalink", "summary", "content"]
 menu:
   main:
-    - identifier: home
-      name: 🏘️Home
-      url: /
-      weight: 10
     - identifier: posts
-      name: 📚Posts 
+      name: 📚 Posts 
       url: /posts/
-      weight: 20
+      weight: 10
     - identifier: archives
-      name: 📅Archives
+      name: 📅 Archives
       url: /archives/
-      weight: 30
+      weight: 20
     - identifier: search
-      name: 🔍Search
+      name: 🔍 Search
       url: /search/
-      weight: 40
+      weight: 30
     - identifier: categories
-      name: Categories
+      name: 📂 Categories
       url: /categories/
-      weight: 50
+      weight: 40
     - identifier: tags
-      name: Tags
+      name: 🏷️ Tags
       url: /tags/
-      weight: 60
+      weight: 50
     - identifier: about
-      name: 📝About
+      name: 📝 About
       url: /about/
-      weight: 70
+      weight: 60
     
 # Read: https://github.com/adityatelange/hugo-PaperMod/wiki/FAQs#using-hugos-syntax-highlighter-chroma
 pygmentsUseClasses: true
