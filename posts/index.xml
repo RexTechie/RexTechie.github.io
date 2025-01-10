@@ -11,7 +11,7 @@
     </image>
     <generator>Hugo -- 0.140.2</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 10 Jan 2025 09:12:18 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 10 Jan 2025 09:58:23 +0800</lastBuildDate>
     <atom:link href="http://rextechie.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>代码生成相关论文索引</title>
@@ -26,6 +26,39 @@
       <pubDate>Tue, 07 Jan 2025 20:59:11 +0800</pubDate>
       <guid>http://rextechie.github.io/posts/design_patterns/design_patterns/</guid>
       <description>记录《大话设计模式》学习笔记，深入浅出23种设计模式，从实际应用出发理解设计模式的精髓</description>
+    </item>
+    <item>
+      <title>里氏替换原则(Liskov Substitution Principle)</title>
+      <link>http://rextechie.github.io/posts/design_patterns/liskov_substitution_principle/</link>
+      <pubDate>Fri, 10 Jan 2025 09:58:23 +0800</pubDate>
+      <guid>http://rextechie.github.io/posts/design_patterns/liskov_substitution_principle/</guid>
+      <description>&lt;h2 id=&#34;-导论&#34;&gt;🚏 导论&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;里氏替换原则（LSP）：子类型必须能够替换掉它们的父类型。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;里氏替换原则是Barbara Liskov女士在1988年发表的，&lt;a href=&#34;https://dl.acm.org/doi/pdf/10.1145/197320.197383&#34;&gt;A behavioral notion of subtyping&lt;/a&gt;, 具体的数学定义如下所示：If S is a declared subtype of T, objects of type S should behave as objects of type T are expected to behave, if they are treated as objects of type T。用大白话翻译就是一个软件实体如果使用的是一个父类的话，那么一定适用于其子类，而且它察觉不出父类对象和子类对象的区别。也就是说，在软件里面，把父类都替换成它的子类，程序的行为没有变化。&lt;/p&gt;
+&lt;p&gt;由于有里氏替换原则，才使得&lt;a href=&#34;../open_closed_principle&#34;&gt;开放-封闭&lt;/a&gt;成为了可能，正是由于子类性的可替换性才使得使用父类类型的模块在无需修改的情况下可以扩展。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;-场景&#34;&gt;🎬 场景&lt;/h2&gt;
+&lt;h3 id=&#34;场景一-动物世界&#34;&gt;场景一：🐒 动物世界&lt;/h3&gt;
+&lt;p&gt;因为了有了这个原则，使得继承复用成为了可能，只有当子类可以替换掉父类，软件单位的功能不受到影响时，父类才能真正被复用，而子类也能够在父类的基础上增加新的行为。猫是继承动物类的，以动物的身份拥有吃、喝、跑、叫等行为，可当某一天，我们需要狗、牛、羊也拥有类似的行为，由于它们都是继承于动物，所以除了更改实例化的地方，程序其他处不需要改变。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>依赖倒转原则(Dependency Inversion Principle)</title>
+      <link>http://rextechie.github.io/posts/design_patterns/dependency_inversion_principle/</link>
+      <pubDate>Fri, 10 Jan 2025 09:57:54 +0800</pubDate>
+      <guid>http://rextechie.github.io/posts/design_patterns/dependency_inversion_principle/</guid>
+      <description>&lt;h2 id=&#34;-导论&#34;&gt;🚏 导论&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;依赖倒转原则&lt;/p&gt;
+&lt;p&gt;A. 高层模块不应该依赖低层模块。两个都应该依赖抽象。&lt;/p&gt;
+&lt;p&gt;B. 抽象不应该依赖细节。细节应该依赖抽象。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;-场景&#34;&gt;🎬 场景&lt;/h2&gt;
+&lt;h3 id=&#34;场景一-修电脑&#34;&gt;场景一：📦 修电脑&lt;/h3&gt;
+&lt;p&gt;当电脑出现蓝屏时，通常考虑是否时内存坏了或是内存条与主板接触不良。如果是内存坏了，那么就需要更换内存条，如果是内存条与主板接触不良，那么就需要重新插拔内存条。得益于电脑部件以及相关接口的设计，只需要了解简单的计算机知识，就可以轻松的定位问题并维修电脑了。他们的设计中体现了依赖倒转原则，当然还有其他的原则（&lt;a href=&#34;../signle_responsibility_principle&#34;&gt;单一职责原则&lt;/a&gt;、&lt;a href=&#34;../open_closed_principle&#34;&gt;开放-封闭原则&lt;/a&gt;）。依赖倒转原则原话是说抽象不应该依赖细节，细节应该依赖于抽象，其实就是面向接口编程，而不是面向实现编程。无论主板、CPU、内存、硬盘都是在针对接口设计的，如果针对实现来设计，内存就要对应到具体的某个品牌的主板，那就回出现换内存需要把主板也换了的尴尬。
+与修📻收音机相比，修电脑反而要简单。是因为收音机耦合过度了，只要收音机出现故障，不管是没有声音、不能调频，还是有杂音，反正都很难修，因为任何问题都可能涉及其他部件，各个部件相互依赖，难易维护。&lt;/p&gt;</description>
     </item>
     <item>
       <title>开放-封闭原则(Open Closed Principle)</title>
