@@ -24,8 +24,8 @@ weight: 1
 
 - [单一职责原则(Single Responsibility Principle)](../signle_responsibility_principle)
 - [开放-封闭原则(Open Closed Principle)](../open_closed_principle)
-- 依赖倒置原则(Dependency Inversion Principle)
-- 里氏替换原则(Liskov Substitution Principle)
+- [依赖倒置原则(Dependency Inversion Principle)](../dependency_inversion_principle)
+- [里氏替换原则(Liskov Substitution Principle)](../liskov_substitution_principle)
 - 接口隔离原则(Interface Segregation Principle)
 - 迪米特法则(Law of Demeter)
 - 合成复用原则(Composite Reuse Principle)
