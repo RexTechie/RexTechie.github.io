@@ -8,20 +8,24 @@ tags: ["设计模式",]
 weight: 1
 ---
 
-## 🚏导论
+## 🚏 导论
 
 设计模式是软件开发中解决常见问题的最佳实践，它们凝聚了多年的工程经验与智慧，是提升代码质量、可维护性和灵活性的关键工具。设计模式通过提供一套通用的解决方案，使得开发人员能够应对不同的需求和挑战，而不必从零开始设计系统架构。
 
 在这部分内容中，我将通过学习经典的《大话设计模式》一书，深入理解和探讨23种设计模式。从实际应用的角度出发，我们不仅关注每种模式的定义和结构，更会探索它们在现实世界中的应用场景。
 
-## 🔍索引
+## 💻 代码
+
+[Java代码实现](https://github.com/RexTechie/design_patterns)
+
+## 🔍 索引
 
 ### 设计模式的七大原则
 
-- 单一职责原则(Single Responsibility Principle)
-- 开放-封闭原则(Open Closed Principle)
-- 里氏替换原则(Liskov Substitution Principle)
+- [单一职责原则(Single Responsibility Principle)](../signle_responsibility_principle)
+- [开放-封闭原则(Open Closed Principle)](../open_closed_principle)
 - 依赖倒置原则(Dependency Inversion Principle)
+- 里氏替换原则(Liskov Substitution Principle)
 - 接口隔离原则(Interface Segregation Principle)
 - 迪米特法则(Law of Demeter)
 - 合成复用原则(Composite Reuse Principle)
