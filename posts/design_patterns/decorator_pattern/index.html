@@ -1,0 +1,487 @@
+<!doctype html><html lang=en dir=auto><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=robots content="index, follow"><title>装饰模式（Decorator Pattern） | RexBlog</title>
+<meta name=keywords content="设计模式"><meta name=description content='🚏 导论
+
+装饰模式（Decorator Pattern）：动态地给一个对象添加一些额外的职责。就增加功能来说，装饰模式比生成子类更为灵活。当现有目标功能不足的时候，需要增强时，可以考虑使用装饰模式。
+
+装饰模式把每个要装饰的代码放在单独的类中，并让这个类包装它所要装饰的对象，因此，当需要执行特殊行为时，客户代码就可以在运行时根据需要有选择地、按顺序地使用装饰功能包装对象了。
+装饰器常在面向切面编程（AOP）中使用，比如日志、事务、权限等功能。
+
+🚦 结构
+UML类图
+classDiagram
+  class Component{
+    <<interface>>
+    +operation()
+  }
+  class ConcreteComponent{
+    +operation()
+  }
+  class Decorator{
+    <<abstract>>
+    -component: Component
+    +operation()
+  }
+  class ConcreteDecoratorA{
+    -addedState
+    +operation()
+  }
+  class ConcreteDecoratorB{
+    +operation()
+    -AddedBehavior()
+  }
+  Component <|-- ConcreteComponent
+  Component <|-- Decorator
+  Decorator o-- Component
+  Decorator <|-- ConcreteDecoratorA
+  Decorator <|-- ConcreteDecoratorB
+Component是定义一个对象接口，可以给这些对象动态地添加职责。ConcreteComponent是定义了一个具体的对象，也可以给这个对象添加一些职责。Decorator，装饰抽象类，继承了Component，从外类来扩展Component类的功能，但对于Component来说，是无需知道Decorator的存在的。至于ConcreteDecorator就是具体的装饰对象，起到给Component添加职责的功能。
+装饰模式是利用setComponent来对对象进行包装的。这样每个装饰对象的实现就和如何使用这个对象分离开了，每个装饰对象只关心自己的功能，不需要关心如何被添加到对象链当中。
+基本代码
+Component类
+public interface Component {
+    void operation();
+}
+ConcreteComponent类
+public class ConcreteComponent implements Component {
+    @Override
+    public void operation() {
+        System.out.println("具体对象的操作");
+    }
+}
+Decorator类'><meta name=author content="Rex"><link rel=canonical href=http://rextechie.github.io/posts/design_patterns/decorator_pattern/><link crossorigin=anonymous href=/assets/css/stylesheet.56d5e73e1a36d8bc0a4f450d156a288bf54a46b72e29e3f236c46370aa489a22.css integrity="sha256-VtXnPho22LwKT0UNFWooi/VKRrcuKePyNsRjcKpImiI=" rel="preload stylesheet" as=style><link rel=icon href=http://rextechie.github.io/favicon/favicon_32x32.png><link rel=icon type=image/png sizes=16x16 href=http://rextechie.github.io/favicon/favicon_16x16.png><link rel=icon type=image/png sizes=32x32 href=http://rextechie.github.io/favicon/favicon_32x32.png><link rel=apple-touch-icon href=http://rextechie.github.io/favicon/favicon_32x32.png><link rel=mask-icon href=http://rextechie.github.io/favicon/favicon_32x32.png><meta name=theme-color content="#2e2e33"><meta name=msapplication-TileColor content="#2e2e33"><link rel=alternate hreflang=en href=http://rextechie.github.io/posts/design_patterns/decorator_pattern/><noscript><style>#theme-toggle,.top-link{display:none}</style></noscript><script src=https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js></script><script>const config={startOnLoad:!0,theme:"default",themeVariables:{lineColor:"#fafafa",darkMode:!0},flowchart:{useMaxWidth:!1,htmlLabels:!0}};mermaid.initialize(config),window.onload=()=>{window.mermaid.init(void 0,document.querySelectorAll(".language-mermaid"))}</script><meta property="og:url" content="http://rextechie.github.io/posts/design_patterns/decorator_pattern/"><meta property="og:site_name" content="RexBlog"><meta property="og:title" content="装饰模式（Decorator Pattern）"><meta property="og:description" content='🚏 导论 装饰模式（Decorator Pattern）：动态地给一个对象添加一些额外的职责。就增加功能来说，装饰模式比生成子类更为灵活。当现有目标功能不足的时候，需要增强时，可以考虑使用装饰模式。
+装饰模式把每个要装饰的代码放在单独的类中，并让这个类包装它所要装饰的对象，因此，当需要执行特殊行为时，客户代码就可以在运行时根据需要有选择地、按顺序地使用装饰功能包装对象了。
+装饰器常在面向切面编程（AOP）中使用，比如日志、事务、权限等功能。
+🚦 结构 UML类图 classDiagram class Component{ <<interface>> +operation() } class ConcreteComponent{ +operation() } class Decorator{ <<abstract>> -component: Component +operation() } class ConcreteDecoratorA{ -addedState +operation() } class ConcreteDecoratorB{ +operation() -AddedBehavior() } Component <|-- ConcreteComponent Component <|-- Decorator Decorator o-- Component Decorator <|-- ConcreteDecoratorA Decorator <|-- ConcreteDecoratorB Component是定义一个对象接口，可以给这些对象动态地添加职责。ConcreteComponent是定义了一个具体的对象，也可以给这个对象添加一些职责。Decorator，装饰抽象类，继承了Component，从外类来扩展Component类的功能，但对于Component来说，是无需知道Decorator的存在的。至于ConcreteDecorator就是具体的装饰对象，起到给Component添加职责的功能。
+装饰模式是利用setComponent来对对象进行包装的。这样每个装饰对象的实现就和如何使用这个对象分离开了，每个装饰对象只关心自己的功能，不需要关心如何被添加到对象链当中。
+基本代码 Component类
+public interface Component { void operation(); } ConcreteComponent类
+public class ConcreteComponent implements Component { @Override public void operation() { System.out.println("具体对象的操作"); } } Decorator类'><meta property="og:locale" content="en"><meta property="og:type" content="article"><meta property="article:section" content="posts"><meta property="article:published_time" content="2025-01-11T09:01:58+08:00"><meta property="article:modified_time" content="2025-01-11T09:01:58+08:00"><meta property="article:tag" content="设计模式"><meta property="og:image" content="http://rextechie.github.io/images/profile.png"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="http://rextechie.github.io/images/profile.png"><meta name=twitter:title content="装饰模式（Decorator Pattern）"><meta name=twitter:description content='🚏 导论
+
+装饰模式（Decorator Pattern）：动态地给一个对象添加一些额外的职责。就增加功能来说，装饰模式比生成子类更为灵活。当现有目标功能不足的时候，需要增强时，可以考虑使用装饰模式。
+
+装饰模式把每个要装饰的代码放在单独的类中，并让这个类包装它所要装饰的对象，因此，当需要执行特殊行为时，客户代码就可以在运行时根据需要有选择地、按顺序地使用装饰功能包装对象了。
+装饰器常在面向切面编程（AOP）中使用，比如日志、事务、权限等功能。
+
+🚦 结构
+UML类图
+classDiagram
+  class Component{
+    <<interface>>
+    +operation()
+  }
+  class ConcreteComponent{
+    +operation()
+  }
+  class Decorator{
+    <<abstract>>
+    -component: Component
+    +operation()
+  }
+  class ConcreteDecoratorA{
+    -addedState
+    +operation()
+  }
+  class ConcreteDecoratorB{
+    +operation()
+    -AddedBehavior()
+  }
+  Component <|-- ConcreteComponent
+  Component <|-- Decorator
+  Decorator o-- Component
+  Decorator <|-- ConcreteDecoratorA
+  Decorator <|-- ConcreteDecoratorB
+Component是定义一个对象接口，可以给这些对象动态地添加职责。ConcreteComponent是定义了一个具体的对象，也可以给这个对象添加一些职责。Decorator，装饰抽象类，继承了Component，从外类来扩展Component类的功能，但对于Component来说，是无需知道Decorator的存在的。至于ConcreteDecorator就是具体的装饰对象，起到给Component添加职责的功能。
+装饰模式是利用setComponent来对对象进行包装的。这样每个装饰对象的实现就和如何使用这个对象分离开了，每个装饰对象只关心自己的功能，不需要关心如何被添加到对象链当中。
+基本代码
+Component类
+public interface Component {
+    void operation();
+}
+ConcreteComponent类
+public class ConcreteComponent implements Component {
+    @Override
+    public void operation() {
+        System.out.println("具体对象的操作");
+    }
+}
+Decorator类'><script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Posts","item":"http://rextechie.github.io/posts/"},{"@type":"ListItem","position":2,"name":"装饰模式（Decorator Pattern）","item":"http://rextechie.github.io/posts/design_patterns/decorator_pattern/"}]}</script><script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"装饰模式（Decorator Pattern）","name":"装饰模式（Decorator Pattern）","description":"🚏 导论 装饰模式（Decorator Pattern）：动态地给一个对象添加一些额外的职责。就增加功能来说，装饰模式比生成子类更为灵活。当现有目标功能不足的时候，需要增强时，可以考虑使用装饰模式。\n装饰模式把每个要装饰的代码放在单独的类中，并让这个类包装它所要装饰的对象，因此，当需要执行特殊行为时，客户代码就可以在运行时根据需要有选择地、按顺序地使用装饰功能包装对象了。\n装饰器常在面向切面编程（AOP）中使用，比如日志、事务、权限等功能。\n🚦 结构 UML类图 classDiagram class Component{ \u0026lt;\u0026lt;interface\u0026gt;\u0026gt; +operation() } class ConcreteComponent{ +operation() } class Decorator{ \u0026lt;\u0026lt;abstract\u0026gt;\u0026gt; -component: Component +operation() } class ConcreteDecoratorA{ -addedState +operation() } class ConcreteDecoratorB{ +operation() -AddedBehavior() } Component \u0026lt;|-- ConcreteComponent Component \u0026lt;|-- Decorator Decorator o-- Component Decorator \u0026lt;|-- ConcreteDecoratorA Decorator \u0026lt;|-- ConcreteDecoratorB Component是定义一个对象接口，可以给这些对象动态地添加职责。ConcreteComponent是定义了一个具体的对象，也可以给这个对象添加一些职责。Decorator，装饰抽象类，继承了Component，从外类来扩展Component类的功能，但对于Component来说，是无需知道Decorator的存在的。至于ConcreteDecorator就是具体的装饰对象，起到给Component添加职责的功能。\n装饰模式是利用setComponent来对对象进行包装的。这样每个装饰对象的实现就和如何使用这个对象分离开了，每个装饰对象只关心自己的功能，不需要关心如何被添加到对象链当中。\n基本代码 Component类\npublic interface Component { void operation(); } ConcreteComponent类\npublic class ConcreteComponent implements Component { @Override public void operation() { System.out.println(\u0026#34;具体对象的操作\u0026#34;); } } Decorator类\n","keywords":["设计模式"],"articleBody":"🚏 导论 装饰模式（Decorator Pattern）：动态地给一个对象添加一些额外的职责。就增加功能来说，装饰模式比生成子类更为灵活。当现有目标功能不足的时候，需要增强时，可以考虑使用装饰模式。\n装饰模式把每个要装饰的代码放在单独的类中，并让这个类包装它所要装饰的对象，因此，当需要执行特殊行为时，客户代码就可以在运行时根据需要有选择地、按顺序地使用装饰功能包装对象了。\n装饰器常在面向切面编程（AOP）中使用，比如日志、事务、权限等功能。\n🚦 结构 UML类图 classDiagram class Component{ \u003c\u003e +operation() } class ConcreteComponent{ +operation() } class Decorator{ \u003c\u003e -component: Component +operation() } class ConcreteDecoratorA{ -addedState +operation() } class ConcreteDecoratorB{ +operation() -AddedBehavior() } Component \u003c|-- ConcreteComponent Component \u003c|-- Decorator Decorator o-- Component Decorator \u003c|-- ConcreteDecoratorA Decorator \u003c|-- ConcreteDecoratorB Component是定义一个对象接口，可以给这些对象动态地添加职责。ConcreteComponent是定义了一个具体的对象，也可以给这个对象添加一些职责。Decorator，装饰抽象类，继承了Component，从外类来扩展Component类的功能，但对于Component来说，是无需知道Decorator的存在的。至于ConcreteDecorator就是具体的装饰对象，起到给Component添加职责的功能。\n装饰模式是利用setComponent来对对象进行包装的。这样每个装饰对象的实现就和如何使用这个对象分离开了，每个装饰对象只关心自己的功能，不需要关心如何被添加到对象链当中。\n基本代码 Component类\npublic interface Component { void operation(); } ConcreteComponent类\npublic class ConcreteComponent implements Component { @Override public void operation() { System.out.println(\"具体对象的操作\"); } } Decorator类\npublic abstract class Decorator implements Component { protected Component component; public void setComponent(Component component) { this.component = component; } @Override public void operation() { if (component != null) { component.operation(); } } } ConcreteDecoratorA类\npublic class ConcreteDecoratorA extends Decorator { private String addedState; @Override public void operation() { super.operation(); addedState = \"New State\"; System.out.println(\"具体装饰对象A的操作\"); } } ConcreteDecoratorB类\npublic class ConcreteDecoratorB extends Decorator { @Override public void operation() { super.operation(); addedBehavior(); System.out.println(\"具体装饰对象B的操作\"); } private void addedBehavior() { System.out.println(\"为具体装饰对象B增加额外的行为addedBehavior()\"); } } 客户端代码\npublic class Client { public static void main(String[] args) { Component component = new ConcreteComponent(); Decorator decoratorA = new ConcreteDecoratorA(); Decorator decoratorB = new ConcreteDecoratorB(); decoratorA.setComponent(component); decoratorB.setComponent(decoratorA); decoratorA.operation(); decoratorB.operation(); } } 🎭 优缺点分析 😊 优点 有效地将类的核心职责和装饰功能区分开，而且可以去除相关类中重复的装饰逻辑。 🙁 缺点 会产生很多小对象，增加了系统的复杂性。 🎬 场景 现有一需求，要求写一个可以给人搭配不同服饰的系统，比如类似QQ、网络游戏或论坛都有的Avatar系统。\n🛠 解决 第一版代码 classDiagram class 人 { +穿大T恤() +穿垮裤() +穿破球鞋() +穿西装() +打领带() +穿皮鞋() +形象展示() } Person类的代码如下：\npublic class Person { /** * 姓名 */ private String name; public Person(String name) { this.name = name; } public void wearTShirts() { System.out.print(\"大T恤 \"); } public void wearBigTrouser() { System.out.print(\"垮裤 \"); } public void wearSneakers() { System.out.print(\"破球鞋 \"); } public void wearSuit() { System.out.print(\"西装 \"); } public void wearTie() { System.out.print(\"领带 \"); } public void wearLeatherShoes() { System.out.print(\"皮鞋 \"); } public void show() { System.out.print(\"装扮的\" + name); } } 客户端代码：\npublic class Client { public static void main(String[] args) { Person rex = new Person(\"Rex\"); System.out.print(\"\\n第一种装扮：\"); rex.wearTShirts(); rex.wearBigTrouser(); rex.wearSneakers(); rex.show(); System.out.print(\"\\n第二种装扮：\"); rex.wearSuit(); rex.wearTie(); rex.wearLeatherShoes(); rex.show(); } } 但是这样就违背了开闭原则，如果要增加一种装扮，就需要修改Person类，这样就不符合开闭原则。可以考虑将这些服饰都写成子类。\n第二版代码（用面向对象的思路构造） classDiagram class 人{ +形象展示() } class 服饰{ \u003c\u003e +形象展示 } class 大T恤{ +形象展示() } class 垮裤{ +形象展示() } class 破球鞋{ +形象展示() } class 西装{ +形象展示() } class 领带{ +形象展示() } class 皮鞋{ +形象展示() } 服饰 \u003c|-- 大T恤 服饰 \u003c|-- 垮裤 服饰 \u003c|-- 破球鞋 服饰 \u003c|-- 西装 服饰 \u003c|-- 领带 服饰 \u003c|-- 皮鞋 Person类\npublic class Person { /** * 姓名 */ private String name; public Person(String name) { this.name = name; } public void show() { System.out.print(\"装扮的\" + name); } } 服饰抽象类\npublic abstract class Finery { /** * 服饰抽象方法 */ public abstract void show(); } 各种服饰子类\npublic class BigTrouser extends Finery { /** * 垮裤展示 */ @Override public void show() { System.out.print(\"垮裤 \"); } } public class LeatherShoes extends Finery { /** * 皮鞋展示 */ @Override public void show() { System.out.print(\"皮鞋 \"); } } // ... 客户端类\npublic class Client { public static void main(String[] args) { Person rex = new Person(\"Rex\"); System.out.print(\"\\n第一种装扮：\"); Finery tShirts = new TShirts(); Finery bigTrouser = new BigTrouser(); Finery sneakers = new Sneakers(); tShirts.show(); bigTrouser.show(); sneakers.show(); rex.show(); System.out.print(\"\\n第二种装扮：\"); Finery suit = new Suit(); Finery tie = new Tie(); Finery leatherShoes = new LeatherShoes(); suit.show(); tie.show(); leatherShoes.show(); rex.show(); } } 虽然改写成了面向对象写法，实现了“服饰”与“人”类的分离，但是分离的有点过度了，这就好像一个人当众光着身子将衣服穿起来，应该是要在内部组装好再展示出来。\n第三版（用装饰模式改造） classDiagram class 人{ +形象展示() } class 服饰{ \u003c\u003e +形象展示() } class 大T恤{ +形象展示() } class 垮裤{ +形象展示() } class 破球鞋{ +形象展示() } class 西装{ +形象展示() } class 领带{ +形象展示() } class 皮鞋{ +形象展示() } 人 \u003c|-- 服饰 服饰 \u003c|-- 大T恤 服饰 \u003c|-- 垮裤 服饰 \u003c|-- 破球鞋 服饰 \u003c|-- 西装 服饰 \u003c|-- 领带 服饰 \u003c|-- 皮鞋 “Person\"类(ConcreteComponent)\npublic class Person { /** * 姓名 */ private String name; public Person() { } public Person(String name) { this.name = name; } public void show() { System.out.print(\"装扮的\" + name); } } 服饰类(Decorator)\npublic class Finery extends Person { /** * 被装饰者 */ protected Person component; /** * 装饰 * * @param component 被装饰者 */ public void decorate(Person component) { this.component = component; } /** * 展示 */ @Override public void show() { if (component != null) { component.show(); } } } 具体服饰类(ConcreteDecorator)\npublic class BigTrouser extends Finery { /** * 垮裤展示 */ @Override public void show() { System.out.print(\"垮裤 \"); super.show(); } } public class LeatherShoes extends Finery { /** * 皮鞋展示 */ @Override public void show() { System.out.print(\"皮鞋 \"); super.show(); } } //... 客户端类\npublic class Client { public static void main(String[] args) { Person rex = new Person(\"Rex\"); System.out.print(\"\\n第一种装扮：\"); TShirts tShirts = new TShirts(); BigTrouser bigTrouser = new BigTrouser(); Sneakers sneakers = new Sneakers(); sneakers.decorate(rex); bigTrouser.decorate(sneakers); tShirts.decorate(bigTrouser); tShirts.show(); System.out.print(\"\\n第二种装扮：\"); Finery suit = new Suit(); Finery tie = new Tie(); Finery leatherShoes = new LeatherShoes(); leatherShoes.decorate(rex); tie.decorate(leatherShoes); suit.decorate(tie); rex.show(); } } ","wordCount":"751","inLanguage":"en","image":"http://rextechie.github.io/images/profile.png","datePublished":"2025-01-11T09:01:58+08:00","dateModified":"2025-01-11T09:01:58+08:00","author":{"@type":"Person","name":"Rex"},"mainEntityOfPage":{"@type":"WebPage","@id":"http://rextechie.github.io/posts/design_patterns/decorator_pattern/"},"publisher":{"@type":"Organization","name":"RexBlog","logo":{"@type":"ImageObject","url":"http://rextechie.github.io/favicon/favicon_32x32.png"}}}</script><link rel=stylesheet href=https://cdn.jsdmirror.com/npm/katex@0.16.11/dist/katex.min.css><script defer src=https://cdn.jsdmirror.com/npm/katex@0.16.11/dist/katex.min.js crossorigin=anonymous></script><script defer src=https://cdn.jsdmirror.com/npm/katex@0.16.11/dist/contrib/auto-render.min.js crossorigin=anonymous onload='renderMathInElement(document.body,{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1}],throwOnError:!1})'></script></head><body id=top><script>localStorage.getItem("pref-theme")==="dark"&&document.body.classList.add("dark")</script><header class=header><nav class=nav><div class=logo><a href=http://rextechie.github.io/ accesskey=h title="🏘️Home (Alt + H)"><img src=http://rextechie.github.io/favicon/favicon_32x32.png alt aria-label=logo height=35>🏘️Home</a><div class=logo-switches><button id=theme-toggle accesskey=t title="(Alt + T)"><svg id="moon" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg><svg id="sun" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button></div></div><ul id=menu><li><a href=http://rextechie.github.io/posts/ title="📚 Posts"><span>📚 Posts</span></a></li><li><a href=http://rextechie.github.io/archives/ title="📅 Archives"><span>📅 Archives</span></a></li><li><a href=http://rextechie.github.io/search/ title="🔍 Search (Alt + /)" accesskey=/><span>🔍 Search</span></a></li><li><a href=http://rextechie.github.io/categories/ title="📂 Categories"><span>📂 Categories</span></a></li><li><a href=http://rextechie.github.io/tags/ title="🏷️ Tags"><span>🏷️ Tags</span></a></li><li><a href=http://rextechie.github.io/about/ title="📝 About"><span>📝 About</span></a></li></ul></nav></header><main class=main><article class=post-single><header class=post-header><div class=breadcrumbs><a href=http://rextechie.github.io/>Home</a>&nbsp;»&nbsp;<a href=http://rextechie.github.io/posts/>Posts</a></div><h1 class="post-title entry-hint-parent">装饰模式（Decorator Pattern）</h1><div class=post-meta><span title='2025-01-11 09:01:58 +0800 +0800'>January 11, 2025</span>&nbsp;·&nbsp;4 min&nbsp;·&nbsp;751 words&nbsp;·&nbsp;Rex&nbsp;|&nbsp;<a href=https://github.com/RexTechie/RexTechie.github.io/blob/main/content/posts/design_patterns/decorator_pattern.md rel="noopener noreferrer" target=_blank>修改</a></div></header><div class=toc><details><summary accesskey=c title="(Alt + C)"><span class=details>Table of Contents</span></summary><div class=inner><nav id=TableOfContents><ul><li><a href=#-导论>🚏 导论</a></li><li><a href=#-结构>🚦 结构</a><ul><li><a href=#uml类图>UML类图</a></li><li><a href=#基本代码>基本代码</a></li></ul></li><li><a href=#-优缺点分析>🎭 优缺点分析</a><ul><li><a href=#-优点>😊 优点</a></li><li><a href=#-缺点>🙁 缺点</a></li></ul></li><li><a href=#-场景>🎬 场景</a></li><li><a href=#-解决>🛠 解决</a><ul><li><a href=#第一版代码>第一版代码</a></li><li><a href=#第二版代码用面向对象的思路构造>第二版代码（用面向对象的思路构造）</a></li><li><a href=#第三版用装饰模式改造>第三版（用装饰模式改造）</a></li></ul></li></ul></nav></div></details></div><div class=post-content><h2 id=-导论>🚏 导论<a hidden class=anchor aria-hidden=true href=#-导论>#</a></h2><blockquote><p>装饰模式（Decorator Pattern）：动态地给一个对象添加一些额外的职责。就增加功能来说，装饰模式比生成子类更为灵活。当现有目标功能不足的时候，需要增强时，可以考虑使用装饰模式。</p></blockquote><p>装饰模式把每个要装饰的代码放在单独的类中，并让这个类包装它所要装饰的对象，因此，当需要执行特殊行为时，客户代码就可以在运行时根据需要有选择地、按顺序地使用装饰功能包装对象了。</p><p>装饰器常在面向切面编程（AOP）中使用，比如日志、事务、权限等功能。</p><hr><h2 id=-结构>🚦 结构<a hidden class=anchor aria-hidden=true href=#-结构>#</a></h2><h3 id=uml类图>UML类图<a hidden class=anchor aria-hidden=true href=#uml类图>#</a></h3><pre tabindex=0><code class=language-mermaid data-lang=mermaid>classDiagram
+  class Component{
+    &lt;&lt;interface&gt;&gt;
+    +operation()
+  }
+  class ConcreteComponent{
+    +operation()
+  }
+  class Decorator{
+    &lt;&lt;abstract&gt;&gt;
+    -component: Component
+    +operation()
+  }
+  class ConcreteDecoratorA{
+    -addedState
+    +operation()
+  }
+  class ConcreteDecoratorB{
+    +operation()
+    -AddedBehavior()
+  }
+  Component &lt;|-- ConcreteComponent
+  Component &lt;|-- Decorator
+  Decorator o-- Component
+  Decorator &lt;|-- ConcreteDecoratorA
+  Decorator &lt;|-- ConcreteDecoratorB
+</code></pre><p>Component是定义一个对象接口，可以给这些对象动态地添加职责。ConcreteComponent是定义了一个具体的对象，也可以给这个对象添加一些职责。Decorator，装饰抽象类，继承了Component，从外类来扩展Component类的功能，但对于Component来说，是无需知道Decorator的存在的。至于ConcreteDecorator就是具体的装饰对象，起到给Component添加职责的功能。</p><p>装饰模式是利用setComponent来对对象进行包装的。这样每个装饰对象的实现就和如何使用这个对象分离开了，每个装饰对象只关心自己的功能，不需要关心如何被添加到对象链当中。</p><h3 id=基本代码>基本代码<a hidden class=anchor aria-hidden=true href=#基本代码>#</a></h3><p>Component类</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-java data-lang=java><span class=line><span class=cl><span class=kd>public</span><span class=w> </span><span class=kd>interface</span> <span class=nc>Component</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=kt>void</span><span class=w> </span><span class=nf>operation</span><span class=p>();</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=p>}</span><span class=w>
+</span></span></span></code></pre></div><p>ConcreteComponent类</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-java data-lang=java><span class=line><span class=cl><span class=kd>public</span><span class=w> </span><span class=kd>class</span> <span class=nc>ConcreteComponent</span><span class=w> </span><span class=kd>implements</span><span class=w> </span><span class=n>Component</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nd>@Override</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=kd>public</span><span class=w> </span><span class=kt>void</span><span class=w> </span><span class=nf>operation</span><span class=p>()</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=n>System</span><span class=p>.</span><span class=na>out</span><span class=p>.</span><span class=na>println</span><span class=p>(</span><span class=s>&#34;具体对象的操作&#34;</span><span class=p>);</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=p>}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=p>}</span><span class=w>
+</span></span></span></code></pre></div><p>Decorator类</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-java data-lang=java><span class=line><span class=cl><span class=kd>public</span><span class=w> </span><span class=kd>abstract</span><span class=w> </span><span class=kd>class</span> <span class=nc>Decorator</span><span class=w> </span><span class=kd>implements</span><span class=w> </span><span class=n>Component</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=kd>protected</span><span class=w> </span><span class=n>Component</span><span class=w> </span><span class=n>component</span><span class=p>;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=kd>public</span><span class=w> </span><span class=kt>void</span><span class=w> </span><span class=nf>setComponent</span><span class=p>(</span><span class=n>Component</span><span class=w> </span><span class=n>component</span><span class=p>)</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=k>this</span><span class=p>.</span><span class=na>component</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=n>component</span><span class=p>;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=p>}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nd>@Override</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=kd>public</span><span class=w> </span><span class=kt>void</span><span class=w> </span><span class=nf>operation</span><span class=p>()</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=k>if</span><span class=w> </span><span class=p>(</span><span class=n>component</span><span class=w> </span><span class=o>!=</span><span class=w> </span><span class=kc>null</span><span class=p>)</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>            </span><span class=n>component</span><span class=p>.</span><span class=na>operation</span><span class=p>();</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=p>}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=p>}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=p>}</span><span class=w>
+</span></span></span></code></pre></div><p>ConcreteDecoratorA类</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-java data-lang=java><span class=line><span class=cl><span class=kd>public</span><span class=w> </span><span class=kd>class</span> <span class=nc>ConcreteDecoratorA</span><span class=w> </span><span class=kd>extends</span><span class=w> </span><span class=n>Decorator</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=kd>private</span><span class=w> </span><span class=n>String</span><span class=w> </span><span class=n>addedState</span><span class=p>;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nd>@Override</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=kd>public</span><span class=w> </span><span class=kt>void</span><span class=w> </span><span class=nf>operation</span><span class=p>()</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=kd>super</span><span class=p>.</span><span class=na>operation</span><span class=p>();</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=n>addedState</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=s>&#34;New State&#34;</span><span class=p>;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=n>System</span><span class=p>.</span><span class=na>out</span><span class=p>.</span><span class=na>println</span><span class=p>(</span><span class=s>&#34;具体装饰对象A的操作&#34;</span><span class=p>);</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=p>}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=p>}</span><span class=w>
+</span></span></span></code></pre></div><p>ConcreteDecoratorB类</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-java data-lang=java><span class=line><span class=cl><span class=kd>public</span><span class=w> </span><span class=kd>class</span> <span class=nc>ConcreteDecoratorB</span><span class=w> </span><span class=kd>extends</span><span class=w> </span><span class=n>Decorator</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nd>@Override</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=kd>public</span><span class=w> </span><span class=kt>void</span><span class=w> </span><span class=nf>operation</span><span class=p>()</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=kd>super</span><span class=p>.</span><span class=na>operation</span><span class=p>();</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=n>addedBehavior</span><span class=p>();</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=n>System</span><span class=p>.</span><span class=na>out</span><span class=p>.</span><span class=na>println</span><span class=p>(</span><span class=s>&#34;具体装饰对象B的操作&#34;</span><span class=p>);</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=p>}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=kd>private</span><span class=w> </span><span class=kt>void</span><span class=w> </span><span class=nf>addedBehavior</span><span class=p>()</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=n>System</span><span class=p>.</span><span class=na>out</span><span class=p>.</span><span class=na>println</span><span class=p>(</span><span class=s>&#34;为具体装饰对象B增加额外的行为addedBehavior()&#34;</span><span class=p>);</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=p>}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=p>}</span><span class=w>
+</span></span></span></code></pre></div><p>客户端代码</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-java data-lang=java><span class=line><span class=cl><span class=kd>public</span><span class=w> </span><span class=kd>class</span> <span class=nc>Client</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=kd>public</span><span class=w> </span><span class=kd>static</span><span class=w> </span><span class=kt>void</span><span class=w> </span><span class=nf>main</span><span class=p>(</span><span class=n>String</span><span class=o>[]</span><span class=w> </span><span class=n>args</span><span class=p>)</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=n>Component</span><span class=w> </span><span class=n>component</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=k>new</span><span class=w> </span><span class=n>ConcreteComponent</span><span class=p>();</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=n>Decorator</span><span class=w> </span><span class=n>decoratorA</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=k>new</span><span class=w> </span><span class=n>ConcreteDecoratorA</span><span class=p>();</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=n>Decorator</span><span class=w> </span><span class=n>decoratorB</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=k>new</span><span class=w> </span><span class=n>ConcreteDecoratorB</span><span class=p>();</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=n>decoratorA</span><span class=p>.</span><span class=na>setComponent</span><span class=p>(</span><span class=n>component</span><span class=p>);</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=n>decoratorB</span><span class=p>.</span><span class=na>setComponent</span><span class=p>(</span><span class=n>decoratorA</span><span class=p>);</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=n>decoratorA</span><span class=p>.</span><span class=na>operation</span><span class=p>();</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=n>decoratorB</span><span class=p>.</span><span class=na>operation</span><span class=p>();</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=p>}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=p>}</span><span class=w>
+</span></span></span></code></pre></div><hr><h2 id=-优缺点分析>🎭 优缺点分析<a hidden class=anchor aria-hidden=true href=#-优缺点分析>#</a></h2><hr><h3 id=-优点>😊 优点<a hidden class=anchor aria-hidden=true href=#-优点>#</a></h3><ul><li>有效地将类的核心职责和装饰功能区分开，而且可以去除相关类中重复的装饰逻辑。</li></ul><h3 id=-缺点>🙁 缺点<a hidden class=anchor aria-hidden=true href=#-缺点>#</a></h3><ul><li>会产生很多小对象，增加了系统的复杂性。</li></ul><hr><h2 id=-场景>🎬 场景<a hidden class=anchor aria-hidden=true href=#-场景>#</a></h2><p>现有一需求，要求写一个可以给人搭配不同服饰的系统，比如类似QQ、网络游戏或论坛都有的Avatar系统。</p><hr><h2 id=-解决>🛠 解决<a hidden class=anchor aria-hidden=true href=#-解决>#</a></h2><h3 id=第一版代码>第一版代码<a hidden class=anchor aria-hidden=true href=#第一版代码>#</a></h3><pre tabindex=0><code class=language-mermaid data-lang=mermaid>classDiagram
+  class 人 {
+    +穿大T恤()
+    +穿垮裤()
+    +穿破球鞋()
+    +穿西装()
+    +打领带()
+    +穿皮鞋()
+    +形象展示()
+  }
+</code></pre><p>Person类的代码如下：</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-java data-lang=java><span class=line><span class=cl><span class=kd>public</span><span class=w> </span><span class=kd>class</span> <span class=nc>Person</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=cm>/**
+</span></span></span><span class=line><span class=cl><span class=cm>     * 姓名
+</span></span></span><span class=line><span class=cl><span class=cm>     */</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=kd>private</span><span class=w> </span><span class=n>String</span><span class=w> </span><span class=n>name</span><span class=p>;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=kd>public</span><span class=w> </span><span class=nf>Person</span><span class=p>(</span><span class=n>String</span><span class=w> </span><span class=n>name</span><span class=p>)</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=k>this</span><span class=p>.</span><span class=na>name</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=n>name</span><span class=p>;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=p>}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=kd>public</span><span class=w> </span><span class=kt>void</span><span class=w> </span><span class=nf>wearTShirts</span><span class=p>()</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=n>System</span><span class=p>.</span><span class=na>out</span><span class=p>.</span><span class=na>print</span><span class=p>(</span><span class=s>&#34;大T恤 &#34;</span><span class=p>);</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=p>}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=kd>public</span><span class=w> </span><span class=kt>void</span><span class=w> </span><span class=nf>wearBigTrouser</span><span class=p>()</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=n>System</span><span class=p>.</span><span class=na>out</span><span class=p>.</span><span class=na>print</span><span class=p>(</span><span class=s>&#34;垮裤 &#34;</span><span class=p>);</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=p>}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=kd>public</span><span class=w> </span><span class=kt>void</span><span class=w> </span><span class=nf>wearSneakers</span><span class=p>()</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=n>System</span><span class=p>.</span><span class=na>out</span><span class=p>.</span><span class=na>print</span><span class=p>(</span><span class=s>&#34;破球鞋 &#34;</span><span class=p>);</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=p>}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=kd>public</span><span class=w> </span><span class=kt>void</span><span class=w> </span><span class=nf>wearSuit</span><span class=p>()</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=n>System</span><span class=p>.</span><span class=na>out</span><span class=p>.</span><span class=na>print</span><span class=p>(</span><span class=s>&#34;西装 &#34;</span><span class=p>);</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=p>}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=kd>public</span><span class=w> </span><span class=kt>void</span><span class=w> </span><span class=nf>wearTie</span><span class=p>()</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=n>System</span><span class=p>.</span><span class=na>out</span><span class=p>.</span><span class=na>print</span><span class=p>(</span><span class=s>&#34;领带 &#34;</span><span class=p>);</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=p>}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=kd>public</span><span class=w> </span><span class=kt>void</span><span class=w> </span><span class=nf>wearLeatherShoes</span><span class=p>()</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=n>System</span><span class=p>.</span><span class=na>out</span><span class=p>.</span><span class=na>print</span><span class=p>(</span><span class=s>&#34;皮鞋 &#34;</span><span class=p>);</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=p>}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=kd>public</span><span class=w> </span><span class=kt>void</span><span class=w> </span><span class=nf>show</span><span class=p>()</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=n>System</span><span class=p>.</span><span class=na>out</span><span class=p>.</span><span class=na>print</span><span class=p>(</span><span class=s>&#34;装扮的&#34;</span><span class=w> </span><span class=o>+</span><span class=w> </span><span class=n>name</span><span class=p>);</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=p>}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=p>}</span><span class=w>
+</span></span></span></code></pre></div><p>客户端代码：</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-java data-lang=java><span class=line><span class=cl><span class=kd>public</span><span class=w> </span><span class=kd>class</span> <span class=nc>Client</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=kd>public</span><span class=w> </span><span class=kd>static</span><span class=w> </span><span class=kt>void</span><span class=w> </span><span class=nf>main</span><span class=p>(</span><span class=n>String</span><span class=o>[]</span><span class=w> </span><span class=n>args</span><span class=p>)</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=n>Person</span><span class=w> </span><span class=n>rex</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=k>new</span><span class=w> </span><span class=n>Person</span><span class=p>(</span><span class=s>&#34;Rex&#34;</span><span class=p>);</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=n>System</span><span class=p>.</span><span class=na>out</span><span class=p>.</span><span class=na>print</span><span class=p>(</span><span class=s>&#34;\n第一种装扮：&#34;</span><span class=p>);</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=n>rex</span><span class=p>.</span><span class=na>wearTShirts</span><span class=p>();</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=n>rex</span><span class=p>.</span><span class=na>wearBigTrouser</span><span class=p>();</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=n>rex</span><span class=p>.</span><span class=na>wearSneakers</span><span class=p>();</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=n>rex</span><span class=p>.</span><span class=na>show</span><span class=p>();</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=n>System</span><span class=p>.</span><span class=na>out</span><span class=p>.</span><span class=na>print</span><span class=p>(</span><span class=s>&#34;\n第二种装扮：&#34;</span><span class=p>);</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=n>rex</span><span class=p>.</span><span class=na>wearSuit</span><span class=p>();</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=n>rex</span><span class=p>.</span><span class=na>wearTie</span><span class=p>();</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=n>rex</span><span class=p>.</span><span class=na>wearLeatherShoes</span><span class=p>();</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=n>rex</span><span class=p>.</span><span class=na>show</span><span class=p>();</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=p>}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=p>}</span><span class=w>
+</span></span></span></code></pre></div><p>但是这样就违背了开闭原则，如果要增加一种装扮，就需要修改Person类，这样就不符合开闭原则。可以考虑将这些服饰都写成子类。</p><h3 id=第二版代码用面向对象的思路构造>第二版代码（用面向对象的思路构造）<a hidden class=anchor aria-hidden=true href=#第二版代码用面向对象的思路构造>#</a></h3><pre tabindex=0><code class=language-mermaid data-lang=mermaid>classDiagram
+  class 人{
+    +形象展示()
+  }
+  class 服饰{
+    &lt;&lt;abstract&gt;&gt;
+    +形象展示
+  }
+  class 大T恤{
+    +形象展示()
+  }
+  class 垮裤{
+    +形象展示()
+  }
+  class 破球鞋{
+    +形象展示()
+  }
+  class 西装{
+    +形象展示()
+  }
+  class 领带{
+    +形象展示()
+  }
+  class 皮鞋{
+    +形象展示()
+  }
+  服饰 &lt;|-- 大T恤
+  服饰 &lt;|-- 垮裤
+  服饰 &lt;|-- 破球鞋
+  服饰 &lt;|-- 西装
+  服饰 &lt;|-- 领带
+  服饰 &lt;|-- 皮鞋
+</code></pre><p>Person类</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-java data-lang=java><span class=line><span class=cl><span class=kd>public</span><span class=w> </span><span class=kd>class</span> <span class=nc>Person</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=cm>/**
+</span></span></span><span class=line><span class=cl><span class=cm>     * 姓名
+</span></span></span><span class=line><span class=cl><span class=cm>     */</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=kd>private</span><span class=w> </span><span class=n>String</span><span class=w> </span><span class=n>name</span><span class=p>;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=kd>public</span><span class=w> </span><span class=nf>Person</span><span class=p>(</span><span class=n>String</span><span class=w> </span><span class=n>name</span><span class=p>)</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=k>this</span><span class=p>.</span><span class=na>name</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=n>name</span><span class=p>;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=p>}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=kd>public</span><span class=w> </span><span class=kt>void</span><span class=w> </span><span class=nf>show</span><span class=p>()</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=n>System</span><span class=p>.</span><span class=na>out</span><span class=p>.</span><span class=na>print</span><span class=p>(</span><span class=s>&#34;装扮的&#34;</span><span class=w> </span><span class=o>+</span><span class=w> </span><span class=n>name</span><span class=p>);</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=p>}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=p>}</span><span class=w>
+</span></span></span></code></pre></div><p>服饰抽象类</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-java data-lang=java><span class=line><span class=cl><span class=kd>public</span><span class=w> </span><span class=kd>abstract</span><span class=w> </span><span class=kd>class</span> <span class=nc>Finery</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=cm>/**
+</span></span></span><span class=line><span class=cl><span class=cm>     * 服饰抽象方法
+</span></span></span><span class=line><span class=cl><span class=cm>     */</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=kd>public</span><span class=w> </span><span class=kd>abstract</span><span class=w> </span><span class=kt>void</span><span class=w> </span><span class=nf>show</span><span class=p>();</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=p>}</span><span class=w>
+</span></span></span></code></pre></div><p>各种服饰子类</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-java data-lang=java><span class=line><span class=cl><span class=kd>public</span><span class=w> </span><span class=kd>class</span> <span class=nc>BigTrouser</span><span class=w> </span><span class=kd>extends</span><span class=w> </span><span class=n>Finery</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=cm>/**
+</span></span></span><span class=line><span class=cl><span class=cm>     * 垮裤展示
+</span></span></span><span class=line><span class=cl><span class=cm>     */</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nd>@Override</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=kd>public</span><span class=w> </span><span class=kt>void</span><span class=w> </span><span class=nf>show</span><span class=p>()</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=n>System</span><span class=p>.</span><span class=na>out</span><span class=p>.</span><span class=na>print</span><span class=p>(</span><span class=s>&#34;垮裤 &#34;</span><span class=p>);</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=p>}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=p>}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=kd>public</span><span class=w> </span><span class=kd>class</span> <span class=nc>LeatherShoes</span><span class=w> </span><span class=kd>extends</span><span class=w> </span><span class=n>Finery</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=cm>/**
+</span></span></span><span class=line><span class=cl><span class=cm>     * 皮鞋展示
+</span></span></span><span class=line><span class=cl><span class=cm>     */</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nd>@Override</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=kd>public</span><span class=w> </span><span class=kt>void</span><span class=w> </span><span class=nf>show</span><span class=p>()</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=n>System</span><span class=p>.</span><span class=na>out</span><span class=p>.</span><span class=na>print</span><span class=p>(</span><span class=s>&#34;皮鞋 &#34;</span><span class=p>);</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=p>}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=p>}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=c1>// ...</span><span class=w>
+</span></span></span></code></pre></div><p>客户端类</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-java data-lang=java><span class=line><span class=cl><span class=kd>public</span><span class=w> </span><span class=kd>class</span> <span class=nc>Client</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=kd>public</span><span class=w> </span><span class=kd>static</span><span class=w> </span><span class=kt>void</span><span class=w> </span><span class=nf>main</span><span class=p>(</span><span class=n>String</span><span class=o>[]</span><span class=w> </span><span class=n>args</span><span class=p>)</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=n>Person</span><span class=w> </span><span class=n>rex</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=k>new</span><span class=w> </span><span class=n>Person</span><span class=p>(</span><span class=s>&#34;Rex&#34;</span><span class=p>);</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=n>System</span><span class=p>.</span><span class=na>out</span><span class=p>.</span><span class=na>print</span><span class=p>(</span><span class=s>&#34;\n第一种装扮：&#34;</span><span class=p>);</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=n>Finery</span><span class=w> </span><span class=n>tShirts</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=k>new</span><span class=w> </span><span class=n>TShirts</span><span class=p>();</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=n>Finery</span><span class=w> </span><span class=n>bigTrouser</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=k>new</span><span class=w> </span><span class=n>BigTrouser</span><span class=p>();</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=n>Finery</span><span class=w> </span><span class=n>sneakers</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=k>new</span><span class=w> </span><span class=n>Sneakers</span><span class=p>();</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=n>tShirts</span><span class=p>.</span><span class=na>show</span><span class=p>();</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=n>bigTrouser</span><span class=p>.</span><span class=na>show</span><span class=p>();</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=n>sneakers</span><span class=p>.</span><span class=na>show</span><span class=p>();</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=n>rex</span><span class=p>.</span><span class=na>show</span><span class=p>();</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=n>System</span><span class=p>.</span><span class=na>out</span><span class=p>.</span><span class=na>print</span><span class=p>(</span><span class=s>&#34;\n第二种装扮：&#34;</span><span class=p>);</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=n>Finery</span><span class=w> </span><span class=n>suit</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=k>new</span><span class=w> </span><span class=n>Suit</span><span class=p>();</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=n>Finery</span><span class=w> </span><span class=n>tie</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=k>new</span><span class=w> </span><span class=n>Tie</span><span class=p>();</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=n>Finery</span><span class=w> </span><span class=n>leatherShoes</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=k>new</span><span class=w> </span><span class=n>LeatherShoes</span><span class=p>();</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=n>suit</span><span class=p>.</span><span class=na>show</span><span class=p>();</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=n>tie</span><span class=p>.</span><span class=na>show</span><span class=p>();</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=n>leatherShoes</span><span class=p>.</span><span class=na>show</span><span class=p>();</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=n>rex</span><span class=p>.</span><span class=na>show</span><span class=p>();</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=p>}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=p>}</span><span class=w>
+</span></span></span></code></pre></div><p>虽然改写成了面向对象写法，实现了“服饰”与“人”类的分离，但是分离的有点过度了，这就好像一个人当众光着身子将衣服穿起来，应该是要在内部组装好再展示出来。</p><h3 id=第三版用装饰模式改造>第三版（用装饰模式改造）<a hidden class=anchor aria-hidden=true href=#第三版用装饰模式改造>#</a></h3><pre tabindex=0><code class=language-mermaid data-lang=mermaid>classDiagram
+  class 人{
+    +形象展示()
+  }
+  class 服饰{
+    &lt;&lt;abstract&gt;&gt;
+    +形象展示()
+  }
+  class 大T恤{
+    +形象展示()
+  }
+  class 垮裤{
+    +形象展示()
+  }
+  class 破球鞋{
+    +形象展示()
+  }
+  class 西装{
+    +形象展示()
+  }
+  class 领带{
+    +形象展示()
+  }
+  class 皮鞋{
+    +形象展示()
+  }
+  人 &lt;|-- 服饰
+  服饰 &lt;|-- 大T恤
+  服饰 &lt;|-- 垮裤
+  服饰 &lt;|-- 破球鞋
+  服饰 &lt;|-- 西装
+  服饰 &lt;|-- 领带
+  服饰 &lt;|-- 皮鞋
+</code></pre><p>&ldquo;Person"类(ConcreteComponent)</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-java data-lang=java><span class=line><span class=cl><span class=kd>public</span><span class=w> </span><span class=kd>class</span> <span class=nc>Person</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=cm>/**
+</span></span></span><span class=line><span class=cl><span class=cm>     * 姓名
+</span></span></span><span class=line><span class=cl><span class=cm>     */</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=kd>private</span><span class=w> </span><span class=n>String</span><span class=w> </span><span class=n>name</span><span class=p>;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=kd>public</span><span class=w> </span><span class=nf>Person</span><span class=p>()</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=p>}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=kd>public</span><span class=w> </span><span class=nf>Person</span><span class=p>(</span><span class=n>String</span><span class=w> </span><span class=n>name</span><span class=p>)</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=k>this</span><span class=p>.</span><span class=na>name</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=n>name</span><span class=p>;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=p>}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=kd>public</span><span class=w> </span><span class=kt>void</span><span class=w> </span><span class=nf>show</span><span class=p>()</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=n>System</span><span class=p>.</span><span class=na>out</span><span class=p>.</span><span class=na>print</span><span class=p>(</span><span class=s>&#34;装扮的&#34;</span><span class=w> </span><span class=o>+</span><span class=w> </span><span class=n>name</span><span class=p>);</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=p>}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=p>}</span><span class=w>
+</span></span></span></code></pre></div><p>服饰类(Decorator)</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-java data-lang=java><span class=line><span class=cl><span class=kd>public</span><span class=w> </span><span class=kd>class</span> <span class=nc>Finery</span><span class=w> </span><span class=kd>extends</span><span class=w> </span><span class=n>Person</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=cm>/**
+</span></span></span><span class=line><span class=cl><span class=cm>     * 被装饰者
+</span></span></span><span class=line><span class=cl><span class=cm>     */</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=kd>protected</span><span class=w> </span><span class=n>Person</span><span class=w> </span><span class=n>component</span><span class=p>;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=cm>/**
+</span></span></span><span class=line><span class=cl><span class=cm>     * 装饰
+</span></span></span><span class=line><span class=cl><span class=cm>     *
+</span></span></span><span class=line><span class=cl><span class=cm>     * @param component 被装饰者
+</span></span></span><span class=line><span class=cl><span class=cm>     */</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=kd>public</span><span class=w> </span><span class=kt>void</span><span class=w> </span><span class=nf>decorate</span><span class=p>(</span><span class=n>Person</span><span class=w> </span><span class=n>component</span><span class=p>)</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=k>this</span><span class=p>.</span><span class=na>component</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=n>component</span><span class=p>;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=p>}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=cm>/**
+</span></span></span><span class=line><span class=cl><span class=cm>     * 展示
+</span></span></span><span class=line><span class=cl><span class=cm>     */</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nd>@Override</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=kd>public</span><span class=w> </span><span class=kt>void</span><span class=w> </span><span class=nf>show</span><span class=p>()</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=k>if</span><span class=w> </span><span class=p>(</span><span class=n>component</span><span class=w> </span><span class=o>!=</span><span class=w> </span><span class=kc>null</span><span class=p>)</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>            </span><span class=n>component</span><span class=p>.</span><span class=na>show</span><span class=p>();</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=p>}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=p>}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=p>}</span><span class=w>
+</span></span></span></code></pre></div><p>具体服饰类(ConcreteDecorator)</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-java data-lang=java><span class=line><span class=cl><span class=kd>public</span><span class=w> </span><span class=kd>class</span> <span class=nc>BigTrouser</span><span class=w> </span><span class=kd>extends</span><span class=w> </span><span class=n>Finery</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=cm>/**
+</span></span></span><span class=line><span class=cl><span class=cm>     * 垮裤展示
+</span></span></span><span class=line><span class=cl><span class=cm>     */</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nd>@Override</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=kd>public</span><span class=w> </span><span class=kt>void</span><span class=w> </span><span class=nf>show</span><span class=p>()</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=n>System</span><span class=p>.</span><span class=na>out</span><span class=p>.</span><span class=na>print</span><span class=p>(</span><span class=s>&#34;垮裤 &#34;</span><span class=p>);</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=kd>super</span><span class=p>.</span><span class=na>show</span><span class=p>();</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=p>}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=p>}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=kd>public</span><span class=w> </span><span class=kd>class</span> <span class=nc>LeatherShoes</span><span class=w> </span><span class=kd>extends</span><span class=w> </span><span class=n>Finery</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=cm>/**
+</span></span></span><span class=line><span class=cl><span class=cm>     * 皮鞋展示
+</span></span></span><span class=line><span class=cl><span class=cm>     */</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nd>@Override</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=kd>public</span><span class=w> </span><span class=kt>void</span><span class=w> </span><span class=nf>show</span><span class=p>()</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=n>System</span><span class=p>.</span><span class=na>out</span><span class=p>.</span><span class=na>print</span><span class=p>(</span><span class=s>&#34;皮鞋 &#34;</span><span class=p>);</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=kd>super</span><span class=p>.</span><span class=na>show</span><span class=p>();</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=p>}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=p>}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=c1>//...</span><span class=w>
+</span></span></span></code></pre></div><p>客户端类</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-java data-lang=java><span class=line><span class=cl><span class=kd>public</span><span class=w> </span><span class=kd>class</span> <span class=nc>Client</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=kd>public</span><span class=w> </span><span class=kd>static</span><span class=w> </span><span class=kt>void</span><span class=w> </span><span class=nf>main</span><span class=p>(</span><span class=n>String</span><span class=o>[]</span><span class=w> </span><span class=n>args</span><span class=p>)</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=n>Person</span><span class=w> </span><span class=n>rex</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=k>new</span><span class=w> </span><span class=n>Person</span><span class=p>(</span><span class=s>&#34;Rex&#34;</span><span class=p>);</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=n>System</span><span class=p>.</span><span class=na>out</span><span class=p>.</span><span class=na>print</span><span class=p>(</span><span class=s>&#34;\n第一种装扮：&#34;</span><span class=p>);</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=n>TShirts</span><span class=w> </span><span class=n>tShirts</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=k>new</span><span class=w> </span><span class=n>TShirts</span><span class=p>();</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=n>BigTrouser</span><span class=w> </span><span class=n>bigTrouser</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=k>new</span><span class=w> </span><span class=n>BigTrouser</span><span class=p>();</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=n>Sneakers</span><span class=w> </span><span class=n>sneakers</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=k>new</span><span class=w> </span><span class=n>Sneakers</span><span class=p>();</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=n>sneakers</span><span class=p>.</span><span class=na>decorate</span><span class=p>(</span><span class=n>rex</span><span class=p>);</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=n>bigTrouser</span><span class=p>.</span><span class=na>decorate</span><span class=p>(</span><span class=n>sneakers</span><span class=p>);</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=n>tShirts</span><span class=p>.</span><span class=na>decorate</span><span class=p>(</span><span class=n>bigTrouser</span><span class=p>);</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=n>tShirts</span><span class=p>.</span><span class=na>show</span><span class=p>();</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=n>System</span><span class=p>.</span><span class=na>out</span><span class=p>.</span><span class=na>print</span><span class=p>(</span><span class=s>&#34;\n第二种装扮：&#34;</span><span class=p>);</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=n>Finery</span><span class=w> </span><span class=n>suit</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=k>new</span><span class=w> </span><span class=n>Suit</span><span class=p>();</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=n>Finery</span><span class=w> </span><span class=n>tie</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=k>new</span><span class=w> </span><span class=n>Tie</span><span class=p>();</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=n>Finery</span><span class=w> </span><span class=n>leatherShoes</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=k>new</span><span class=w> </span><span class=n>LeatherShoes</span><span class=p>();</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=n>leatherShoes</span><span class=p>.</span><span class=na>decorate</span><span class=p>(</span><span class=n>rex</span><span class=p>);</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=n>tie</span><span class=p>.</span><span class=na>decorate</span><span class=p>(</span><span class=n>leatherShoes</span><span class=p>);</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=n>suit</span><span class=p>.</span><span class=na>decorate</span><span class=p>(</span><span class=n>tie</span><span class=p>);</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=n>rex</span><span class=p>.</span><span class=na>show</span><span class=p>();</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=p>}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=p>}</span><span class=w>
+</span></span></span></code></pre></div></div><footer class=post-footer><ul class=post-tags><li><a href=http://rextechie.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/>设计模式</a></li></ul><nav class=paginav><a class=prev href=http://rextechie.github.io/posts/design_patterns/design_patterns/><span class=title>« Prev</span><br><span>设计模式</span>
+</a><a class=next href=http://rextechie.github.io/posts/design_patterns/liskov_substitution_principle/><span class=title>Next »</span><br><span>里氏替换原则(Liskov Substitution Principle)</span></a></nav><ul class=share-buttons><li><a target=_blank rel="noopener noreferrer" aria-label="share 装饰模式（Decorator Pattern） on x" href="https://x.com/intent/tweet/?text=%e8%a3%85%e9%a5%b0%e6%a8%a1%e5%bc%8f%ef%bc%88Decorator%20Pattern%ef%bc%89&amp;url=http%3a%2f%2frextechie.github.io%2fposts%2fdesign_patterns%2fdecorator_pattern%2f&amp;hashtags=%e8%ae%be%e8%ae%a1%e6%a8%a1%e5%bc%8f"><svg viewBox="0 0 512 512" height="30" width="30" fill="currentcolor"><path d="M512 62.554V449.446C512 483.97 483.97 512 449.446 512H62.554C28.03 512 0 483.97.0 449.446V62.554C0 28.03 28.029.0 62.554.0H449.446C483.971.0 512 28.03 512 62.554zM269.951 190.75 182.567 75.216H56L207.216 272.95 63.9 436.783h61.366L235.9 310.383l96.667 126.4H456L298.367 228.367l134-153.151H371.033zM127.633 110h36.468l219.38 290.065H349.5z"/></svg></a></li><li><a target=_blank rel="noopener noreferrer" aria-label="share 装饰模式（Decorator Pattern） on linkedin" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http%3a%2f%2frextechie.github.io%2fposts%2fdesign_patterns%2fdecorator_pattern%2f&amp;title=%e8%a3%85%e9%a5%b0%e6%a8%a1%e5%bc%8f%ef%bc%88Decorator%20Pattern%ef%bc%89&amp;summary=%e8%a3%85%e9%a5%b0%e6%a8%a1%e5%bc%8f%ef%bc%88Decorator%20Pattern%ef%bc%89&amp;source=http%3a%2f%2frextechie.github.io%2fposts%2fdesign_patterns%2fdecorator_pattern%2f"><svg viewBox="0 0 512 512" height="30" width="30" fill="currentcolor"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM160.461 423.278V197.561h-75.04v225.717h75.04zm270.539.0V293.839c0-69.333-37.018-101.586-86.381-101.586-39.804.0-57.634 21.891-67.617 37.266v-31.958h-75.021c.995 21.181.0 225.717.0 225.717h75.02V297.222c0-6.748.486-13.492 2.474-18.315 5.414-13.475 17.767-27.434 38.494-27.434 27.135.0 38.007 20.707 38.007 51.037v120.768H431zM123.448 88.722C97.774 88.722 81 105.601 81 127.724c0 21.658 16.264 39.002 41.455 39.002h.484c26.165.0 42.452-17.344 42.452-39.002-.485-22.092-16.241-38.954-41.943-39.002z"/></svg></a></li><li><a target=_blank rel="noopener noreferrer" aria-label="share 装饰模式（Decorator Pattern） on reddit" href="https://reddit.com/submit?url=http%3a%2f%2frextechie.github.io%2fposts%2fdesign_patterns%2fdecorator_pattern%2f&title=%e8%a3%85%e9%a5%b0%e6%a8%a1%e5%bc%8f%ef%bc%88Decorator%20Pattern%ef%bc%89"><svg viewBox="0 0 512 512" height="30" width="30" fill="currentcolor"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM446 265.638c0-22.964-18.616-41.58-41.58-41.58-11.211.0-21.361 4.457-28.841 11.666-28.424-20.508-67.586-33.757-111.204-35.278l18.941-89.121 61.884 13.157c.756 15.734 13.642 28.29 29.56 28.29 16.407.0 29.706-13.299 29.706-29.701.0-16.403-13.299-29.702-29.706-29.702-11.666.0-21.657 6.792-26.515 16.578l-69.105-14.69c-1.922-.418-3.939-.042-5.585 1.036-1.658 1.073-2.811 2.761-3.224 4.686l-21.152 99.438c-44.258 1.228-84.046 14.494-112.837 35.232-7.468-7.164-17.589-11.591-28.757-11.591-22.965.0-41.585 18.616-41.585 41.58.0 16.896 10.095 31.41 24.568 37.918-.639 4.135-.99 8.328-.99 12.576.0 63.977 74.469 115.836 166.33 115.836s166.334-51.859 166.334-115.836c0-4.218-.347-8.387-.977-12.493 14.564-6.47 24.735-21.034 24.735-38.001zM326.526 373.831c-20.27 20.241-59.115 21.816-70.534 21.816-11.428.0-50.277-1.575-70.522-21.82-3.007-3.008-3.007-7.882.0-10.889 3.003-2.999 7.882-3.003 10.885.0 12.777 12.781 40.11 17.317 59.637 17.317 19.522.0 46.86-4.536 59.657-17.321 3.016-2.999 7.886-2.995 10.885.008 3.008 3.011 3.003 7.882-.008 10.889zm-5.23-48.781c-16.373.0-29.701-13.324-29.701-29.698.0-16.381 13.328-29.714 29.701-29.714 16.378.0 29.706 13.333 29.706 29.714.0 16.374-13.328 29.698-29.706 29.698zM160.91 295.348c0-16.381 13.328-29.71 29.714-29.71 16.369.0 29.689 13.329 29.689 29.71.0 16.373-13.32 29.693-29.689 29.693-16.386.0-29.714-13.32-29.714-29.693z"/></svg></a></li><li><a target=_blank rel="noopener noreferrer" aria-label="share 装饰模式（Decorator Pattern） on facebook" href="https://facebook.com/sharer/sharer.php?u=http%3a%2f%2frextechie.github.io%2fposts%2fdesign_patterns%2fdecorator_pattern%2f"><svg viewBox="0 0 512 512" height="30" width="30" fill="currentcolor"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H342.978V319.085h66.6l12.672-82.621h-79.272v-53.617c0-22.603 11.073-44.636 46.58-44.636H425.6v-70.34s-32.71-5.582-63.982-5.582c-65.288.0-107.96 39.569-107.96 111.204v62.971h-72.573v82.621h72.573V512h-191.104c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892z"/></svg></a></li><li><a target=_blank rel="noopener noreferrer" aria-label="share 装饰模式（Decorator Pattern） on whatsapp" href="https://api.whatsapp.com/send?text=%e8%a3%85%e9%a5%b0%e6%a8%a1%e5%bc%8f%ef%bc%88Decorator%20Pattern%ef%bc%89%20-%20http%3a%2f%2frextechie.github.io%2fposts%2fdesign_patterns%2fdecorator_pattern%2f"><svg viewBox="0 0 512 512" height="30" width="30" fill="currentcolor"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zm-58.673 127.703c-33.842-33.881-78.847-52.548-126.798-52.568-98.799.0-179.21 80.405-179.249 179.234-.013 31.593 8.241 62.428 23.927 89.612l-25.429 92.884 95.021-24.925c26.181 14.28 55.659 21.807 85.658 21.816h.074c98.789.0 179.206-80.413 179.247-179.243.018-47.895-18.61-92.93-52.451-126.81zM263.976 403.485h-.06c-26.734-.01-52.954-7.193-75.828-20.767l-5.441-3.229-56.386 14.792 15.05-54.977-3.542-5.637c-14.913-23.72-22.791-51.136-22.779-79.287.033-82.142 66.867-148.971 149.046-148.971 39.793.014 77.199 15.531 105.329 43.692 28.128 28.16 43.609 65.592 43.594 105.4-.034 82.149-66.866 148.983-148.983 148.984zm81.721-111.581c-4.479-2.242-26.499-13.075-30.604-14.571-4.105-1.495-7.091-2.241-10.077 2.241-2.986 4.483-11.569 14.572-14.182 17.562-2.612 2.988-5.225 3.364-9.703 1.12-4.479-2.241-18.91-6.97-36.017-22.23C231.8 264.15 222.81 249.484 220.198 245s-.279-6.908 1.963-9.14c2.016-2.007 4.48-5.232 6.719-7.847 2.24-2.615 2.986-4.484 4.479-7.472 1.493-2.99.747-5.604-.374-7.846-1.119-2.241-10.077-24.288-13.809-33.256-3.635-8.733-7.327-7.55-10.077-7.688-2.609-.13-5.598-.158-8.583-.158-2.986.0-7.839 1.121-11.944 5.604-4.105 4.484-15.675 15.32-15.675 37.364.0 22.046 16.048 43.342 18.287 46.332 2.24 2.99 31.582 48.227 76.511 67.627 10.685 4.615 19.028 7.371 25.533 9.434 10.728 3.41 20.492 2.929 28.209 1.775 8.605-1.285 26.499-10.833 30.231-21.295 3.732-10.464 3.732-19.431 2.612-21.298-1.119-1.869-4.105-2.99-8.583-5.232z"/></svg></a></li><li><a target=_blank rel="noopener noreferrer" aria-label="share 装饰模式（Decorator Pattern） on telegram" href="https://telegram.me/share/url?text=%e8%a3%85%e9%a5%b0%e6%a8%a1%e5%bc%8f%ef%bc%88Decorator%20Pattern%ef%bc%89&amp;url=http%3a%2f%2frextechie.github.io%2fposts%2fdesign_patterns%2fdecorator_pattern%2f"><svg viewBox="2 2 28 28" height="30" width="30" fill="currentcolor"><path d="M26.49 29.86H5.5a3.37 3.37.0 01-2.47-1 3.35 3.35.0 01-1-2.47V5.48A3.36 3.36.0 013 3 3.37 3.37.0 015.5 2h21A3.38 3.38.0 0129 3a3.36 3.36.0 011 2.46V26.37a3.35 3.35.0 01-1 2.47 3.38 3.38.0 01-2.51 1.02zm-5.38-6.71a.79.79.0 00.85-.66L24.73 9.24a.55.55.0 00-.18-.46.62.62.0 00-.41-.17q-.08.0-16.53 6.11a.59.59.0 00-.41.59.57.57.0 00.43.52l4 1.24 1.61 4.83a.62.62.0 00.63.43.56.56.0 00.4-.17L16.54 20l4.09 3A.9.9.0 0021.11 23.15zM13.8 20.71l-1.21-4q8.72-5.55 8.78-5.55c.15.0.23.0.23.16a.18.18.0 010 .06s-2.51 2.3-7.52 6.8z"/></svg></a></li><li><a target=_blank rel="noopener noreferrer" aria-label="share 装饰模式（Decorator Pattern） on ycombinator" href="https://news.ycombinator.com/submitlink?t=%e8%a3%85%e9%a5%b0%e6%a8%a1%e5%bc%8f%ef%bc%88Decorator%20Pattern%ef%bc%89&u=http%3a%2f%2frextechie.github.io%2fposts%2fdesign_patterns%2fdecorator_pattern%2f"><svg width="30" height="30" viewBox="0 0 512 512" fill="currentcolor" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"><path d="M449.446.0C483.971.0 512 28.03 512 62.554V449.446C512 483.97 483.97 512 449.446 512H62.554C28.03 512 0 483.97.0 449.446V62.554C0 28.03 28.029.0 62.554.0H449.446zM183.8767 87.9921h-62.034L230.6673 292.4508V424.0079h50.6655V292.4508L390.1575 87.9921H328.1233L256 238.2489z"/></svg></a></li></ul></footer><script src=https://utteranc.es/client.js repo=RexTechie/blogcomment issue-term=pathname theme=github-light crossorigin=anonymous async></script></article></main><footer class=footer><span>&copy; 2025 <a href=http://rextechie.github.io/>RexBlog</a></span> ·
+<span>Powered by
+<a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
+        <a href=https://github.com/adityatelange/hugo-PaperMod/ rel=noopener target=_blank>PaperMod</a></span></footer><a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg>
+</a><script>let menu=document.getElementById("menu");menu&&(menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}),document.querySelectorAll('a[href^="#"]').forEach(e=>{e.addEventListener("click",function(e){e.preventDefault();var t=this.getAttribute("href").substr(1);window.matchMedia("(prefers-reduced-motion: reduce)").matches?document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView({behavior:"smooth"}),t==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${t}`)})})</script><script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script><script>document.getElementById("theme-toggle").addEventListener("click",()=>{document.body.className.includes("dark")?(document.body.classList.remove("dark"),localStorage.setItem("pref-theme","light")):(document.body.classList.add("dark"),localStorage.setItem("pref-theme","dark"))})</script><script>document.querySelectorAll("pre > code").forEach(e=>{const n=e.parentNode.parentNode,t=document.createElement("button");t.classList.add("copy-code"),t.innerHTML="copy";function s(){t.innerHTML="copied!",setTimeout(()=>{t.innerHTML="copy"},2e3)}t.addEventListener("click",t=>{if("clipboard"in navigator){navigator.clipboard.writeText(e.textContent),s();return}const n=document.createRange();n.selectNodeContents(e);const o=window.getSelection();o.removeAllRanges(),o.addRange(n);try{document.execCommand("copy"),s()}catch{}o.removeRange(n)}),n.classList.contains("highlight")?n.appendChild(t):n.parentNode.firstChild==n||(e.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName=="TABLE"?e.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(t):e.parentNode.appendChild(t))})</script></body></html>
