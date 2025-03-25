@@ -13,7 +13,7 @@ tags: ["代码生成",]
 - **标题**: MetaGPT: Meta Programming for A Multi-Agent Collaborative Framework
 - **作者**: Sirui Hong、Mingchen Zhuge、Chenglin Wu（通讯作者）等。
 - **作者单位**: DeepWisdom、阿卜杜拉国王科技大学、厦门大学、香港中文大学、南京大学、宾夕法尼亚大学、加州大学伯克利分校、瑞士人工智能实验室
-- **期刊/会议**: ArXiv
+- **期刊/会议**: ICLR 2023
 - **发表年份**: 2023
 - **DOI**: [2308.00352](https://arxiv.org/abs/2308.00352)
 - **开源地址**: [Github](https://github.com/geekan/MetaGPT)

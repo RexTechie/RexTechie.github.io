@@ -13,6 +13,10 @@ tags: ["论文笔记"]
 
 ## 🔍索引
 
+### 代码生成领域综述
+
+- [Unifying the Perspectives of NLP and Software Engineering:  A Survey on Language Models for Code](../code_generation_survey/)
+
 ### 代码生成相关模型
 
 - [MetaGPT: Meta Programming for A Multi-Agent Collaborative Framework](../metagpt/)

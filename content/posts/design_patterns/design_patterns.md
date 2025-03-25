@@ -48,7 +48,7 @@ weight: 1
 - [装饰模式(Decorator Pattern)](../decorator_pattern/)
 - 外观模式(Facade Pattern)
 - 享元模式(Flyweight Pattern)
-- 代理模式(Proxy Pattern)
+- [代理模式(Proxy Pattern)](../proxy_pattern/)
 
 行为型(Behavioral Pattern)
 
