@@ -22,7 +22,7 @@ jobs:
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
         with:
-          hugo-version: 'latest'     # 使用最新的 Hugo 版本
+          hugo-version: '0.125.7'     # 使用最新的 Hugo 版本
           extended: true             # 启用 extended 功能
 
       - name: Clean public directory
