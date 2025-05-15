@@ -9,9 +9,9 @@
       <url>http://rextechie.github.io/images/profile.png</url>
       <link>http://rextechie.github.io/images/profile.png</link>
     </image>
-    <generator>Hugo -- 0.145.0</generator>
+    <generator>Hugo -- 0.125.7</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 25 Mar 2025 11:52:08 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 12 May 2025 13:41:31 +0800</lastBuildDate>
     <atom:link href="http://rextechie.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>代码生成相关论文索引</title>
@@ -28,6 +28,13 @@
       <description>记录《大话设计模式》学习笔记，深入浅出23种设计模式，从实际应用出发理解设计模式的精髓</description>
     </item>
     <item>
+      <title>Paper2Code</title>
+      <link>http://rextechie.github.io/posts/paper_note/paper2code/</link>
+      <pubDate>Mon, 12 May 2025 13:41:31 +0800</pubDate>
+      <guid>http://rextechie.github.io/posts/paper_note/paper2code/</guid>
+      <description>一种复现论文代码的方法</description>
+    </item>
+    <item>
       <title>PlanGEN: A Multi-Agent Framework for Generating Planning and Reasoning Trajectories for Complex Problem Solving</title>
       <link>http://rextechie.github.io/posts/paper_note/plangen/</link>
       <pubDate>Tue, 25 Mar 2025 11:52:08 +0800</pubDate>
@@ -39,171 +46,71 @@
       <link>http://rextechie.github.io/posts/design_patterns/proxy_pattern/</link>
       <pubDate>Sun, 12 Jan 2025 14:26:34 +0800</pubDate>
       <guid>http://rextechie.github.io/posts/design_patterns/proxy_pattern/</guid>
-      <description>&lt;h2 id=&#34;-导论&#34;&gt;🚏 导论&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;p&gt;代理模式（Proxy Pattern）为其他对象提供一种代理以控制对这个对象的访问。&lt;/p&gt;&lt;/blockquote&gt;
-&lt;p&gt;代理模式的应用场景&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;远程代理，也就是为一个对象在不同的地址空间提供局部代表。这样可以隐藏一个对象存在于不同地址空间的事实。&lt;/li&gt;
-&lt;li&gt;虚拟代理，是根据需要创建开销很大的对象。通过它来存放实例化需要很长时间的真实对象。&lt;/li&gt;
-&lt;li&gt;安全代理，用来控制真实对象访问时的权限。&lt;/li&gt;
-&lt;li&gt;智能指引，是指当调用真实的对象时，代理处理另外一些事。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;hr&gt;
-&lt;h2 id=&#34;-结构&#34;&gt;🚦 结构&lt;/h2&gt;
-&lt;h3 id=&#34;uml类图&#34;&gt;UML类图&lt;/h3&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-mermaid&#34; data-lang=&#34;mermaid&#34;&gt;classDiagram
-    class Client{      
-    }
-    class Subject{
-        &amp;lt;&amp;lt;abstract&amp;gt;&amp;gt;
-        +Request()
-    }
-    class RealSubject{
-        +Request()
-    }
-    class Proxy{
-        -realSubject: RealSubject
-        +Request()
-    }
-    Client --&amp;gt; Subject
-    Subject &amp;lt;|.. RealSubject
-    Subject &amp;lt;|.. Proxy
-&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;代码实现&#34;&gt;代码实现&lt;/h3&gt;
-&lt;p&gt;Subject类，定义了RealSubject和Proxy的公共接口，这样就在任何使用RealSubject的地方都可以使用Proxy&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;kd&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;abstract&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Subject&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;kd&#34;&gt;abstract&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;void&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;Request&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;RealSUbject类，定义Proxy所代表的真实实体&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;kd&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;RealSubject&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;kd&#34;&gt;extends&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Subject&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;nd&#34;&gt;@Override&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;void&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;Request&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;System&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;out&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;println&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;真实的请求&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Proxy类，保存一个引用使得代理可以访问实体，并提供一个与Subject相同的接口，这样代理就可以用来代替实体&lt;/p&gt;</description>
+      <description>🚏 导论 代理模式（Proxy Pattern）为其他对象提供一种代理以控制对这个对象的访问。
+代理模式的应用场景
+远程代理，也就是为一个对象在不同的地址空间提供局部代表。这样可以隐藏一个对象存在于不同地址空间的事实。 虚拟代理，是根据需要创建开销很大的对象。通过它来存放实例化需要很长时间的真实对象。 安全代理，用来控制真实对象访问时的权限。 智能指引，是指当调用真实的对象时，代理处理另外一些事。 🚦 结构 UML类图 classDiagram class Client{ } class Subject{ &amp;lt;&amp;lt;abstract&amp;gt;&amp;gt; +Request() } class RealSubject{ +Request() } class Proxy{ -realSubject: RealSubject +Request() } Client --&amp;gt; Subject Subject &amp;lt;|.. RealSubject Subject &amp;lt;|.. Proxy 代码实现 Subject类，定义了RealSubject和Proxy的公共接口，这样就在任何使用RealSubject的地方都可以使用Proxy
+public class abstract Subject { public abstract void Request(); } RealSUbject类，定义Proxy所代表的真实实体
+public class RealSubject extends Subject { @Override public void Request() { System.out.println(&amp;#34;真实的请求&amp;#34;); } } Proxy类，保存一个引用使得代理可以访问实体，并提供一个与Subject相同的接口，这样代理就可以用来代替实体
+public class Proxy extends Subject { private RealSubject realSubject; @Override public void Request() { if (realSubject == null) { realSubject = new RealSubject(); } realSubject.</description>
     </item>
     <item>
       <title>装饰模式（Decorator Pattern）</title>
       <link>http://rextechie.github.io/posts/design_patterns/decorator_pattern/</link>
       <pubDate>Sat, 11 Jan 2025 09:01:58 +0800</pubDate>
       <guid>http://rextechie.github.io/posts/design_patterns/decorator_pattern/</guid>
-      <description>&lt;h2 id=&#34;-导论&#34;&gt;🚏 导论&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;p&gt;装饰模式（Decorator Pattern）：动态地给一个对象添加一些额外的职责。就增加功能来说，装饰模式比生成子类更为灵活。当现有目标功能不足的时候，需要增强时，可以考虑使用装饰模式。&lt;/p&gt;&lt;/blockquote&gt;
-&lt;p&gt;装饰模式把每个要装饰的代码放在单独的类中，并让这个类包装它所要装饰的对象，因此，当需要执行特殊行为时，客户代码就可以在运行时根据需要有选择地、按顺序地使用装饰功能包装对象了。&lt;/p&gt;
-&lt;p&gt;装饰器常在面向切面编程（AOP）中使用，比如日志、事务、权限等功能。&lt;/p&gt;
-&lt;hr&gt;
-&lt;h2 id=&#34;-结构&#34;&gt;🚦 结构&lt;/h2&gt;
-&lt;h3 id=&#34;uml类图&#34;&gt;UML类图&lt;/h3&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-mermaid&#34; data-lang=&#34;mermaid&#34;&gt;classDiagram
-  class Component{
-    &amp;lt;&amp;lt;interface&amp;gt;&amp;gt;
-    +operation()
-  }
-  class ConcreteComponent{
-    +operation()
-  }
-  class Decorator{
-    &amp;lt;&amp;lt;abstract&amp;gt;&amp;gt;
-    -component: Component
-    +operation()
-  }
-  class ConcreteDecoratorA{
-    -addedState
-    +operation()
-  }
-  class ConcreteDecoratorB{
-    +operation()
-    -AddedBehavior()
-  }
-  Component &amp;lt;|-- ConcreteComponent
-  Component &amp;lt;|-- Decorator
-  Decorator o-- Component
-  Decorator &amp;lt;|-- ConcreteDecoratorA
-  Decorator &amp;lt;|-- ConcreteDecoratorB
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Component是定义一个对象接口，可以给这些对象动态地添加职责。ConcreteComponent是定义了一个具体的对象，也可以给这个对象添加一些职责。Decorator，装饰抽象类，继承了Component，从外类来扩展Component类的功能，但对于Component来说，是无需知道Decorator的存在的。至于ConcreteDecorator就是具体的装饰对象，起到给Component添加职责的功能。&lt;/p&gt;
-&lt;p&gt;装饰模式是利用setComponent来对对象进行包装的。这样每个装饰对象的实现就和如何使用这个对象分离开了，每个装饰对象只关心自己的功能，不需要关心如何被添加到对象链当中。&lt;/p&gt;
-&lt;h3 id=&#34;基本代码&#34;&gt;基本代码&lt;/h3&gt;
-&lt;p&gt;Component类&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;kd&#34;&gt;interface&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;Component&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;void&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;operation&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;ConcreteComponent类&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;kd&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;ConcreteComponent&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;kd&#34;&gt;implements&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Component&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;nd&#34;&gt;@Override&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;void&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;operation&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;System&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;out&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;println&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;具体对象的操作&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Decorator类&lt;/p&gt;</description>
+      <description>🚏 导论 装饰模式（Decorator Pattern）：动态地给一个对象添加一些额外的职责。就增加功能来说，装饰模式比生成子类更为灵活。当现有目标功能不足的时候，需要增强时，可以考虑使用装饰模式。
+装饰模式把每个要装饰的代码放在单独的类中，并让这个类包装它所要装饰的对象，因此，当需要执行特殊行为时，客户代码就可以在运行时根据需要有选择地、按顺序地使用装饰功能包装对象了。
+装饰器常在面向切面编程（AOP）中使用，比如日志、事务、权限等功能。
+🚦 结构 UML类图 classDiagram class Component{ &amp;lt;&amp;lt;interface&amp;gt;&amp;gt; +operation() } class ConcreteComponent{ +operation() } class Decorator{ &amp;lt;&amp;lt;abstract&amp;gt;&amp;gt; -component: Component +operation() } class ConcreteDecoratorA{ -addedState +operation() } class ConcreteDecoratorB{ +operation() -AddedBehavior() } Component &amp;lt;|-- ConcreteComponent Component &amp;lt;|-- Decorator Decorator o-- Component Decorator &amp;lt;|-- ConcreteDecoratorA Decorator &amp;lt;|-- ConcreteDecoratorB Component是定义一个对象接口，可以给这些对象动态地添加职责。ConcreteComponent是定义了一个具体的对象，也可以给这个对象添加一些职责。Decorator，装饰抽象类，继承了Component，从外类来扩展Component类的功能，但对于Component来说，是无需知道Decorator的存在的。至于ConcreteDecorator就是具体的装饰对象，起到给Component添加职责的功能。
+装饰模式是利用setComponent来对对象进行包装的。这样每个装饰对象的实现就和如何使用这个对象分离开了，每个装饰对象只关心自己的功能，不需要关心如何被添加到对象链当中。
+基本代码 Component类
+public interface Component { void operation(); } ConcreteComponent类
+public class ConcreteComponent implements Component { @Override public void operation() { System.</description>
     </item>
     <item>
       <title>里氏替换原则(Liskov Substitution Principle)</title>
       <link>http://rextechie.github.io/posts/design_patterns/liskov_substitution_principle/</link>
       <pubDate>Fri, 10 Jan 2025 09:58:23 +0800</pubDate>
       <guid>http://rextechie.github.io/posts/design_patterns/liskov_substitution_principle/</guid>
-      <description>&lt;h2 id=&#34;-导论&#34;&gt;🚏 导论&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;p&gt;里氏替换原则（LSP）：子类型必须能够替换掉它们的父类型。&lt;/p&gt;&lt;/blockquote&gt;
-&lt;p&gt;里氏替换原则是Barbara Liskov女士在1988年发表的，&lt;a href=&#34;https://dl.acm.org/doi/pdf/10.1145/197320.197383&#34;&gt;A behavioral notion of subtyping&lt;/a&gt;, 具体的数学定义如下所示：If S is a declared subtype of T, objects of type S should behave as objects of type T are expected to behave, if they are treated as objects of type T。用大白话翻译就是一个软件实体如果使用的是一个父类的话，那么一定适用于其子类，而且它察觉不出父类对象和子类对象的区别。也就是说，在软件里面，把父类都替换成它的子类，程序的行为没有变化。&lt;/p&gt;
-&lt;p&gt;由于有里氏替换原则，才使得&lt;a href=&#34;../open_closed_principle&#34;&gt;开放-封闭&lt;/a&gt;成为了可能，正是由于子类性的可替换性才使得使用父类类型的模块在无需修改的情况下可以扩展。&lt;/p&gt;
-&lt;hr&gt;
-&lt;h2 id=&#34;-场景&#34;&gt;🎬 场景&lt;/h2&gt;
-&lt;h3 id=&#34;场景一-动物世界&#34;&gt;场景一：🐒 动物世界&lt;/h3&gt;
-&lt;p&gt;因为了有了这个原则，使得继承复用成为了可能，只有当子类可以替换掉父类，软件单位的功能不受到影响时，父类才能真正被复用，而子类也能够在父类的基础上增加新的行为。猫是继承动物类的，以动物的身份拥有吃、喝、跑、叫等行为，可当某一天，我们需要狗、牛、羊也拥有类似的行为，由于它们都是继承于动物，所以除了更改实例化的地方，程序其他处不需要改变。&lt;/p&gt;</description>
+      <description>🚏 导论 里氏替换原则（LSP）：子类型必须能够替换掉它们的父类型。
+里氏替换原则是Barbara Liskov女士在1988年发表的，A behavioral notion of subtyping, 具体的数学定义如下所示：If S is a declared subtype of T, objects of type S should behave as objects of type T are expected to behave, if they are treated as objects of type T。用大白话翻译就是一个软件实体如果使用的是一个父类的话，那么一定适用于其子类，而且它察觉不出父类对象和子类对象的区别。也就是说，在软件里面，把父类都替换成它的子类，程序的行为没有变化。
+由于有里氏替换原则，才使得开放-封闭成为了可能，正是由于子类性的可替换性才使得使用父类类型的模块在无需修改的情况下可以扩展。
+🎬 场景 场景一：🐒 动物世界 因为了有了这个原则，使得继承复用成为了可能，只有当子类可以替换掉父类，软件单位的功能不受到影响时，父类才能真正被复用，而子类也能够在父类的基础上增加新的行为。猫是继承动物类的，以动物的身份拥有吃、喝、跑、叫等行为，可当某一天，我们需要狗、牛、羊也拥有类似的行为，由于它们都是继承于动物，所以除了更改实例化的地方，程序其他处不需要改变。</description>
     </item>
     <item>
       <title>依赖倒转原则(Dependency Inversion Principle)</title>
       <link>http://rextechie.github.io/posts/design_patterns/dependency_inversion_principle/</link>
       <pubDate>Fri, 10 Jan 2025 09:57:54 +0800</pubDate>
       <guid>http://rextechie.github.io/posts/design_patterns/dependency_inversion_principle/</guid>
-      <description>&lt;h2 id=&#34;-导论&#34;&gt;🚏 导论&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;p&gt;依赖倒转原则&lt;/p&gt;
-&lt;p&gt;A. 高层模块不应该依赖低层模块。两个都应该依赖抽象。&lt;/p&gt;
-&lt;p&gt;B. 抽象不应该依赖细节。细节应该依赖抽象。&lt;/p&gt;&lt;/blockquote&gt;
-&lt;hr&gt;
-&lt;h2 id=&#34;-场景&#34;&gt;🎬 场景&lt;/h2&gt;
-&lt;h3 id=&#34;场景一-修电脑&#34;&gt;场景一：📦 修电脑&lt;/h3&gt;
-&lt;p&gt;当电脑出现蓝屏时，通常考虑是否时内存坏了或是内存条与主板接触不良。如果是内存坏了，那么就需要更换内存条，如果是内存条与主板接触不良，那么就需要重新插拔内存条。得益于电脑部件以及相关接口的设计，只需要了解简单的计算机知识，就可以轻松的定位问题并维修电脑了。他们的设计中体现了依赖倒转原则，当然还有其他的原则（&lt;a href=&#34;../signle_responsibility_principle&#34;&gt;单一职责原则&lt;/a&gt;、&lt;a href=&#34;../open_closed_principle&#34;&gt;开放-封闭原则&lt;/a&gt;）。依赖倒转原则原话是说抽象不应该依赖细节，细节应该依赖于抽象，其实就是面向接口编程，而不是面向实现编程。无论主板、CPU、内存、硬盘都是在针对接口设计的，如果针对实现来设计，内存就要对应到具体的某个品牌的主板，那就回出现换内存需要把主板也换了的尴尬。
-与修📻收音机相比，修电脑反而要简单。是因为收音机耦合过度了，只要收音机出现故障，不管是没有声音、不能调频，还是有杂音，反正都很难修，因为任何问题都可能涉及其他部件，各个部件相互依赖，难易维护。&lt;/p&gt;</description>
+      <description>🚏 导论 依赖倒转原则
+A. 高层模块不应该依赖低层模块。两个都应该依赖抽象。
+B. 抽象不应该依赖细节。细节应该依赖抽象。
+🎬 场景 场景一：📦 修电脑 当电脑出现蓝屏时，通常考虑是否时内存坏了或是内存条与主板接触不良。如果是内存坏了，那么就需要更换内存条，如果是内存条与主板接触不良，那么就需要重新插拔内存条。得益于电脑部件以及相关接口的设计，只需要了解简单的计算机知识，就可以轻松的定位问题并维修电脑了。他们的设计中体现了依赖倒转原则，当然还有其他的原则（单一职责原则、开放-封闭原则）。依赖倒转原则原话是说抽象不应该依赖细节，细节应该依赖于抽象，其实就是面向接口编程，而不是面向实现编程。无论主板、CPU、内存、硬盘都是在针对接口设计的，如果针对实现来设计，内存就要对应到具体的某个品牌的主板，那就回出现换内存需要把主板也换了的尴尬。 与修📻收音机相比，修电脑反而要简单。是因为收音机耦合过度了，只要收音机出现故障，不管是没有声音、不能调频，还是有杂音，反正都很难修，因为任何问题都可能涉及其他部件，各个部件相互依赖，难易维护。</description>
     </item>
     <item>
       <title>开放-封闭原则(Open Closed Principle)</title>
       <link>http://rextechie.github.io/posts/design_patterns/open_closed_principle/</link>
       <pubDate>Fri, 10 Jan 2025 09:12:18 +0800</pubDate>
       <guid>http://rextechie.github.io/posts/design_patterns/open_closed_principle/</guid>
-      <description>&lt;h2 id=&#34;-导论&#34;&gt;🚏 导论&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;p&gt;开放-封闭原则，是说软件实体（类、模块、函数等等）应该可以扩展，但是不可修改。&lt;/p&gt;&lt;/blockquote&gt;
-&lt;p&gt;对于拓展是开放的（Open for extension），对于更改是封闭的（Closed for modiication）&lt;/p&gt;
-&lt;p&gt;我们在做任何系统的时候都不要指望系统一开始时需求确定，就再也不会变化，这是不现实也不科学的想法，而既然需求是一定会变化的，那么如何在面对需求的变化时，设计的软件可以相对容易修改，不至于说，新需求一来，就要把整个程序推到重来。怎样的设计才能让软件在需求变化时，可以相对容易的修改呢？这就是开放-封闭原则要解决的问题。&lt;/p&gt;
-&lt;p&gt;具体来说，在设计的时候，时刻要考虑，尽量让这个类足够好，写好了就不要去修改了，如果新需求来了，增加一些类，原来的代码能不动则不动。当然，绝对的对修改封闭是不可能的。无论模块是多么的“封闭”，都会存在一些无法对之封闭的变化。既然不可能完全封闭，设计人员必须对于他设计的模块应该对哪种变化封闭做出选择。他必须先猜测出最有可能发生的变化种类，然后构造抽象来隔离那些变化。若猜测失败，要及时的去调整。面对新需求，对程序的改动是通过增加新代码进行的，而不是更改现有的代码。&lt;/p&gt;
-&lt;p&gt;开放-封闭原则是面向对象设计的核心所在。遵循这个原则可以带来面向对象技术所声称的巨大好处，也就是可维护、可扩展、可复用、灵活性好。开发人员应该仅对程序中呈现出频繁变化的那些部分做出抽象，然而，对于应用程序中的每个部分都刻意地进行抽象同样不是一个好主意。拒绝不成熟的抽象和抽象本身一样重要。&lt;/p&gt;
-&lt;hr&gt;
-&lt;h2 id=&#34;-场景&#34;&gt;🎬 场景&lt;/h2&gt;
-&lt;h3 id=&#34;场景一-公司管理&#34;&gt;场景一：🏢 公司管理&lt;/h3&gt;
-&lt;p&gt;现要作为老板，给公司制定考勤制度，规定九点上班，不允许迟到。但是有公司骨干，老是迟到。他们也有实际的难处，比如有些人家离公司太远，有些人每天上午要送小孩子上学。需要对他们特殊处理，但不能违反公司的规定。其实迟到不是问题，最主要的是保证8小时的工作量或是完成业绩目标。于是应该改变管理方式，如弹性上班工作制，早到早下班，晚到晚下班，或者每人每月允许三次迟到，迟到者当天下班补时间等等。对市场销售人员可能就更加以业绩为标准，工作时间不固定了。这其实就是对工作时间或业绩成效的修改关闭，而对时间制度拓展的开放。&lt;/p&gt;</description>
+      <description>🚏 导论 开放-封闭原则，是说软件实体（类、模块、函数等等）应该可以扩展，但是不可修改。
+对于拓展是开放的（Open for extension），对于更改是封闭的（Closed for modiication）
+我们在做任何系统的时候都不要指望系统一开始时需求确定，就再也不会变化，这是不现实也不科学的想法，而既然需求是一定会变化的，那么如何在面对需求的变化时，设计的软件可以相对容易修改，不至于说，新需求一来，就要把整个程序推到重来。怎样的设计才能让软件在需求变化时，可以相对容易的修改呢？这就是开放-封闭原则要解决的问题。
+具体来说，在设计的时候，时刻要考虑，尽量让这个类足够好，写好了就不要去修改了，如果新需求来了，增加一些类，原来的代码能不动则不动。当然，绝对的对修改封闭是不可能的。无论模块是多么的“封闭”，都会存在一些无法对之封闭的变化。既然不可能完全封闭，设计人员必须对于他设计的模块应该对哪种变化封闭做出选择。他必须先猜测出最有可能发生的变化种类，然后构造抽象来隔离那些变化。若猜测失败，要及时的去调整。面对新需求，对程序的改动是通过增加新代码进行的，而不是更改现有的代码。
+开放-封闭原则是面向对象设计的核心所在。遵循这个原则可以带来面向对象技术所声称的巨大好处，也就是可维护、可扩展、可复用、灵活性好。开发人员应该仅对程序中呈现出频繁变化的那些部分做出抽象，然而，对于应用程序中的每个部分都刻意地进行抽象同样不是一个好主意。拒绝不成熟的抽象和抽象本身一样重要。
+🎬 场景 场景一：🏢 公司管理 现要作为老板，给公司制定考勤制度，规定九点上班，不允许迟到。但是有公司骨干，老是迟到。他们也有实际的难处，比如有些人家离公司太远，有些人每天上午要送小孩子上学。需要对他们特殊处理，但不能违反公司的规定。其实迟到不是问题，最主要的是保证8小时的工作量或是完成业绩目标。于是应该改变管理方式，如弹性上班工作制，早到早下班，晚到晚下班，或者每人每月允许三次迟到，迟到者当天下班补时间等等。对市场销售人员可能就更加以业绩为标准，工作时间不固定了。这其实就是对工作时间或业绩成效的修改关闭，而对时间制度拓展的开放。</description>
     </item>
     <item>
       <title>单一职责原则(Single Responsibility Principle)</title>
       <link>http://rextechie.github.io/posts/design_patterns/signle_responsibility_principle/</link>
       <pubDate>Fri, 10 Jan 2025 08:30:28 +0800</pubDate>
       <guid>http://rextechie.github.io/posts/design_patterns/signle_responsibility_principle/</guid>
-      <description>&lt;h2 id=&#34;-导论&#34;&gt;🚏 导论&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;p&gt;单一职责原则（SRP），就一个类而言，应该仅有一个引起它变化的原因。&lt;/p&gt;&lt;/blockquote&gt;
-&lt;p&gt;如果一个类承担的职责过多，就等于把这些职责耦合在一起，一个职责的变化可能会削弱或者抑制这个类完成其他职责的能力。这种耦合会导致脆弱的设计，当变化发生时，设计会遭受到意想不到的破坏。&lt;/p&gt;
-&lt;p&gt;软件设计真正要做的许多内容，就是发现职责并把那些职责相互分离。如果你能够想到多于一个的动机去改变一个类，那么这个类就具有多于一个的职责，就应该考虑类的职责分离。&lt;/p&gt;
-&lt;hr&gt;
-&lt;h2 id=&#34;-场景&#34;&gt;🎬 场景&lt;/h2&gt;
-&lt;h3 id=&#34;场景一-手机&#34;&gt;场景一：📱 手机&lt;/h3&gt;
-&lt;p&gt;现在的手机都有很多功能（除了打电话、发消息）：听音乐 、玩游戏、 拍照、摄影等等。但是这里的功能，都是基础功能，实际并没有做的特别专。比如听音乐，手机的音质没有专业的音乐播放器好；拍照，手机的像素没有专业的相机好；玩游戏，手机的操作体验没有专业的游戏机好。所以，手机的功能虽然多，但是都是基础功能，没有做的特别专业。大多时候，一件产品简单一些，职责单一一些，或许是更好的选择。&lt;/p&gt;
-&lt;p&gt;当然，手机的发展有它的特点，而编程时，我们却是要在类的职责分离上多做思考，做到单一职责，这样代码才是真正的易维护、易扩展、易复用、灵活多样。&lt;/p&gt;
-&lt;h3 id=&#34;场景二-俄罗斯方块&#34;&gt;场景二：♦️ 俄罗斯方块&lt;/h3&gt;
-&lt;p&gt;俄罗斯方块的实现：俄罗斯方块下落动画的原理是画四个小方块，擦掉，然后再在下一行画四个小方块。不断绘出和擦掉就形成了动画，所以应该要有画和擦方块的动画。然后左右键实现左移和右移，下键实现加速，上键实现旋转，这些其实都应该是函数，当然左右移动需要考虑碰撞的问题，下移需要考虑堆积和消层的问题。&lt;/p&gt;
-&lt;p&gt;这里大部分都是一些函数，如果将这些函数都放在一个类里，那么这个类就会变得很大，很难维护并且也很难迁移。可以将这些与游戏逻辑相关的函数（下落、旋转、碰撞判断、移动、堆积）提取出来，这些函数和界面如何表示没有特别大的关系，因为所谓方块无非是一个坐标，方块的下落、旋转、碰撞判断、移动、堆积等都是坐标的变化。因此可以将运行界面和游戏逻辑分开，这样就可以更好的维护和迁移。&lt;/p&gt;</description>
+      <description>🚏 导论 单一职责原则（SRP），就一个类而言，应该仅有一个引起它变化的原因。
+如果一个类承担的职责过多，就等于把这些职责耦合在一起，一个职责的变化可能会削弱或者抑制这个类完成其他职责的能力。这种耦合会导致脆弱的设计，当变化发生时，设计会遭受到意想不到的破坏。
+软件设计真正要做的许多内容，就是发现职责并把那些职责相互分离。如果你能够想到多于一个的动机去改变一个类，那么这个类就具有多于一个的职责，就应该考虑类的职责分离。
+🎬 场景 场景一：📱 手机 现在的手机都有很多功能（除了打电话、发消息）：听音乐 、玩游戏、 拍照、摄影等等。但是这里的功能，都是基础功能，实际并没有做的特别专。比如听音乐，手机的音质没有专业的音乐播放器好；拍照，手机的像素没有专业的相机好；玩游戏，手机的操作体验没有专业的游戏机好。所以，手机的功能虽然多，但是都是基础功能，没有做的特别专业。大多时候，一件产品简单一些，职责单一一些，或许是更好的选择。
+当然，手机的发展有它的特点，而编程时，我们却是要在类的职责分离上多做思考，做到单一职责，这样代码才是真正的易维护、易扩展、易复用、灵活多样。
+场景二：♦️ 俄罗斯方块 俄罗斯方块的实现：俄罗斯方块下落动画的原理是画四个小方块，擦掉，然后再在下一行画四个小方块。不断绘出和擦掉就形成了动画，所以应该要有画和擦方块的动画。然后左右键实现左移和右移，下键实现加速，上键实现旋转，这些其实都应该是函数，当然左右移动需要考虑碰撞的问题，下移需要考虑堆积和消层的问题。
+这里大部分都是一些函数，如果将这些函数都放在一个类里，那么这个类就会变得很大，很难维护并且也很难迁移。可以将这些与游戏逻辑相关的函数（下落、旋转、碰撞判断、移动、堆积）提取出来，这些函数和界面如何表示没有特别大的关系，因为所谓方块无非是一个坐标，方块的下落、旋转、碰撞判断、移动、堆积等都是坐标的变化。因此可以将运行界面和游戏逻辑分开，这样就可以更好的维护和迁移。</description>
     </item>
     <item>
       <title>策略模式（Strategy Pattern）</title>
@@ -224,7 +131,7 @@
       <link>http://rextechie.github.io/posts/paper_note/metagpt/</link>
       <pubDate>Tue, 07 Jan 2025 20:39:47 +0800</pubDate>
       <guid>http://rextechie.github.io/posts/paper_note/metagpt/</guid>
-      <description>一种评估大模型生成代码能力的方法</description>
+      <description>一种多智能体写作代码生成的方法</description>
     </item>
     <item>
       <title>Evaluating Large Language Models Trained on Code</title>
@@ -238,45 +145,7 @@
       <link>http://rextechie.github.io/about/</link>
       <pubDate>Sat, 21 Dec 2024 10:00:00 +0800</pubDate>
       <guid>http://rextechie.github.io/about/</guid>
-      <description>&lt;h2 id=&#34;关于我-&#34;&gt;关于我 🎓&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;🎯 软件工程研究生在读&lt;/li&gt;
-&lt;li&gt;🔬 研究方向：基于大语言模型的代码生成&lt;/li&gt;
-&lt;li&gt;💻 后端开发工程师&lt;/li&gt;
-&lt;li&gt;🌱 持续学习，保持热情&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;研究领域-&#34;&gt;研究领域 🚀&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;大语言模型在软件工程中的应用&lt;/li&gt;
-&lt;li&gt;智能代码生成与程序合成&lt;/li&gt;
-&lt;li&gt;代码理解与转换&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;技术栈-&#34;&gt;技术栈 💪&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;语言：Java, Python, JavaScript&amp;hellip;&lt;/li&gt;
-&lt;li&gt;框架：Spring Boot, Spring Cloud, MyBatis&amp;hellip;&lt;/li&gt;
-&lt;li&gt;数据库：MySQL, Redis, MongoDB, Elasticsearch&amp;hellip;&lt;/li&gt;
-&lt;li&gt;AI/ML：Neural Network, Transformers&amp;hellip;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;项目经历-&#34;&gt;项目经历 📚&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;🤖 基于LLM的代码生成系统&lt;/li&gt;
-&lt;li&gt;🌟 分布式微服务架构设计与实现&lt;/li&gt;
-&lt;li&gt;📊 企业级数据分析平台&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;生活爱好-&#34;&gt;生活爱好 ⭐&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;🏸 羽毛球爱好者&lt;/li&gt;
-&lt;li&gt;🏃 跑步健身&lt;/li&gt;
-&lt;li&gt;📚 阅读：技术书籍&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;github-统计-&#34;&gt;GitHub 统计 📊&lt;/h2&gt;
-&lt;p&gt;&lt;img alt=&#34;GitHub统计&#34; loading=&#34;lazy&#34; src=&#34;https://github-readme-stats.vercel.app/api?username=rextechie&amp;show_icons=true&amp;theme=radical&#34;&gt;&lt;/p&gt;
-&lt;h2 id=&#34;联系我-&#34;&gt;联系我 📫&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;Email: &lt;a href=&#34;mailto:rexhub@163.com&#34;&gt;rexhub@163.com&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Blog: &lt;a href=&#34;https://rextechie.github.io/&#34;&gt;个人博客&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</description>
+      <description>关于我 🎓 🎯 软件工程研究生在读 🔬 研究方向：基于大语言模型的代码生成 💻 后端开发工程师 🌱 持续学习，保持热情 研究领域 🚀 大语言模型在软件工程中的应用 智能代码生成与程序合成 代码理解与转换 技术栈 💪 语言：Java, Python, JavaScript&amp;hellip; 框架：Spring Boot, Spring Cloud, MyBatis&amp;hellip; 数据库：MySQL, Redis, MongoDB, Elasticsearch&amp;hellip; AI/ML：Neural Network, Transformers&amp;hellip; 项目经历 📚 🤖 基于LLM的代码生成系统 🌟 分布式微服务架构设计与实现 📊 企业级数据分析平台 生活爱好 ⭐ 🏸 羽毛球爱好者 🏃 跑步健身 📚 阅读：技术书籍 GitHub 统计 📊 联系我 📫 Email: rexhub@163.com Blog: 个人博客 </description>
     </item>
   </channel>
 </rss>

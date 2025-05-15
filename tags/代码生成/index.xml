@@ -9,16 +9,23 @@
       <url>http://rextechie.github.io/images/profile.png</url>
       <link>http://rextechie.github.io/images/profile.png</link>
     </image>
-    <generator>Hugo -- 0.145.0</generator>
+    <generator>Hugo -- 0.125.7</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 07 Jan 2025 20:39:47 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 12 May 2025 13:41:31 +0800</lastBuildDate>
     <atom:link href="http://rextechie.github.io/tags/%E4%BB%A3%E7%A0%81%E7%94%9F%E6%88%90/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Paper2Code</title>
+      <link>http://rextechie.github.io/posts/paper_note/paper2code/</link>
+      <pubDate>Mon, 12 May 2025 13:41:31 +0800</pubDate>
+      <guid>http://rextechie.github.io/posts/paper_note/paper2code/</guid>
+      <description>一种复现论文代码的方法</description>
+    </item>
     <item>
       <title>MetaGPT: Meta Programming for A Multi-Agent Collaborative Framework</title>
       <link>http://rextechie.github.io/posts/paper_note/metagpt/</link>
       <pubDate>Tue, 07 Jan 2025 20:39:47 +0800</pubDate>
       <guid>http://rextechie.github.io/posts/paper_note/metagpt/</guid>
-      <description>一种评估大模型生成代码能力的方法</description>
+      <description>一种多智能体写作代码生成的方法</description>
     </item>
     <item>
       <title>Evaluating Large Language Models Trained on Code</title>

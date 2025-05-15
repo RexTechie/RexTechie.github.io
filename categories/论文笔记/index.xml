@@ -9,10 +9,17 @@
       <url>http://rextechie.github.io/images/profile.png</url>
       <link>http://rextechie.github.io/images/profile.png</link>
     </image>
-    <generator>Hugo -- 0.145.0</generator>
+    <generator>Hugo -- 0.125.7</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 25 Mar 2025 11:52:08 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 12 May 2025 13:41:31 +0800</lastBuildDate>
     <atom:link href="http://rextechie.github.io/categories/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Paper2Code</title>
+      <link>http://rextechie.github.io/posts/paper_note/paper2code/</link>
+      <pubDate>Mon, 12 May 2025 13:41:31 +0800</pubDate>
+      <guid>http://rextechie.github.io/posts/paper_note/paper2code/</guid>
+      <description>一种复现论文代码的方法</description>
+    </item>
     <item>
       <title>PlanGEN: A Multi-Agent Framework for Generating Planning and Reasoning Trajectories for Complex Problem Solving</title>
       <link>http://rextechie.github.io/posts/paper_note/plangen/</link>
@@ -25,7 +32,7 @@
       <link>http://rextechie.github.io/posts/paper_note/metagpt/</link>
       <pubDate>Tue, 07 Jan 2025 20:39:47 +0800</pubDate>
       <guid>http://rextechie.github.io/posts/paper_note/metagpt/</guid>
-      <description>一种评估大模型生成代码能力的方法</description>
+      <description>一种多智能体写作代码生成的方法</description>
     </item>
     <item>
       <title>Evaluating Large Language Models Trained on Code</title>
