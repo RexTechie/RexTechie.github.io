@@ -20,6 +20,7 @@ tags: ["论文笔记"]
 ### 代码生成相关模型
 
 - [MetaGPT: Meta Programming for A Multi-Agent Collaborative Framework](../metagpt/)
+- [Paper2Code: Automating Code Generation from Scientific Papers in Machine Learning](../paper2code/)
 
 ### 代码生成评估指标
   

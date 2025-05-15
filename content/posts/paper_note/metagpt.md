@@ -2,7 +2,7 @@
 title: "MetaGPT: Meta Programming for A Multi-Agent Collaborative Framework"
 date: 2025-01-07T20:39:47+08:00
 draft: false
-description: "一种评估大模型生成代码能力的方法"
+description: "一种多智能体写作代码生成的方法"
 categories: ["📒论文笔记"]
 tags: ["代码生成",]
 ---
