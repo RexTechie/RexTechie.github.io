@@ -28,11 +28,11 @@
       <description>记录《大话设计模式》学习笔记，深入浅出23种设计模式，从实际应用出发理解设计模式的精髓</description>
     </item>
     <item>
-      <title>SpringCloud</title>
+      <title>SpringCloud原生中间件</title>
       <link>http://rextechie.github.io/posts/java/springcloud/</link>
       <pubDate>Mon, 09 Jun 2025 13:57:23 +0800</pubDate>
       <guid>http://rextechie.github.io/posts/java/springcloud/</guid>
-      <description>Spring Cloud、Spring Cloud Alibaba中间件的介绍和使用</description>
+      <description>Spring Cloud中间件的介绍</description>
     </item>
     <item>
       <title>DocAgent: A Multi-Agent System for Automated Code Documentation Generation</title>
