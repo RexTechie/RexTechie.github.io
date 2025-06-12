@@ -11,14 +11,35 @@
     </image>
     <generator>Hugo -- 0.125.7</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 25 Mar 2025 11:52:08 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 03 Jun 2025 13:11:17 +0800</lastBuildDate>
     <atom:link href="http://rextechie.github.io/tags/agent/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>DocAgent: A Multi-Agent System for Automated Code Documentation Generation</title>
+      <link>http://rextechie.github.io/posts/paper_note/doc_agent/</link>
+      <pubDate>Tue, 03 Jun 2025 13:11:17 +0800</pubDate>
+      <guid>http://rextechie.github.io/posts/paper_note/doc_agent/</guid>
+      <description>代码文档生成</description>
+    </item>
+    <item>
+      <title>Paper2Code</title>
+      <link>http://rextechie.github.io/posts/paper_note/paper2code/</link>
+      <pubDate>Mon, 12 May 2025 13:41:31 +0800</pubDate>
+      <guid>http://rextechie.github.io/posts/paper_note/paper2code/</guid>
+      <description>一种复现论文代码的方法</description>
+    </item>
     <item>
       <title>PlanGEN: A Multi-Agent Framework for Generating Planning and Reasoning Trajectories for Complex Problem Solving</title>
       <link>http://rextechie.github.io/posts/paper_note/plangen/</link>
       <pubDate>Tue, 25 Mar 2025 11:52:08 +0800</pubDate>
       <guid>http://rextechie.github.io/posts/paper_note/plangen/</guid>
       <description>Agent生成框架</description>
+    </item>
+    <item>
+      <title>MetaGPT: Meta Programming for A Multi-Agent Collaborative Framework</title>
+      <link>http://rextechie.github.io/posts/paper_note/metagpt/</link>
+      <pubDate>Tue, 07 Jan 2025 20:39:47 +0800</pubDate>
+      <guid>http://rextechie.github.io/posts/paper_note/metagpt/</guid>
+      <description>一种多智能体写作代码生成的方法</description>
     </item>
   </channel>
 </rss>
