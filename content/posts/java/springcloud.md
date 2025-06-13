@@ -6,15 +6,13 @@ description: "Spring Cloud中间件的介绍"
 tags: ["Java", Spring Cloud]
 ---
 
-# Spring Cloud原生中间件
-
 ## Consul（服务注册与发现 + 分布式配置管理）
 
 > 拥有服务治理功能，实现微服务之间的动态注册与发现
 >
 > ❌不在使用Eureka：1. 停更进维 2. 注册中心独立且和微服务功能解耦
 
-[Consul官网](https://developer.hashicorp.com/consul) 
+[Consul官网](https://developer.hashicorp.com/consul)
 
 [Spring官方介绍](http://spring.io/projects/spring-cloud-consul)
 
@@ -177,8 +175,8 @@ Spring Cloud提供的两个实现类：Resilience4j、Spring Retry
 
 | **failure-rate-threshold**                       | **以百分比配置失败率峰值**                                   |
 | ------------------------------------------------ | ------------------------------------------------------------ |
-| **sliding-window-type**                          | **断路器的滑动窗口期类型 <br />可以基于“次数”（COUNT_BASED）或者“时间”（TIME_BASED）进行熔断，默认是COUNT_BASED。** |
-| **sliding-window-size**                          | **若COUNT_BASED，则N次调用中有failure-rate-threshold%失败（即5次）打开熔断断路器；** <br />**若为TIME_BASED则，此时还有额外的两个设置属性，含义为：在N秒内（sliding-window-size）100%（slow-call-rate-threshold）的请求超过N秒（slow-call-duration-threshold）打开断路器。** |
+| **sliding-window-type**                          | **断路器的滑动窗口期类型: 基于“次数”（COUNT_BASED）、“时间”（TIME_BASED）进行熔断，默认是COUNT_BASED。** |
+| **sliding-window-size**                          | **若COUNT_BASED，则N次调用中有failure-rate-threshold%失败（即5次）打开熔断断路器；若为TIME_BASED则，此时还有额外的两个设置属性，含义为：在N秒内（sliding-window-size）100%（slow-call-rate-threshold）的请求超过N秒（slow-call-duration-threshold）打开断路器。** |
 | **slowCallRateThreshold**                        | **以百分比的方式配置，断路器把调用时间大于slowCallDurationThreshold的调用视为慢调用，当慢调用比例大于等于峰值时，断路器开启，并进入服务降级。** |
 | **slowCallDurationThreshold**                    | **配置调用时间的峰值，高于该峰值的视为慢调用。**             |
 | **permitted-number-of-calls-in-half-open-state** | **运行断路器在HALF_OPEN状态下时进行N次调用，如果故障或慢速调用仍然高于阈值，断路器再次进入打开状态。** |
@@ -193,9 +191,7 @@ Spring Cloud提供的两个实现类：Resilience4j、Spring Retry
 
 如还是异常CircuitBreaker将重新进入开启OPEN状态；如正常将进入关闭CLOSE闭合状态恢复正常处理请求。
 
-
-
-```
+```yaml
 failure-rate-threshold: 50 # 设置50%的失败率阈值，超过失败请求百分比CircuitBreaker变为open
 sliding-window-type: COUNT_BASED # 滑动窗口的类型
 sliding-window-size: 6 # 滑动窗口的大小，单位为请求数
@@ -205,7 +201,7 @@ wait-duration-in-open-state: 5s # 从OPEN到HALF_OPEN状态的等待时间
 permitted-number-of-calls-in-half-open-state: 2 # 半开状态允许的最大请求数，默认值为10.
 ```
 
-```
+```yaml
 failure-rate-threshold: 50 # 设置50%的失败率阈值，超过失败请求百分比CircuitBreaker变为open
 slow-call-duration-threshold: 2s # 慢调用时间阈值，高于此时间的调用将被视为慢调用并增加调用比例。
 slow-call-rate-threshold: 30 # 慢调用百分比阈值，超过此百分比的慢调用将触发断路器。
@@ -245,9 +241,9 @@ record-exceptions:
 ##### 限流算法
 
 - 漏斗算法（Leaky Bucket）
-  -  一个固定容量的漏桶，按照设定常量固定速率流出水滴，类似医院打吊针，不管你源头流量多大，我设定匀速流出。 
-  -  如果流入水滴超出了桶的容量，则流入的水滴将会溢出了(被丢弃)，而漏桶容量是不变的。
-  -  缺点：对于存在突发特性的流量来说缺乏效率。
+  - 一个固定容量的漏桶，按照设定常量固定速率流出水滴，类似医院打吊针，不管你源头流量多大，我设定匀速流出。
+  - 如果流入水滴超出了桶的容量，则流入的水滴将会溢出了(被丢弃)，而漏桶容量是不变的。
+  - 缺点：对于存在突发特性的流量来说缺乏效率。
 - **令牌桶算法（Token Bucket）**
   - Spring Cloud 默认使用的算法
   - 当用户发起请求，先判断桶空不空
@@ -299,7 +295,7 @@ record-exceptions:
 - zipkin-reporter-brave  一个用于将 Brave 跟踪数据报告到Zipkin 跟踪系统的库。
 - 补充包：spring-boot-starter-actuator  SpringBoot框架的一个模块用于监视和管理应用程序
 
-##  Gateway（服务网关 ）
+## Gateway（服务网关 ）
 
 > 以前都是用Zuul，但是Zuul更新太水了，Spring Cloud 自己研发了Gateway替代Zuul
 >
