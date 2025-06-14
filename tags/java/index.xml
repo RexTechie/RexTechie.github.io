@@ -11,10 +11,17 @@
     </image>
     <generator>Hugo -- 0.125.7</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 09 Jun 2025 13:57:23 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 14 Jun 2025 16:23:39 +0800</lastBuildDate>
     <atom:link href="http://rextechie.github.io/tags/java/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>SpringCloud原生中间件</title>
+      <title>Spring Cloud Alibaba原生中间件</title>
+      <link>http://rextechie.github.io/posts/java/springcloudalibaba/</link>
+      <pubDate>Sat, 14 Jun 2025 16:23:39 +0800</pubDate>
+      <guid>http://rextechie.github.io/posts/java/springcloudalibaba/</guid>
+      <description>Spring Cloud Alibaba中间件的介绍</description>
+    </item>
+    <item>
+      <title>Spring Cloud原生中间件</title>
       <link>http://rextechie.github.io/posts/java/springcloud/</link>
       <pubDate>Mon, 09 Jun 2025 13:57:23 +0800</pubDate>
       <guid>http://rextechie.github.io/posts/java/springcloud/</guid>
