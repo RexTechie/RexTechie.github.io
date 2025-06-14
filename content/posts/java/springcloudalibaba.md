@@ -1,14 +1,16 @@
 ---
-title: "Spring Cloud Alibaba原生中间件"
+title: "Spring Cloud Alibaba中间件"
 date: 2025-06-14T16:23:39+08:00
 draft: false
 description: "Spring Cloud Alibaba中间件的介绍"
 tags: ["Java", Spring Cloud]
 ---
 
-[Spring官方介绍](https://spring.io/projects/spring-cloud-alibaba#overview) [⚠️Spring官方对Spring Cloud Alibaba的更新不及时]
+🔗 [Spring官方介绍](https://spring.io/projects/spring-cloud-alibaba#overview) [⚠️Spring官方对Spring Cloud Alibaba的更新不及时]
 
-[Spring Cloud Alibaba官网](https://sca.aliyun.com/)
+🔗 [Spring Cloud Alibaba官网](https://sca.aliyun.com/)
+
+📝 [代码记录](https://github.com/RexTechie/cloud2024)
 
 ## Nacos（服务注册与发现）
 
