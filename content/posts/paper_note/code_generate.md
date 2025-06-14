@@ -1,5 +1,5 @@
 ---
-title: "代码生成相关论文索引"
+title: "论文笔记索引"
 date: 2025-01-08T21:21:46+08:00
 draft: false
 weight: 1

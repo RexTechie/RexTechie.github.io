@@ -65,12 +65,13 @@ params:
     text: "🏘️Home"
     icon: ./favicon/favicon_32x32.png
     iconHeight: 35
+  
 
   # 头像模式
   profileMode:
     enabled: true # needs to be explicitly set
     title: Rex Blog
-    subtitle: ""
+    subtitle: "👏🏼欢迎光临寒舍"
     imageUrl: "./images/profile.jpg"
     imageWidth: 120
     imageHeight: 120
@@ -83,9 +84,13 @@ params:
 
   # 社交媒体配置
   socialIcons:
+
+    - name: github
+      url": "https://github.com/RexTechie"
     - name: csdn
       url: "https://blog.csdn.net/GiantApe"
-    - name: github
+    - name: bilibili
+      url: "https://space.bilibili.com/37687774"
     - name: email
       url: "mailto:rexhub@163.com"
 

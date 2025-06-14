@@ -1,5 +1,5 @@
 ---
-title: "Spring Cloud原生中间件"
+title: "Spring Cloud 原生中间件"
 date: 2025-06-09T13:57:23+08:00
 draft: false
 description: "Spring Cloud中间件的介绍"

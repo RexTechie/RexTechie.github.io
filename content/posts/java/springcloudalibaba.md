@@ -1,5 +1,5 @@
 ---
-title: "Spring Cloud Alibaba中间件"
+title: "Spring Cloud Alibaba 中间件"
 date: 2025-06-14T16:23:39+08:00
 draft: false
 description: "Spring Cloud Alibaba中间件的介绍"
