@@ -11,31 +11,38 @@
     </image>
     <generator>Hugo -- 0.125.7</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 14 Jun 2025 16:23:39 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 14 Jun 2025 16:46:31 +0800</lastBuildDate>
     <atom:link href="http://rextechie.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>代码生成相关论文索引</title>
+      <title>Java技术栈相关技术笔记索引</title>
+      <link>http://rextechie.github.io/posts/java/guide/</link>
+      <pubDate>Sat, 14 Jun 2025 16:46:31 +0800</pubDate>
+      <guid>http://rextechie.github.io/posts/java/guide/</guid>
+      <description>Java技术栈相关的介绍</description>
+    </item>
+    <item>
+      <title>论文笔记索引</title>
       <link>http://rextechie.github.io/posts/paper_note/code_generate/</link>
       <pubDate>Wed, 08 Jan 2025 21:21:46 +0800</pubDate>
       <guid>http://rextechie.github.io/posts/paper_note/code_generate/</guid>
       <description>论文笔记模板</description>
     </item>
     <item>
-      <title>设计模式</title>
+      <title>设计模式笔记索引</title>
       <link>http://rextechie.github.io/posts/design_patterns/design_patterns/</link>
       <pubDate>Tue, 07 Jan 2025 20:59:11 +0800</pubDate>
       <guid>http://rextechie.github.io/posts/design_patterns/design_patterns/</guid>
       <description>记录《大话设计模式》学习笔记，深入浅出23种设计模式，从实际应用出发理解设计模式的精髓</description>
     </item>
     <item>
-      <title>Spring Cloud Alibaba中间件</title>
+      <title>Spring Cloud Alibaba 中间件</title>
       <link>http://rextechie.github.io/posts/java/springcloudalibaba/</link>
       <pubDate>Sat, 14 Jun 2025 16:23:39 +0800</pubDate>
       <guid>http://rextechie.github.io/posts/java/springcloudalibaba/</guid>
       <description>Spring Cloud Alibaba中间件的介绍</description>
     </item>
     <item>
-      <title>Spring Cloud原生中间件</title>
+      <title>Spring Cloud 原生中间件</title>
       <link>http://rextechie.github.io/posts/java/springcloud/</link>
       <pubDate>Mon, 09 Jun 2025 13:57:23 +0800</pubDate>
       <guid>http://rextechie.github.io/posts/java/springcloud/</guid>
