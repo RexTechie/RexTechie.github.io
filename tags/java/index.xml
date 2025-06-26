@@ -15,9 +15,9 @@
     <atom:link href="http://rextechie.github.io/tags/java/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Java技术栈相关技术笔记索引</title>
-      <link>http://rextechie.github.io/posts/java/guide/</link>
+      <link>http://rextechie.github.io/posts/java/overview/</link>
       <pubDate>Sat, 14 Jun 2025 16:46:31 +0800</pubDate>
-      <guid>http://rextechie.github.io/posts/java/guide/</guid>
+      <guid>http://rextechie.github.io/posts/java/overview/</guid>
       <description>Java技术栈相关的介绍</description>
     </item>
     <item>

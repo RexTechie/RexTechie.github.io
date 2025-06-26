@@ -11,8 +11,15 @@
     </image>
     <generator>Hugo -- 0.125.7</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 03 Jun 2025 13:11:17 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 19 Jun 2025 11:27:17 +0800</lastBuildDate>
     <atom:link href="http://rextechie.github.io/categories/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Multi-Agent Design: Optimizing Agents with Better Prompts and Topologies</title>
+      <link>http://rextechie.github.io/posts/paper_note/multi_agent_design/</link>
+      <pubDate>Thu, 19 Jun 2025 11:27:17 +0800</pubDate>
+      <guid>http://rextechie.github.io/posts/paper_note/multi_agent_design/</guid>
+      <description>多智能体系统设计</description>
+    </item>
     <item>
       <title>DocAgent: A Multi-Agent System for Automated Code Documentation Generation</title>
       <link>http://rextechie.github.io/posts/paper_note/doc_agent/</link>

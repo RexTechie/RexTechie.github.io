@@ -11,28 +11,35 @@
     </image>
     <generator>Hugo -- 0.125.7</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 14 Jun 2025 16:46:31 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 19 Jun 2025 11:27:17 +0800</lastBuildDate>
     <atom:link href="http://rextechie.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Java技术栈相关技术笔记索引</title>
-      <link>http://rextechie.github.io/posts/java/guide/</link>
+      <link>http://rextechie.github.io/posts/java/overview/</link>
       <pubDate>Sat, 14 Jun 2025 16:46:31 +0800</pubDate>
-      <guid>http://rextechie.github.io/posts/java/guide/</guid>
+      <guid>http://rextechie.github.io/posts/java/overview/</guid>
       <description>Java技术栈相关的介绍</description>
     </item>
     <item>
       <title>论文笔记索引</title>
-      <link>http://rextechie.github.io/posts/paper_note/code_generate/</link>
+      <link>http://rextechie.github.io/posts/paper_note/overview/</link>
       <pubDate>Wed, 08 Jan 2025 21:21:46 +0800</pubDate>
-      <guid>http://rextechie.github.io/posts/paper_note/code_generate/</guid>
+      <guid>http://rextechie.github.io/posts/paper_note/overview/</guid>
       <description>论文笔记模板</description>
     </item>
     <item>
       <title>设计模式笔记索引</title>
-      <link>http://rextechie.github.io/posts/design_patterns/design_patterns/</link>
+      <link>http://rextechie.github.io/posts/design_patterns/overview/</link>
       <pubDate>Tue, 07 Jan 2025 20:59:11 +0800</pubDate>
-      <guid>http://rextechie.github.io/posts/design_patterns/design_patterns/</guid>
+      <guid>http://rextechie.github.io/posts/design_patterns/overview/</guid>
       <description>记录《大话设计模式》学习笔记，深入浅出23种设计模式，从实际应用出发理解设计模式的精髓</description>
+    </item>
+    <item>
+      <title>Multi-Agent Design: Optimizing Agents with Better Prompts and Topologies</title>
+      <link>http://rextechie.github.io/posts/paper_note/multi_agent_design/</link>
+      <pubDate>Thu, 19 Jun 2025 11:27:17 +0800</pubDate>
+      <guid>http://rextechie.github.io/posts/paper_note/multi_agent_design/</guid>
+      <description>多智能体系统设计</description>
     </item>
     <item>
       <title>Spring Cloud Alibaba 中间件</title>
