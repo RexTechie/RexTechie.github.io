@@ -28,8 +28,6 @@ tags: ["Agent"]
 
 ## 研究背景 (Background)
 
----
-
 像现在的方法FIM（Fill in the Middle）和 chat agent可以实现自动化生成文档注释，但还是有一些局限性：
 
 1. 省略了必要的信息（例如，参数或返回值描述）。
