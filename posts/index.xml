@@ -11,7 +11,7 @@
     </image>
     <generator>Hugo -- 0.125.7</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 19 Jun 2025 11:27:17 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 15 Jul 2025 20:48:37 +0800</lastBuildDate>
     <atom:link href="http://rextechie.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Java技术栈相关技术笔记索引</title>
@@ -33,6 +33,13 @@
       <pubDate>Tue, 07 Jan 2025 20:59:11 +0800</pubDate>
       <guid>http://rextechie.github.io/posts/design_patterns/overview/</guid>
       <description>记录《大话设计模式》学习笔记，深入浅出23种设计模式，从实际应用出发理解设计模式的精髓</description>
+    </item>
+    <item>
+      <title>Spring Boot原理篇</title>
+      <link>http://rextechie.github.io/posts/java/springboot_principle/</link>
+      <pubDate>Tue, 15 Jul 2025 20:48:37 +0800</pubDate>
+      <guid>http://rextechie.github.io/posts/java/springboot_principle/</guid>
+      <description>Spring Cloud中间件的介绍</description>
     </item>
     <item>
       <title>Multi-Agent Design: Optimizing Agents with Better Prompts and Topologies</title>

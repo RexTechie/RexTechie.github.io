@@ -11,7 +11,7 @@
     </image>
     <generator>Hugo -- 0.125.7</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 14 Jun 2025 16:46:31 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 15 Jul 2025 20:48:37 +0800</lastBuildDate>
     <atom:link href="http://rextechie.github.io/tags/java/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Java技术栈相关技术笔记索引</title>
@@ -19,6 +19,13 @@
       <pubDate>Sat, 14 Jun 2025 16:46:31 +0800</pubDate>
       <guid>http://rextechie.github.io/posts/java/overview/</guid>
       <description>Java技术栈相关的介绍</description>
+    </item>
+    <item>
+      <title>Spring Boot原理篇</title>
+      <link>http://rextechie.github.io/posts/java/springboot_principle/</link>
+      <pubDate>Tue, 15 Jul 2025 20:48:37 +0800</pubDate>
+      <guid>http://rextechie.github.io/posts/java/springboot_principle/</guid>
+      <description>Spring Cloud中间件的介绍</description>
     </item>
     <item>
       <title>Spring Cloud Alibaba 中间件</title>
