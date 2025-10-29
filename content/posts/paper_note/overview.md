@@ -21,6 +21,7 @@ tags: ["论文笔记"]
 - [MetaGPT: Meta Programming for A Multi-Agent Collaborative Framework](../metagpt/)
 - [Paper2Code: Automating Code Generation from Scientific Papers in Machine Learning](../paper2code/)
 - [DocAgent: A Multi-Agent System for Automated Code Documentation Generation](../doc_agent/)
+- [AGILE CODER: Dynamic Collaborative Agents for Software Development based on Agile Methodology](../agile_coder)
 
 ### 代码生成评估指标
   
