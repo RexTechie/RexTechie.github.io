@@ -11,7 +11,7 @@
     </image>
     <generator>Hugo -- 0.125.7</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 27 Oct 2025 18:56:46 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 05 Jan 2026 16:20:53 +0800</lastBuildDate>
     <atom:link href="http://rextechie.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Java技术栈相关技术笔记索引</title>
@@ -21,18 +21,18 @@
       <description>Java技术栈相关的介绍</description>
     </item>
     <item>
-      <title>论文笔记索引</title>
-      <link>http://rextechie.github.io/posts/paper_note/overview/</link>
-      <pubDate>Wed, 08 Jan 2025 21:21:46 +0800</pubDate>
-      <guid>http://rextechie.github.io/posts/paper_note/overview/</guid>
-      <description>论文笔记模板</description>
-    </item>
-    <item>
       <title>设计模式笔记索引</title>
       <link>http://rextechie.github.io/posts/design_patterns/overview/</link>
       <pubDate>Tue, 07 Jan 2025 20:59:11 +0800</pubDate>
       <guid>http://rextechie.github.io/posts/design_patterns/overview/</guid>
       <description>记录《大话设计模式》学习笔记，深入浅出23种设计模式，从实际应用出发理解设计模式的精髓</description>
+    </item>
+    <item>
+      <title>SCALING LARGE LANGUAGE MODEL-BASED  MULTI-AGENT COLLABORATION</title>
+      <link>http://rextechie.github.io/posts/paper_note/macnet/</link>
+      <pubDate>Mon, 05 Jan 2026 16:20:53 +0800</pubDate>
+      <guid>http://rextechie.github.io/posts/paper_note/macnet/</guid>
+      <description>多智能体协作</description>
     </item>
     <item>
       <title>AGILE CODER: Dynamic Collaborative Agents for Software Development based on Agile Methodology</title>
@@ -195,6 +195,14 @@ B. 抽象不应该依赖细节。细节应该依赖抽象。
       <pubDate>Sat, 21 Dec 2024 10:00:00 +0800</pubDate>
       <guid>http://rextechie.github.io/about/</guid>
       <description>关于我 🎓 🎯 软件工程研究生在读 🔬 研究方向：基于大语言模型的代码生成 💻 后端开发工程师 🌱 持续学习，保持热情 研究领域 🚀 大语言模型在软件工程中的应用 智能代码生成与程序合成 代码理解与转换 技术栈 💪 语言：Java, Python, JavaScript&amp;hellip; 框架：Spring Boot, Spring Cloud, MyBatis&amp;hellip; 数据库：MySQL, Redis, MongoDB, Elasticsearch&amp;hellip; AI/ML：Neural Network, Transformers&amp;hellip; 项目经历 📚 🤖 基于LLM的代码生成系统 🌟 分布式微服务架构设计与实现 📊 企业级数据分析平台 生活爱好 ⭐ 🏸 羽毛球爱好者 🏃 跑步健身 📚 阅读：技术书籍 GitHub 统计 📊 联系我 📫 Email: rexhub@163.com Blog: 个人博客 </description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://rextechie.github.io/posts/paper_note/overview/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://rextechie.github.io/posts/paper_note/overview/</guid>
+      <description> title: &amp;ldquo;论文笔记索引&amp;rdquo; date: 2025-01-08T21:21:46+08:00 draft: false weight: 1 description: &amp;ldquo;论文笔记模板&amp;rdquo; tags: [&amp;ldquo;论文笔记&amp;rdquo;] 🔍索引 多智能体 Multi-Agent Design: Optimizing Agents with Better Prompts and Topologies SCALING LARGE LANGUAGE MODEL-BASED MULTI-AGENT COLLABORATION 代码生成 代码生成是指通过机器学习模型生成代码的过程，是自然语言处理和程序生成的结合。代码生成技术在软件开发、自动化测试、代码补全等领域有着广泛的应用。
+MetaGPT: Meta Programming for A Multi-Agent Collaborative Framework Paper2Code: Automating Code Generation from Scientific Papers in Machine Learning DocAgent: A Multi-Agent System for Automated Code Documentation Generation AGILE CODER: Dynamic Collaborative Agents for Software Development based on Agile Methodology 代码生成评估指标 Evaluating Large Language Models Trained on Code </description>
     </item>
   </channel>
 </rss>

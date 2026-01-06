@@ -27,7 +27,7 @@ AP（Eurake）：当网络分区出现后，为了保证可用性，系统B可�
 CP：当网络分区出现后，为了保证一致性，系统返回错误信息。
 当数据出现不一致时，虽然A, B上的注册信息不完全相同，但每个Eureka节点依然能够正常对外提供服务，这会出现查询服务信息时如果请求A查不到，但请求B就能查到。如此保证了可用性但牺牲了一致性结论：违背了一致性C的要求，只满足可用性和分区容错，即AP
 当网络分区出现后，为了保证一致性，就必须拒接请求，否则无法保证一致性，Consul 遵循CAP原理中的CP原则，保证了强一致性和分区容错性，且使用的是Raft算法，比zookeeper使用的Paxos算法更加简单。虽然保证了强一致性，但是可用性就相应下降了，例如服务注册的时间会稍长一些，因为 Consul 的 raft 协议要求必须过半数的节点都写入成功才认为注册成功 ；在leader挂掉了之后，重新选举出leader之前会导致Consul 服务不可用。结论：违背了可用性A的要求，只满足一致性和分区容错，即CP
-使用 ./consul --version # 查看版本号 ....</p></div><footer class=entry-footer><span title='2025-06-09 13:57:23 +0800 +0800'>June 9, 2025</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;408 words&nbsp;·&nbsp;Rex</footer><a class=entry-link aria-label="post link to Spring Cloud 原生中间件" href=http://rextechie.github.io/posts/java/springcloud/></a></article></main><footer class=footer><span>&copy; 2025 <a href=http://rextechie.github.io/>RexBlog</a></span> ·
+使用 ./consul --version # 查看版本号 ....</p></div><footer class=entry-footer><span title='2025-06-09 13:57:23 +0800 +0800'>June 9, 2025</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;408 words&nbsp;·&nbsp;Rex</footer><a class=entry-link aria-label="post link to Spring Cloud 原生中间件" href=http://rextechie.github.io/posts/java/springcloud/></a></article></main><footer class=footer><span>&copy; 2026 <a href=http://rextechie.github.io/>RexBlog</a></span> ·
 <span>Powered by
 <a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
         <a href=https://github.com/adityatelange/hugo-PaperMod/ rel=noopener target=_blank>PaperMod</a></span></footer><a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg>
