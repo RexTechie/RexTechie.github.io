@@ -12,7 +12,7 @@ tags: ["MAS", "Agent", "代码生成"]
 - **标题**: AGILE CODER: Dynamic Collaborative Agents for Software Development based on Agile Methodology
 - **作者**: Minh Huynh Nguyen、Thang Chau Phan、Phong X. Nguyen、Nghi D. Q. Bui（通讯作者）
 - **作者单位**: FPT Software AI Center、Fulbright University
-- **期刊/会议**: FORGE(ICSE) 2025 (CCF-A, EI)
+- **期刊/会议**: FORGE(ICSE) 2025 
 - **发表年份**: 2025.07.02
 - **DOI**: [10.1109/Forge66646.2025.00026](https://ieeexplore.ieee.org/document/11052788/)
 - **开源地址**: [Github](https://github.com/FSoft-AI4Code/AgileCoder)
