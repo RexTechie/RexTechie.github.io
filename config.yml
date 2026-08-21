@@ -1,4 +1,4 @@
-baseURL: "http://rextechie.github.io/"
+baseURL: "https://rextechie.github.io/"
 title: RexBlog
 pagination:
   pagerSize: 5
@@ -21,7 +21,7 @@ params:
   # 作者信息
   author: Rex
   # 头像
-  images: ["./images/profile.png"]
+  images: ["./images/profile.jpg"]
   DateFormat: "January 2, 2006"
   defaultTheme: light # dark, light
   disableThemeToggle: false
@@ -86,7 +86,7 @@ params:
   socialIcons:
 
     - name: github
-      url": "https://github.com/RexTechie"
+      url: "https://github.com/RexTechie"
     - name: csdn
       url: "https://blog.csdn.net/GiantApe"
     - name: bilibili
