@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">Rex Blog pinned tab logo</title>
+  <desc id="desc">A geometric letter R cut out of a rounded square.</desc>
+  <path
+    fill="#000"
+    fill-rule="evenodd"
+    d="M128 16h256c62 0 112 50 112 112v256c0 62-50 112-112 112H128C66 496 16 446 16 384V128C16 66 66 16 128 16Zm16 96v302h88v-84h20l64 84h90l-74-94c41-15 68-50 68-100 0-66-45-108-122-108H144Zm88 72h42c26 0 42 14 42 38 0 23-16 38-42 38h-42v-76Z"
+  />
+</svg>
