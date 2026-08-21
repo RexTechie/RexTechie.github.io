@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">Rex Blog logo</title>
+  <desc id="desc">A white geometric letter R on a blue rounded square.</desc>
+  <rect x="16" y="16" width="480" height="480" rx="112" fill="#2563eb"/>
+  <path
+    fill="#fff"
+    fill-rule="evenodd"
+    d="M144 112h134c77 0 122 42 122 108 0 50-27 85-68 100l74 94h-90l-64-84h-20v84h-88V112Zm88 72v76h42c26 0 42-15 42-38 0-24-16-38-42-38h-42Z"
+  />
+</svg>
