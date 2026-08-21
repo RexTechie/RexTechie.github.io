@@ -2,127 +2,131 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://rextechie.github.io/posts/java/overview/</loc>
+    <loc>https://rextechie.github.io/posts/java/overview/</loc>
     <lastmod>2025-06-14T16:46:31+08:00</lastmod>
   </url><url>
-    <loc>http://rextechie.github.io/posts/design_patterns/overview/</loc>
+    <loc>https://rextechie.github.io/posts/paper_note/overview/</loc>
+    <lastmod>2025-01-08T21:21:46+08:00</lastmod>
+  </url><url>
+    <loc>https://rextechie.github.io/posts/design_patterns/overview/</loc>
     <lastmod>2025-01-07T20:59:11+08:00</lastmod>
   </url><url>
-    <loc>http://rextechie.github.io/tags/agent/</loc>
+    <loc>https://rextechie.github.io/tags/agent/</loc>
     <lastmod>2026-08-12T22:00:12+08:00</lastmod>
   </url><url>
-    <loc>http://rextechie.github.io/tags/ai%E5%BA%94%E7%94%A8%E7%94%9F%E6%88%90/</loc>
+    <loc>https://rextechie.github.io/tags/ai%E5%BA%94%E7%94%A8%E7%94%9F%E6%88%90/</loc>
     <lastmod>2026-08-12T22:00:12+08:00</lastmod>
   </url><url>
-    <loc>http://rextechie.github.io/categories/</loc>
+    <loc>https://rextechie.github.io/categories/</loc>
     <lastmod>2026-08-12T22:00:12+08:00</lastmod>
   </url><url>
-    <loc>http://rextechie.github.io/tags/code-cube/</loc>
+    <loc>https://rextechie.github.io/tags/code-cube/</loc>
     <lastmod>2026-08-12T22:00:12+08:00</lastmod>
   </url><url>
-    <loc>http://rextechie.github.io/posts/project/code_cube/</loc>
+    <loc>https://rextechie.github.io/posts/project/code_cube/</loc>
     <lastmod>2026-08-12T22:00:12+08:00</lastmod>
   </url><url>
-    <loc>http://rextechie.github.io/posts/</loc>
+    <loc>https://rextechie.github.io/posts/</loc>
     <lastmod>2026-08-12T22:00:12+08:00</lastmod>
   </url><url>
-    <loc>http://rextechie.github.io/categories/project/</loc>
+    <loc>https://rextechie.github.io/categories/project/</loc>
     <lastmod>2026-08-12T22:00:12+08:00</lastmod>
   </url><url>
-    <loc>http://rextechie.github.io/</loc>
+    <loc>https://rextechie.github.io/</loc>
     <lastmod>2026-08-12T22:00:12+08:00</lastmod>
   </url><url>
-    <loc>http://rextechie.github.io/tags/</loc>
+    <loc>https://rextechie.github.io/tags/</loc>
     <lastmod>2026-08-12T22:00:12+08:00</lastmod>
   </url><url>
-    <loc>http://rextechie.github.io/categories/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/</loc>
+    <loc>https://rextechie.github.io/categories/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/</loc>
     <lastmod>2026-01-05T16:20:53+08:00</lastmod>
   </url><url>
-    <loc>http://rextechie.github.io/posts/paper_note/macnet/</loc>
+    <loc>https://rextechie.github.io/posts/paper_note/macnet/</loc>
     <lastmod>2026-01-05T16:20:53+08:00</lastmod>
   </url><url>
-    <loc>http://rextechie.github.io/posts/paper_note/agile_coder/</loc>
+    <loc>https://rextechie.github.io/posts/paper_note/agile_coder/</loc>
     <lastmod>2025-10-27T18:56:46+08:00</lastmod>
   </url><url>
-    <loc>http://rextechie.github.io/tags/mas/</loc>
+    <loc>https://rextechie.github.io/tags/mas/</loc>
     <lastmod>2025-10-27T18:56:46+08:00</lastmod>
   </url><url>
-    <loc>http://rextechie.github.io/tags/%E4%BB%A3%E7%A0%81%E7%94%9F%E6%88%90/</loc>
+    <loc>https://rextechie.github.io/tags/%E4%BB%A3%E7%A0%81%E7%94%9F%E6%88%90/</loc>
     <lastmod>2025-10-27T18:56:46+08:00</lastmod>
   </url><url>
-    <loc>http://rextechie.github.io/tags/java/</loc>
+    <loc>https://rextechie.github.io/tags/java/</loc>
     <lastmod>2025-07-15T20:48:37+08:00</lastmod>
   </url><url>
-    <loc>http://rextechie.github.io/posts/java/springboot_principle/</loc>
+    <loc>https://rextechie.github.io/posts/java/springboot_principle/</loc>
     <lastmod>2025-07-15T20:48:37+08:00</lastmod>
   </url><url>
-    <loc>http://rextechie.github.io/tags/spring-cloud/</loc>
+    <loc>https://rextechie.github.io/tags/spring-cloud/</loc>
     <lastmod>2025-07-15T20:48:37+08:00</lastmod>
   </url><url>
-    <loc>http://rextechie.github.io/posts/paper_note/multi_agent_design/</loc>
+    <loc>https://rextechie.github.io/posts/paper_note/multi_agent_design/</loc>
     <lastmod>2025-06-19T11:27:17+08:00</lastmod>
   </url><url>
-    <loc>http://rextechie.github.io/categories/java%E6%8A%80%E6%9C%AF%E6%A0%88/</loc>
+    <loc>https://rextechie.github.io/categories/java%E6%8A%80%E6%9C%AF%E6%A0%88/</loc>
     <lastmod>2025-06-14T16:46:31+08:00</lastmod>
   </url><url>
-    <loc>http://rextechie.github.io/posts/java/springcloudalibaba/</loc>
+    <loc>https://rextechie.github.io/posts/java/springcloudalibaba/</loc>
     <lastmod>2025-06-14T16:23:39+08:00</lastmod>
   </url><url>
-    <loc>http://rextechie.github.io/posts/java/springcloud/</loc>
+    <loc>https://rextechie.github.io/posts/java/springcloud/</loc>
     <lastmod>2025-06-09T13:57:23+08:00</lastmod>
   </url><url>
-    <loc>http://rextechie.github.io/posts/paper_note/doc_agent/</loc>
+    <loc>https://rextechie.github.io/posts/paper_note/doc_agent/</loc>
     <lastmod>2025-06-03T13:11:17+08:00</lastmod>
   </url><url>
-    <loc>http://rextechie.github.io/posts/paper_note/paper2code/</loc>
+    <loc>https://rextechie.github.io/posts/paper_note/paper2code/</loc>
     <lastmod>2025-05-12T13:41:31+08:00</lastmod>
   </url><url>
-    <loc>http://rextechie.github.io/posts/paper_note/plangen/</loc>
+    <loc>https://rextechie.github.io/posts/paper_note/plangen/</loc>
     <lastmod>2025-03-25T11:52:08+08:00</lastmod>
   </url><url>
-    <loc>http://rextechie.github.io/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</loc>
+    <loc>https://rextechie.github.io/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</loc>
     <lastmod>2025-01-12T14:26:34+08:00</lastmod>
   </url><url>
-    <loc>http://rextechie.github.io/posts/design_patterns/proxy_pattern/</loc>
+    <loc>https://rextechie.github.io/posts/design_patterns/proxy_pattern/</loc>
     <lastmod>2025-01-12T14:26:34+08:00</lastmod>
   </url><url>
-    <loc>http://rextechie.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</loc>
+    <loc>https://rextechie.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</loc>
     <lastmod>2025-01-12T14:26:34+08:00</lastmod>
   </url><url>
-    <loc>http://rextechie.github.io/posts/design_patterns/decorator_pattern/</loc>
+    <loc>https://rextechie.github.io/posts/design_patterns/decorator_pattern/</loc>
     <lastmod>2025-01-11T09:01:58+08:00</lastmod>
   </url><url>
-    <loc>http://rextechie.github.io/posts/design_patterns/liskov_substitution_principle/</loc>
+    <loc>https://rextechie.github.io/posts/design_patterns/liskov_substitution_principle/</loc>
     <lastmod>2025-01-10T09:58:23+08:00</lastmod>
   </url><url>
-    <loc>http://rextechie.github.io/posts/design_patterns/dependency_inversion_principle/</loc>
+    <loc>https://rextechie.github.io/posts/design_patterns/dependency_inversion_principle/</loc>
     <lastmod>2025-01-10T09:57:54+08:00</lastmod>
   </url><url>
-    <loc>http://rextechie.github.io/posts/design_patterns/open_closed_principle/</loc>
+    <loc>https://rextechie.github.io/posts/design_patterns/open_closed_principle/</loc>
     <lastmod>2025-01-10T09:12:18+08:00</lastmod>
   </url><url>
-    <loc>http://rextechie.github.io/posts/design_patterns/signle_responsibility_principle/</loc>
+    <loc>https://rextechie.github.io/posts/design_patterns/signle_responsibility_principle/</loc>
     <lastmod>2025-01-10T08:30:28+08:00</lastmod>
   </url><url>
-    <loc>http://rextechie.github.io/posts/design_patterns/strategy_pattern/</loc>
+    <loc>https://rextechie.github.io/posts/design_patterns/strategy_pattern/</loc>
     <lastmod>2025-01-08T21:57:06+08:00</lastmod>
   </url><url>
-    <loc>http://rextechie.github.io/posts/design_patterns/abstract_factory_pattern/</loc>
+    <loc>https://rextechie.github.io/tags/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/</loc>
+    <lastmod>2025-01-08T21:21:46+08:00</lastmod>
+  </url><url>
+    <loc>https://rextechie.github.io/posts/design_patterns/abstract_factory_pattern/</loc>
     <lastmod>2025-01-07T21:19:06+08:00</lastmod>
   </url><url>
-    <loc>http://rextechie.github.io/posts/paper_note/metagpt/</loc>
+    <loc>https://rextechie.github.io/posts/paper_note/metagpt/</loc>
     <lastmod>2025-01-07T20:39:47+08:00</lastmod>
   </url><url>
-    <loc>http://rextechie.github.io/posts/paper_note/human_eval/</loc>
+    <loc>https://rextechie.github.io/posts/paper_note/human_eval/</loc>
     <lastmod>2025-01-01T14:47:39+08:00</lastmod>
   </url><url>
-    <loc>http://rextechie.github.io/about/</loc>
+    <loc>https://rextechie.github.io/about/</loc>
     <lastmod>2024-12-21T10:00:00+08:00</lastmod>
   </url><url>
-    <loc>http://rextechie.github.io/posts/paper_note/overview/</loc>
+    <loc>https://rextechie.github.io/archives/</loc>
   </url><url>
-    <loc>http://rextechie.github.io/archives/</loc>
-  </url><url>
-    <loc>http://rextechie.github.io/search/</loc>
+    <loc>https://rextechie.github.io/search/</loc>
   </url>
 </urlset>
