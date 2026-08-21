@@ -3,7 +3,8 @@ title: "Spring Cloud 原生中间件"
 date: 2025-06-09T13:57:23+08:00
 draft: false
 description: "Spring Cloud中间件的介绍"
-tags: ["Java", "Spring Cloud"]
+categories: ["☕Java 后端"]
+tags: ["Spring Cloud", "微服务", "服务治理"]
 ---
 
 📝 [代码记录](https://github.com/RexTechie/cloud2024)

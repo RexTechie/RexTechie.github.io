@@ -3,8 +3,8 @@ title: "TICoder: A Repository-Level Code Generation Framework with Test-Driven P
 date: 2026-08-11T16:37:56+08:00
 draft: true
 description: "TICoder 将测试用例前置到仓库级规划，并用功能/实现双视角检索和代表性调用模式选择来改善代码复用。"
-categories: ["📒论文笔记"]
-tags: ["repository-level code generation", "test-driven planning", "code retrieval"]
+categories: ["📚论文阅读"]
+tags: ["仓库级代码生成", "测试驱动规划", "代码检索", "代码复用"]
 ---
 
 ## 基本信息

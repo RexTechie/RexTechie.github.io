@@ -3,8 +3,8 @@ title: "Dialogue SWE-Bench: A Benchmark for Dialogue-Driven Coding Agents"
 date: 2026-08-11T16:37:56+08:00
 draft: true
 description: "Dialogue SWE-Bench 将真实仓库问题改造成必须与用户对话才能解决的评测，并用 schema-guided agent 检验信息收集对代码修复的作用。"
-categories: ["📒论文笔记"]
-tags: ["software engineering agents", "repository issue repair", "coding agent evaluation"]
+categories: ["📚论文阅读"]
+tags: ["软件工程智能体", "代码修复", "智能体评测", "对话式交互"]
 ---
 
 ## 基本信息
@@ -113,4 +113,3 @@ schema-guided agent 的平均解决率为 46.9%，高于 OpenHands 的 32.9% 和
 - [论文](https://arxiv.org/abs/2606.13995)
 - [PDF](https://arxiv.org/pdf/2606.13995)
 - [代码/数据](https://jlab-nlp.github.io/dialogue-swe-bench/)
-

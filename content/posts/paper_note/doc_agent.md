@@ -2,8 +2,8 @@
 title: "DocAgent: A Multi-Agent System for Automated Code Documentation Generation"
 date: 2025-06-03T13:11:17+08:00
 description: "代码文档注释生成"
-categories: ["📒论文笔记"]
-tags: ["Agent"]
+categories: ["📚论文阅读"]
+tags: ["多智能体", "代码文档", "代码理解"]
 ---
 
 

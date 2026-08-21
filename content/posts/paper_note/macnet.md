@@ -3,8 +3,8 @@ title: "SCALING LARGE LANGUAGE MODEL-BASED  MULTI-AGENT COLLABORATION"
 date: 2026-01-05T16:20:53+08:00
 draft: false
 description: "多智能体协作"
-categories: ["📒论文笔记"]
-tags: ["Agent"]
+categories: ["📚论文阅读"]
+tags: ["多智能体", "智能体拓扑", "协作机制"]
 ---
 
 ## 基本信息

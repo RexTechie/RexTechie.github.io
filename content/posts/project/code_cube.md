@@ -3,8 +3,8 @@ title: "Code Cube：对话式 AI 应用生成平台的设计与实现"
 date: 2026-08-12T22:00:12+08:00
 draft: false
 description: "记录 Code Cube 从自然语言需求到应用生成、预览与部署的设计思路，包括工具调用、对话记忆、智能体拆分和工作流编排。"
-categories: ["project"]
-tags: ["Code Cube", "AI应用生成", "Agent"]
+categories: ["🛠项目实践"]
+tags: ["AI 应用开发", "智能体", "工作流编排", "对话记忆"]
 featured: true
 cover:
   image: "/images/ui/code-cube-thumb.jpg"

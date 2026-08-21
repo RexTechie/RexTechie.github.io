@@ -3,8 +3,8 @@ title: "抽象工厂模式（Abstract Factory）"
 date: 2025-01-07T21:19:06+08:00
 draft: false
 description: "记录《大话设计模式》学习笔记，深入浅出23种设计模式，从实际应用出发理解设计模式的精髓"
-categories: ["🏠设计模式"]
-tags: ["设计模式",]
+categories: ["🧩设计模式"]
+tags: ["创建型模式"]
 ---
 
 ## 🚏 导论

@@ -3,7 +3,8 @@ title: "Spring Cloud Alibaba 中间件"
 date: 2025-06-14T16:23:39+08:00
 draft: false
 description: "Spring Cloud Alibaba中间件的介绍"
-tags: ["Java", Spring Cloud]
+categories: ["☕Java 后端"]
+tags: ["Spring Cloud Alibaba", "微服务", "服务治理", "分布式事务"]
 ---
 
 🔗 [Spring官方介绍](https://spring.io/projects/spring-cloud-alibaba#overview) [⚠️Spring官方对Spring Cloud Alibaba的更新不及时]

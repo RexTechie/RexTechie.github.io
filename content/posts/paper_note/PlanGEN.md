@@ -3,8 +3,8 @@ title: "PlanGEN: A Multi-Agent Framework for Generating Planning and Reasoning T
 date: 2025-03-25T11:52:08+08:00
 draft: false
 description: "Agent生成框架"
-categories: ["📒论文笔记"]
-tags: ["Agent",]
+categories: ["📚论文阅读"]
+tags: ["智能体", "多智能体", "规划与推理"]
 ---
 
 

@@ -5,7 +5,8 @@ draft: false
 weight: 1
 description: "LLM 代码生成、多智能体协作与软件工程智能体的论文阅读笔记。"
 homeTitle: "论文与智能体"
-tags: ["论文笔记"]
+categories: ["📚论文阅读"]
+tags: ["代码生成", "多智能体", "软件工程智能体"]
 ---
 
 

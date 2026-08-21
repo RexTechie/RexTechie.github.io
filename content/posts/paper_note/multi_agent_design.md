@@ -3,8 +3,8 @@ title: "Multi-Agent Design: Optimizing Agents with Better Prompts and Topologies
 date: 2025-06-19T11:27:17+08:00
 draft: false
 description: "多智能体系统设计"
-categories: ["📒论文笔记"]
-tags: ["MAS", "Agent"]
+categories: ["📚论文阅读"]
+tags: ["多智能体", "智能体拓扑", "Prompt 优化"]
 ---
 
 ## 基本信息

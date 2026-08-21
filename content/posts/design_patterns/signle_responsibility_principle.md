@@ -2,8 +2,8 @@
 title: "单一职责原则(Single Responsibility Principle)"
 date: 2025-01-10T08:30:28+08:00
 draft: false
-categories: ["🏠设计模式"]
-tags: ["设计模式",]
+categories: ["🧩设计模式"]
+tags: ["设计原则"]
 ---
 
 

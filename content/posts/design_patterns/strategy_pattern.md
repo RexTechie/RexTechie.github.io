@@ -3,8 +3,8 @@ title: "策略模式（Strategy Pattern）"
 date: 2025-01-08T21:57:06+08:00
 draft: false
 description: "记录《大话设计模式》学习笔记，深入浅出23种设计模式，从实际应用出发理解设计模式的精髓"
-categories: ["🏠设计模式"]
-tags: ["设计模式",]
+categories: ["🧩设计模式"]
+tags: ["行为型模式"]
 ---
 
 ## 🚏 导论

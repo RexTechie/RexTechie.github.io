@@ -2,8 +2,8 @@
 title: "开放-封闭原则(Open Closed Principle)"
 date: 2025-01-10T09:12:18+08:00
 draft: false
-categories: ["🏠设计模式"]
-tags: ["设计模式",]
+categories: ["🧩设计模式"]
+tags: ["设计原则"]
 ---
 
 ## 🚏 导论

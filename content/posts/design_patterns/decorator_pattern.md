@@ -2,8 +2,8 @@
 title: "装饰模式（Decorator Pattern）"
 date: 2025-01-11T09:01:58+08:00
 draft: false
-categories: ["🏠设计模式"]
-tags: ["设计模式",]
+categories: ["🧩设计模式"]
+tags: ["结构型模式"]
 ---
 
 

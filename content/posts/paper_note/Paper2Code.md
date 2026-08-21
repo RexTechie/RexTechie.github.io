@@ -3,8 +3,8 @@ title: "Paper2Code"
 date: 2025-05-12T13:41:31+08:00
 draft: false
 description: "一种复现论文代码的方法"
-categories: ["📒论文笔记"]
-tags: ["代码生成", "Agent"]
+categories: ["📚论文阅读"]
+tags: ["代码生成", "软件工程智能体", "论文复现"]
 ---
 
 ## 基本信息

@@ -2,8 +2,8 @@
 title: "Proxy_pattern"
 date: 2025-01-12T14:26:34+08:00
 draft: false
-categories: ["🏠设计模式"]
-tags: ["设计模式",]
+categories: ["🧩设计模式"]
+tags: ["结构型模式"]
 ---
 
 

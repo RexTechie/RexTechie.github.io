@@ -3,8 +3,8 @@ title: "AGILE CODER: Dynamic Collaborative Agents for Software Development based
 date: 2025-10-27T18:56:46+08:00
 draft: false
 description: "基于敏捷开发的多智能体代码生成"
-categories: ["📒论文笔记"]
-tags: ["MAS", "Agent", "代码生成"]
+categories: ["📚论文阅读"]
+tags: ["多智能体", "代码生成", "敏捷开发", "仓库级代码生成"]
 ---
 
 ## 基本信息

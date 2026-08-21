@@ -3,8 +3,8 @@ title: "CodeTeam: An LLM-Powered Multi-Agent Framework for Repository-Level Code
 date: 2026-08-11T16:37:56+08:00
 draft: true
 description: "CodeTeam 将从自然语言需求生成完整仓库拆成架构竞争、契约归一化、依赖感知实现和 QA 修复，并以可执行评测验证多智能体协作的作用。"
-categories: ["📒论文笔记"]
-tags: ["repository-level code generation", "multi-agent software development", "NL2Repo"]
+categories: ["📚论文阅读"]
+tags: ["仓库级代码生成", "多智能体", "软件工程智能体", "代码生成"]
 ---
 
 ## 基本信息
@@ -128,4 +128,3 @@ NL2Repo-Bench 包含 9 类 Python 库的 104 个任务，按 easy 26、medium 46
 - [论文](https://arxiv.org/abs/2606.22082)
 - [PDF](https://arxiv.org/pdf/2606.22082)
 - [代码/数据](https://github.com/WhitenWhiten/CodeTeam)
-
