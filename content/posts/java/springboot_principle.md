@@ -3,7 +3,7 @@ title: "Spring Boot原理篇"
 date: 2025-07-15T20:48:37+08:00
 draft: false
 description: "Spring Cloud中间件的介绍"
-tags: ["Java", "Spring Cloud"]
+tags: ["Java", "Spring Boot"]
 ---
 
 > 本文侧重📝记录SpringBoot3框架源码
