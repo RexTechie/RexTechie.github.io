@@ -2,6 +2,8 @@
     --brand: #2563eb;
     --brand-strong: #1d4ed8;
     --brand-soft: #eff6ff;
+    --site-shell-width: 1120px;
+    --nav-width: var(--site-shell-width);
     --main-width: 780px;
     --list-main-width: 960px;
     --article-toc-width: 240px;
@@ -122,7 +124,7 @@ input:focus-visible {
 }
 
 .home .main {
-    max-width: calc(1120px + var(--gap) * 2);
+    max-width: calc(var(--site-shell-width) + var(--gap) * 2);
     padding-top: clamp(36px, 6vw, 84px);
     padding-bottom: 72px;
 }
@@ -584,7 +586,7 @@ input:focus-visible {
         max-height: calc(100vh - var(--header-height) - 48px);
         padding-inline-start: 15px;
         color: var(--secondary);
-        font-size: 13px;
+        font-size: 14px;
         border-inline-start: 1px solid var(--border);
     }
 
@@ -595,7 +597,7 @@ input:focus-visible {
         min-height: 36px;
         margin-bottom: 8px;
         color: var(--primary);
-        font-size: 13px;
+        font-size: 14px;
         font-weight: 700;
     }
 
@@ -652,11 +654,15 @@ input:focus-visible {
 
     .reader-toc__body a {
         display: block;
-        padding: 5px 8px;
+        padding: 6px 8px;
         overflow-wrap: anywhere;
-        color: var(--secondary);
-        line-height: 1.48;
+        color: color-mix(in srgb, var(--secondary) 75%, var(--primary));
+        line-height: 1.55;
         border-radius: 6px;
+    }
+
+    .reader-toc__body > nav > ul > li > a {
+        font-weight: 500;
     }
 
     .reader-toc__body a:hover,
