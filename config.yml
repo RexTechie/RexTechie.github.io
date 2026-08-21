@@ -1,5 +1,8 @@
 baseURL: "https://rextechie.github.io/"
-title: RexBlog
+title: Rex Blog
+languageCode: zh-CN
+defaultContentLanguage: zh
+hasCJKLanguage: true
 pagination:
   pagerSize: 5
 theme: PaperMod
@@ -15,20 +18,21 @@ minify:
 
 params:
   env: production # to enable google analytics, opengraph, twitter-cards and schema.
-  title: RexBlog
+  title: Rex Blog
   description: "探索技术与科研的交融之地 | 分享前沿技术动态、深入解读学术论文 | 用技术视角解读世界的个人笔记"
   keywords: [Blog]
   # 作者信息
   author: Rex
   # 头像
-  images: ["./images/profile.jpg"]
-  DateFormat: "January 2, 2006"
-  defaultTheme: light # dark, light
+  images: ["/images/ui/profile-480.jpg"]
+  DateFormat: "2006年1月2日"
+  defaultTheme: auto # dark, light, auto
   disableThemeToggle: false
   # 显示阅读时间
   ShowReadingTime: true
   # 显示分享按钮
   ShowShareButtons: true
+  ShareButtons: ["x", "linkedin"]
   # 显示文章导航
   ShowPostNavLinks: true
   # 显示面包屑导航
@@ -62,7 +66,7 @@ params:
     safari_pinned_tab: "./favicon/favicon_32x32.png"
 
   label:
-    text: "🏘️Home"
+    text: "Rex Blog"
     icon: ./favicon/favicon_32x32.png
     iconHeight: 35
   
@@ -71,16 +75,16 @@ params:
   profileMode:
     enabled: true # needs to be explicitly set
     title: Rex Blog
-    subtitle: "👏🏼欢迎光临寒舍"
-    imageUrl: "./images/profile.jpg"
-    imageWidth: 120
-    imageHeight: 120
-    imageTitle: 头像不见啦～
+    subtitle: "专注 LLM 代码生成、智能体与后端工程"
+    imageUrl: "/images/ui/profile-480.jpg"
+    imageWidth: 240
+    imageHeight: 240
+    imageTitle: Rex 的个人头像
     buttons:
-      - name: Posts
+      - name: 阅读文章
         url: posts
-      - name: Tags
-        url: tags
+      - name: 搜索文章
+        url: search
 
   # 社交媒体配置
   socialIcons:
@@ -97,9 +101,9 @@ params:
 
   # 封面配置
   cover:
-    hidden: true # hide everywhere but not in structured data
+    hidden: false # allow posts with cover front matter to display it
     hiddenInList: true # hide on list pages and home
-    hiddenInSingle: true # hide on single page
+    hiddenInSingle: false # display configured cover on the article page
 
   editPost:
     URL: "https://github.com/RexTechie/RexTechie.github.io/blob/main/content"
@@ -115,37 +119,33 @@ params:
     threshold: 0.4
     minMatchCharLength: 0
     limit: 10 # refer: https://www.fusejs.io/api/methods.html#search
-    keys: ["title", "permalink", "summary", "content"]
+    keys: ["title", "summary", "content", "categories", "tags"]
 menu:
   main:
     - identifier: posts
-      name: 📚 Posts 
+      name: 文章
       url: /posts/
       weight: 10
     - identifier: archives
-      name: 📅 Archives
+      name: 归档
       url: /archives/
       weight: 20
     - identifier: search
-      name: 🔍 Search
+      name: 搜索
       url: /search/
       weight: 30
-    - identifier: categories
-      name: 📂 Categories
-      url: /categories/
-      weight: 40
-    - identifier: tags
-      name: 🏷️ Tags
-      url: /tags/
-      weight: 50
     - identifier: about
-      name: 📝 About
+      name: 关于
       url: /about/
-      weight: 60
+      weight: 40
     
 # Read: https://github.com/adityatelange/hugo-PaperMod/wiki/FAQs#using-hugos-syntax-highlighter-chroma
 pygmentsUseClasses: true
 markup:
+  tableOfContents:
+    startLevel: 2
+    endLevel: 3
+    ordered: false
   # 配置latex数学公式
   goldmark:
     extensions:

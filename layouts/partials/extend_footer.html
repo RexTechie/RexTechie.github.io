@@ -1,0 +1,114 @@
+<script>
+    (function () {
+        var nav = document.querySelector('.nav');
+        var menu = document.getElementById('menu');
+        if (nav && menu) {
+            var toggle = document.createElement('button');
+            toggle.id = 'menu-toggle';
+            toggle.className = 'menu-toggle';
+            toggle.type = 'button';
+            toggle.setAttribute('aria-controls', 'menu');
+            toggle.setAttribute('aria-expanded', 'false');
+            toggle.setAttribute('aria-label', '打开导航菜单');
+            toggle.innerHTML = '<span></span><span></span><span></span>';
+            nav.insertBefore(toggle, menu);
+
+            function setMenu(open) {
+                menu.classList.toggle('menu-open', open);
+                toggle.classList.toggle('menu-toggle--open', open);
+                toggle.setAttribute('aria-expanded', String(open));
+                toggle.setAttribute('aria-label', open ? '关闭导航菜单' : '打开导航菜单');
+            }
+            toggle.addEventListener('click', function () { setMenu(!menu.classList.contains('menu-open')); });
+            menu.addEventListener('click', function (event) { if (event.target.closest('a')) setMenu(false); });
+            document.addEventListener('click', function (event) { if (!nav.contains(event.target)) setMenu(false); });
+            document.addEventListener('keydown', function (event) { if (event.key === 'Escape') setMenu(false); });
+            window.addEventListener('resize', function () { if (window.innerWidth > 768) setMenu(false); });
+        }
+
+        document.querySelectorAll('.social-icons a[title]').forEach(function (link) {
+            link.setAttribute('aria-label', link.getAttribute('title'));
+        });
+
+        var articleLayout = document.querySelector('.has-sidebar-toc .article-layout');
+        var readerToc = document.getElementById('reader-toc');
+        var tocHide = document.getElementById('reader-toc-hide');
+        var tocShow = document.getElementById('reader-toc-show');
+        if (articleLayout && readerToc && tocHide && tocShow) {
+            var tocStorageKey = 'article-toc-collapsed';
+            function readTocPreference() {
+                try { return localStorage.getItem(tocStorageKey) === 'true'; }
+                catch (error) { return false; }
+            }
+            function setTocCollapsed(collapsed, savePreference) {
+                articleLayout.classList.toggle('toc-collapsed', collapsed);
+                readerToc.setAttribute('aria-hidden', String(collapsed));
+                readerToc.inert = collapsed;
+                tocHide.setAttribute('aria-expanded', String(!collapsed));
+                tocShow.setAttribute('aria-expanded', String(!collapsed));
+                if (savePreference) {
+                    try { localStorage.setItem(tocStorageKey, String(collapsed)); }
+                    catch (error) { /* localStorage may be unavailable */ }
+                }
+            }
+            setTocCollapsed(readTocPreference(), false);
+            tocHide.addEventListener('click', function () {
+                setTocCollapsed(true, true);
+                tocShow.focus();
+            });
+            tocShow.addEventListener('click', function () {
+                setTocCollapsed(false, true);
+                tocHide.focus();
+            });
+        }
+
+        var themeToggle = document.getElementById('theme-toggle');
+        function currentCommentTheme() { return document.body.classList.contains('dark') ? 'github-dark' : 'github-light'; }
+        function syncThemeControls() {
+            if (themeToggle) {
+                var dark = document.body.classList.contains('dark');
+                themeToggle.setAttribute('aria-label', dark ? '切换到浅色模式' : '切换到深色模式');
+                themeToggle.setAttribute('title', dark ? '切换到浅色模式 (Alt + T)' : '切换到深色模式 (Alt + T)');
+            }
+            var frame = document.querySelector('iframe.utterances-frame');
+            if (frame && frame.contentWindow) {
+                frame.contentWindow.postMessage({ type: 'set-theme', theme: currentCommentTheme() }, 'https://utteranc.es');
+            }
+        }
+        syncThemeControls();
+        if (themeToggle) themeToggle.addEventListener('click', function () { window.setTimeout(syncThemeControls, 0); });
+        new MutationObserver(syncThemeControls).observe(document.body, { attributes: true, attributeFilter: ['class'] });
+        if (document.querySelector('script[src*="utteranc.es"]') && !document.querySelector('iframe.utterances-frame')) {
+            var commentObserver = new MutationObserver(function () {
+                if (!document.querySelector('iframe.utterances-frame')) return;
+                syncThemeControls();
+                commentObserver.disconnect();
+            });
+            commentObserver.observe(document.body, { childList: true, subtree: true });
+        }
+
+        var searchInput = document.getElementById('searchInput');
+        var searchResults = document.getElementById('searchResults');
+        var searchStatus = document.getElementById('searchStatus');
+        var searchBrowse = document.getElementById('searchBrowse');
+        if (searchInput && searchResults && searchStatus) {
+            function updateSearchStatus() {
+                var query = searchInput.value.trim();
+                var count = searchResults.children.length;
+                if (searchBrowse) searchBrowse.hidden = Boolean(query);
+                if (!query) searchStatus.textContent = '输入关键词搜索文章';
+                else if (count) searchStatus.textContent = '找到 ' + count + ' 篇相关文章';
+                else searchStatus.textContent = '没有找到相关文章，试试更短或不同的关键词';
+            }
+            searchInput.addEventListener('input', function () {
+                var hasQuery = Boolean(searchInput.value.trim());
+                if (searchBrowse) searchBrowse.hidden = hasQuery;
+                searchStatus.textContent = hasQuery ? '正在搜索…' : '输入关键词搜索文章';
+                window.setTimeout(updateSearchStatus, 120);
+            });
+            new MutationObserver(updateSearchStatus).observe(searchResults, { childList: true, subtree: true });
+            updateSearchStatus();
+        }
+
+    }());
+</script>

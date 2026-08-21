@@ -5,6 +5,11 @@ draft: false
 description: "记录 Code Cube 从自然语言需求到应用生成、预览与部署的设计思路，包括工具调用、对话记忆、智能体拆分和工作流编排。"
 categories: ["project"]
 tags: ["Code Cube", "AI应用生成", "Agent"]
+featured: true
+cover:
+  image: "/images/ui/code-cube-thumb.jpg"
+  alt: "Code Cube 首页与需求分析入口"
+  relative: false
 ---
 
 ## 背景：为什么要做 Code Cube

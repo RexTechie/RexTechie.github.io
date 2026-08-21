@@ -1,0 +1,15 @@
+{{- if and .IsPage (in .RawContent "```mermaid") }}
+<script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+<script>
+    window.addEventListener('load', function () {
+        var preferredTheme = localStorage.getItem('pref-theme');
+        var isDark = preferredTheme === 'dark' || (!preferredTheme && window.matchMedia('(prefers-color-scheme: dark)').matches);
+        mermaid.initialize({
+            startOnLoad: false,
+            theme: isDark ? 'dark' : 'default',
+            flowchart: { useMaxWidth: true, htmlLabels: true }
+        });
+        mermaid.init(undefined, document.querySelectorAll('.language-mermaid'));
+    });
+</script>
+{{- end }}

@@ -1,0 +1,97 @@
+{{- $home := .Params.home -}}
+{{- $hero := $home.hero -}}
+{{- with site.Params.profileMode }}
+<section class="home-hero" aria-labelledby="home-title">
+    <div class="home-hero__copy">
+        {{- with $hero.eyebrow }}<p class="home-eyebrow">{{ . }}</p>{{- end }}
+        <h1 id="home-title">{{ .title | default site.Title | markdownify }}</h1>
+        <p class="home-lead">{{ .subtitle | markdownify }}</p>
+        {{- with $hero.intro }}<p class="home-intro">{{ . }}</p>{{- end }}
+        {{- with .buttons }}
+        <div class="home-actions">
+            {{- range $index, $button := . }}
+            <a class="home-button{{ if eq $index 0 }} home-button--primary{{ end }}" href="{{ trim $button.url " " | relURL }}">
+                {{ $button.name }}{{ if eq $index 0 }}<span aria-hidden="true"> →</span>{{ end }}
+            </a>
+            {{- end }}
+        </div>
+        {{- end }}
+        {{- partial "social_icons.html" -}}
+    </div>
+    {{- with .imageUrl }}
+    <div class="home-portrait" aria-hidden="true">
+        <span class="home-portrait__halo"></span>
+        <img src="{{ . | relURL }}" alt="" width="{{ site.Params.profileMode.imageWidth | default 240 }}" height="{{ site.Params.profileMode.imageHeight | default 240 }}" decoding="async">
+    </div>
+    {{- end }}
+</section>
+{{- end }}
+
+{{- with $home.recent }}
+{{- $recentSection := .section | default "posts" -}}
+{{- $recentLimit := .limit | default 4 -}}
+{{- $recent := first $recentLimit (where site.RegularPages.ByDate.Reverse "Section" $recentSection) -}}
+<section class="home-section" aria-labelledby="recent-title">
+    <div class="home-section__heading">
+        <div>
+            {{- with .eyebrow }}<p class="section-kicker">{{ . }}</p>{{- end }}
+            <h2 id="recent-title">{{ .title }}</h2>
+        </div>
+        {{- with .url }}<a class="section-link" href="{{ . | relURL }}">{{ $home.recent.cta }} <span aria-hidden="true">→</span></a>{{- end }}
+    </div>
+    <div class="recent-grid">
+        {{- range $recent }}
+        <article class="recent-card">
+            <div class="recent-card__meta">
+                <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format (site.Params.DateFormat | default "2006-01-02") }}</time>
+                {{- with index (.GetTerms "categories") 0 }}<span>{{ .LinkTitle }}</span>{{- end }}
+            </div>
+            <h3>{{ .Title }}</h3>
+            <p>{{ with .Description }}{{ . }}{{ else }}{{ .Summary | plainify | htmlUnescape | truncate 108 }}{{ end }}</p>
+            <a class="card-link" href="{{ .RelPermalink }}" aria-label="阅读：{{ .Title | plainify }}"></a>
+        </article>
+        {{- end }}
+    </div>
+</section>
+{{- end }}
+
+{{- with $home.topics }}
+<section class="home-section" aria-labelledby="topics-title">
+    <div class="home-section__heading">
+        <div>
+            {{- with .eyebrow }}<p class="section-kicker">{{ . }}</p>{{- end }}
+            <h2 id="topics-title">{{ .title }}</h2>
+        </div>
+    </div>
+    <div class="topic-grid">
+        {{- range $index, $pagePath := .pages }}
+        {{- with site.GetPage $pagePath }}
+        <a class="topic-card" href="{{ .RelPermalink }}">
+            <span class="topic-card__number">{{ printf "%02d" (add $index 1) }}</span>
+            <strong>{{ .Params.homeTitle | default .Title }}</strong>
+            {{- with .Description }}<span>{{ . }}</span>{{- end }}
+        </a>
+        {{- end }}
+        {{- end }}
+    </div>
+</section>
+{{- end }}
+
+{{- $featured := first 1 (where site.RegularPages.ByDate.Reverse "Params.featured" true) -}}
+{{- range $featured }}
+<section class="home-section" aria-labelledby="project-title">
+    <div class="project-card">
+        <div class="project-card__copy">
+            {{- with $home.featured.eyebrow }}<p class="section-kicker">{{ . }}</p>{{- end }}
+            <h2 id="project-title">{{ .Title }}</h2>
+            {{- with .Description }}<p>{{ . }}</p>{{- end }}
+            <a class="project-link" href="{{ .RelPermalink }}">{{ $home.featured.cta }} <span aria-hidden="true">→</span></a>
+        </div>
+        {{- if .Params.cover.image }}
+        <div class="project-card__visual">
+            {{- partial "cover.html" (dict "cxt" . "IsSingle" false "isHidden" false) }}
+        </div>
+        {{- end }}
+    </div>
+</section>
+{{- end }}

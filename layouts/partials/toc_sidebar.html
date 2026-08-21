@@ -1,0 +1,11 @@
+<div class="reader-toc__header">
+    <span>{{ i18n "toc" | default "目录" }}</span>
+    <button id="reader-toc-hide" class="reader-toc__toggle" type="button" aria-controls="reader-toc" aria-expanded="true" aria-label="隐藏目录" title="隐藏目录">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="m15 18-6-6 6-6" />
+        </svg>
+    </button>
+</div>
+<div class="reader-toc__body">
+    {{- .TableOfContents | replaceRE `id="TableOfContents"` `id="TableOfContentsSidebar"` | safeHTML -}}
+</div>

@@ -3,7 +3,8 @@ title: "论文笔记索引"
 date: 2025-01-08T21:21:46+08:00
 draft: false
 weight: 1
-description: "论文笔记模板"
+description: "LLM 代码生成、多智能体协作与软件工程智能体的论文阅读笔记。"
+homeTitle: "论文与智能体"
 tags: ["论文笔记"]
 ---
 

@@ -1,0 +1,61 @@
+{{- define "main" }}
+
+<header class="page-header search-header">
+    <p class="section-kicker">SEARCH &amp; DISCOVER</p>
+    <h1>{{- .Title -}}</h1>
+    {{- with .Description }}
+    <div class="post-description">{{ . }}</div>
+    {{- end }}
+</header>
+
+<div id="searchbox">
+    <input id="searchInput" placeholder="{{ .Params.placeholder | default "输入关键词搜索文章" }}" aria-label="搜索文章" type="search" autocomplete="off" maxlength="64">
+    <p id="searchStatus" class="search-status" role="status" aria-live="polite">输入关键词搜索文章</p>
+    <ul id="searchResults" aria-label="搜索结果"></ul>
+</div>
+
+<div id="searchBrowse" class="search-browse">
+    {{- with site.Taxonomies.categories }}
+    <section class="search-browse__section" aria-labelledby="search-categories-title">
+        <div class="search-browse__heading">
+            <div>
+                <p class="section-kicker">BROWSE BY TOPIC</p>
+                <h2 id="search-categories-title">分类</h2>
+            </div>
+            <p>从稳定的主题方向开始浏览</p>
+        </div>
+        <div class="search-category-grid">
+            {{- range .ByCount }}
+            <a class="search-category-card" href="{{ .Page.RelPermalink }}">
+                <span>{{ .Page.LinkTitle }}</span>
+                <span class="search-taxonomy-count">{{ .Count }} 篇</span>
+            </a>
+            {{- end }}
+        </div>
+    </section>
+    {{- end }}
+
+    {{- with site.Taxonomies.tags }}
+    <section class="search-browse__section" aria-labelledby="search-tags-title">
+        <div class="search-browse__heading">
+            <div>
+                <p class="section-kicker">BROWSE BY KEYWORD</p>
+                <h2 id="search-tags-title">标签</h2>
+            </div>
+            <p>通过更具体的技术关键词发现文章</p>
+        </div>
+        <ul class="search-tag-list">
+            {{- range .ByCount }}
+            <li>
+                <a href="{{ .Page.RelPermalink }}">
+                    <span>{{ .Page.LinkTitle }}</span>
+                    <span class="search-taxonomy-count">{{ .Count }}</span>
+                </a>
+            </li>
+            {{- end }}
+        </ul>
+    </section>
+    {{- end }}
+</div>
+
+{{- end }}
