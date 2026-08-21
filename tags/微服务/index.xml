@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>微服务 on Rex Blog</title>
+    <link>https://rextechie.github.io/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/</link>
+    <description>Recent content in 微服务 on Rex Blog</description>
+    <image>
+      <title>Rex Blog</title>
+      <url>https://rextechie.github.io/images/ui/profile-480.jpg</url>
+      <link>https://rextechie.github.io/images/ui/profile-480.jpg</link>
+    </image>
+    <generator>Hugo -- 0.125.7</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Sat, 14 Jun 2025 16:46:31 +0800</lastBuildDate>
+    <atom:link href="https://rextechie.github.io/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Java技术栈相关技术笔记索引</title>
+      <link>https://rextechie.github.io/posts/java/overview/</link>
+      <pubDate>Sat, 14 Jun 2025 16:46:31 +0800</pubDate>
+      <guid>https://rextechie.github.io/posts/java/overview/</guid>
+      <description>Spring 生态、中间件与 Java 后端工程实践笔记。</description>
+    </item>
+    <item>
+      <title>Spring Cloud Alibaba 中间件</title>
+      <link>https://rextechie.github.io/posts/java/springcloudalibaba/</link>
+      <pubDate>Sat, 14 Jun 2025 16:23:39 +0800</pubDate>
+      <guid>https://rextechie.github.io/posts/java/springcloudalibaba/</guid>
+      <description>Spring Cloud Alibaba中间件的介绍</description>
+    </item>
+    <item>
+      <title>Spring Cloud 原生中间件</title>
+      <link>https://rextechie.github.io/posts/java/springcloud/</link>
+      <pubDate>Mon, 09 Jun 2025 13:57:23 +0800</pubDate>
+      <guid>https://rextechie.github.io/posts/java/springcloud/</guid>
+      <description>Spring Cloud中间件的介绍</description>
+    </item>
+  </channel>
+</rss>

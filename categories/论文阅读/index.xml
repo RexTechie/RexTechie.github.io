@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>📚论文阅读 on Rex Blog</title>
+    <link>https://rextechie.github.io/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/</link>
+    <description>Recent content in 📚论文阅读 on Rex Blog</description>
+    <image>
+      <title>Rex Blog</title>
+      <url>https://rextechie.github.io/images/ui/profile-480.jpg</url>
+      <link>https://rextechie.github.io/images/ui/profile-480.jpg</link>
+    </image>
+    <generator>Hugo -- 0.125.7</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Mon, 05 Jan 2026 16:20:53 +0800</lastBuildDate>
+    <atom:link href="https://rextechie.github.io/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>论文笔记索引</title>
+      <link>https://rextechie.github.io/posts/paper_note/overview/</link>
+      <pubDate>Wed, 08 Jan 2025 21:21:46 +0800</pubDate>
+      <guid>https://rextechie.github.io/posts/paper_note/overview/</guid>
+      <description>LLM 代码生成、多智能体协作与软件工程智能体的论文阅读笔记。</description>
+    </item>
+    <item>
+      <title>SCALING LARGE LANGUAGE MODEL-BASED  MULTI-AGENT COLLABORATION</title>
+      <link>https://rextechie.github.io/posts/paper_note/macnet/</link>
+      <pubDate>Mon, 05 Jan 2026 16:20:53 +0800</pubDate>
+      <guid>https://rextechie.github.io/posts/paper_note/macnet/</guid>
+      <description>多智能体协作</description>
+    </item>
+    <item>
+      <title>AGILE CODER: Dynamic Collaborative Agents for Software Development based on Agile Methodology</title>
+      <link>https://rextechie.github.io/posts/paper_note/agile_coder/</link>
+      <pubDate>Mon, 27 Oct 2025 18:56:46 +0800</pubDate>
+      <guid>https://rextechie.github.io/posts/paper_note/agile_coder/</guid>
+      <description>基于敏捷开发的多智能体代码生成</description>
+    </item>
+    <item>
+      <title>Multi-Agent Design: Optimizing Agents with Better Prompts and Topologies</title>
+      <link>https://rextechie.github.io/posts/paper_note/multi_agent_design/</link>
+      <pubDate>Thu, 19 Jun 2025 11:27:17 +0800</pubDate>
+      <guid>https://rextechie.github.io/posts/paper_note/multi_agent_design/</guid>
+      <description>多智能体系统设计</description>
+    </item>
+    <item>
+      <title>DocAgent: A Multi-Agent System for Automated Code Documentation Generation</title>
+      <link>https://rextechie.github.io/posts/paper_note/doc_agent/</link>
+      <pubDate>Tue, 03 Jun 2025 13:11:17 +0800</pubDate>
+      <guid>https://rextechie.github.io/posts/paper_note/doc_agent/</guid>
+      <description>代码文档注释生成</description>
+    </item>
+    <item>
+      <title>Paper2Code</title>
+      <link>https://rextechie.github.io/posts/paper_note/paper2code/</link>
+      <pubDate>Mon, 12 May 2025 13:41:31 +0800</pubDate>
+      <guid>https://rextechie.github.io/posts/paper_note/paper2code/</guid>
+      <description>一种复现论文代码的方法</description>
+    </item>
+    <item>
+      <title>PlanGEN: A Multi-Agent Framework for Generating Planning and Reasoning Trajectories for Complex Problem Solving</title>
+      <link>https://rextechie.github.io/posts/paper_note/plangen/</link>
+      <pubDate>Tue, 25 Mar 2025 11:52:08 +0800</pubDate>
+      <guid>https://rextechie.github.io/posts/paper_note/plangen/</guid>
+      <description>Agent生成框架</description>
+    </item>
+    <item>
+      <title>MetaGPT: Meta Programming for A Multi-Agent Collaborative Framework</title>
+      <link>https://rextechie.github.io/posts/paper_note/metagpt/</link>
+      <pubDate>Tue, 07 Jan 2025 20:39:47 +0800</pubDate>
+      <guid>https://rextechie.github.io/posts/paper_note/metagpt/</guid>
+      <description>一种多智能体写作代码生成的方法</description>
+    </item>
+    <item>
+      <title>Evaluating Large Language Models Trained on Code</title>
+      <link>https://rextechie.github.io/posts/paper_note/human_eval/</link>
+      <pubDate>Wed, 01 Jan 2025 14:47:39 +0800</pubDate>
+      <guid>https://rextechie.github.io/posts/paper_note/human_eval/</guid>
+      <description>一种评估大模型生成代码能力的方法</description>
+    </item>
+  </channel>
+</rss>

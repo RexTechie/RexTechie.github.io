@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Spring Cloud Alibaba on Rex Blog</title>
+    <link>https://rextechie.github.io/tags/spring-cloud-alibaba/</link>
+    <description>Recent content in Spring Cloud Alibaba on Rex Blog</description>
+    <image>
+      <title>Rex Blog</title>
+      <url>https://rextechie.github.io/images/ui/profile-480.jpg</url>
+      <link>https://rextechie.github.io/images/ui/profile-480.jpg</link>
+    </image>
+    <generator>Hugo -- 0.125.7</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Sat, 14 Jun 2025 16:23:39 +0800</lastBuildDate>
+    <atom:link href="https://rextechie.github.io/tags/spring-cloud-alibaba/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Spring Cloud Alibaba 中间件</title>
+      <link>https://rextechie.github.io/posts/java/springcloudalibaba/</link>
+      <pubDate>Sat, 14 Jun 2025 16:23:39 +0800</pubDate>
+      <guid>https://rextechie.github.io/posts/java/springcloudalibaba/</guid>
+      <description>Spring Cloud Alibaba中间件的介绍</description>
+    </item>
+  </channel>
+</rss>
