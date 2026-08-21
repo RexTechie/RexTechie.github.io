@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Project on RexBlog</title>
+    <title>Project on Rex Blog</title>
     <link>https://rextechie.github.io/categories/project/</link>
-    <description>Recent content in Project on RexBlog</description>
+    <description>Recent content in Project on Rex Blog</description>
     <image>
-      <title>RexBlog</title>
-      <url>https://rextechie.github.io/images/profile.jpg</url>
-      <link>https://rextechie.github.io/images/profile.jpg</link>
+      <title>Rex Blog</title>
+      <url>https://rextechie.github.io/images/ui/profile-480.jpg</url>
+      <link>https://rextechie.github.io/images/ui/profile-480.jpg</link>
     </image>
     <generator>Hugo -- 0.125.7</generator>
-    <language>en</language>
+    <language>zh-CN</language>
     <lastBuildDate>Wed, 12 Aug 2026 22:00:12 +0800</lastBuildDate>
     <atom:link href="https://rextechie.github.io/categories/project/index.xml" rel="self" type="application/rss+xml" />
     <item>
